@@ -6,21 +6,53 @@
   font-family: "TrueSyntax";
   src: url("../../public/fonts/TRSBL.TTF") format("truetype");
 }
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/fonts/Poppins-Regular.ttf") format("truetype");
+}
 
-.page-content-container {
+
+@layer utilities {
+  .v-space-sm {
+    @apply mt-4;
+  }
+  .v-space-md {
+    @apply mt-8;
+  }
+  .v-space-lg {
+    @apply mt-16;
+  }
+  .tw-grid-gap {
+    @apply gap-4 md:gap-6;
+  }
+  .tw-grid {
+    @apply grid grid-cols-12 tw-grid-gap;
+  }
+  .page-content-container {
     padding-inline: clamp(1rem, 0.2857rem + 3.0476vw, 6rem);
   }
-.page-title-size{
-  font-size: clamp(3rem, 1.3333rem + 7.619vw, 8rem);
+  .page-title-size{
+    font-size: clamp(3rem, 1.3333rem + 7.619vw, 8rem);
   }
+}
 
-  /* @keyframes fadeIn {
+
+
+  /* @keyframes fade-in {
     0% { opacity: 0; }
     30% { opacity: 0.3; }
     50% { opacity: 0.5; }
     75% { opacity: 0.75; }
     100% { opacity: 1; }
   } */
+  .fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
   
   /* .animate-fadeIn {
     animation-name: fadeIn;
@@ -169,9 +201,11 @@
 
 @keyframes fadeContent {
   0% {
-    opacity: 0;
+    /* opacity: 0; */
+    /* background-color: transparent; */
   }
   100% {
-    opacity: 1;
+    /* opacity: 1; */
+    /* background-color: #252525; */
   }
 }

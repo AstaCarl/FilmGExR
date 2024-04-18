@@ -3,6 +3,9 @@ import { fetcher } from "../../lib/api";
 import React, { useState, useEffect, useContext } from 'react';
 import { LoaderContext } from '../contexts/LoaderContext';
 import HeroSection from "@/components/HeroSection";
+import StudioModels from "@/components/StudioModels";
+import ImgWithParagraf from "@/components/ImgWithParagraf";
+import TitleWithParagraf from "@/components/TitleWithParagraf";
 
 
 
@@ -26,9 +29,12 @@ export default function Home({ tests, menu }) {
     );
   } else {
   return (
-    <main style={{animation: 'fadeContent 1s'}} className={` transition-opacity ease-in duration-300 relative z-0`}>
+    <main style={{animation: 'fadeContent 1s'}} className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
       <div >
         <HeroSection/>
+        <TitleWithParagraf/>
+        <StudioModels/>
+        <ImgWithParagraf/>
       </div>
     </main>
   );

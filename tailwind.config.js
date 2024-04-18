@@ -5,8 +5,17 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: '1rem',
+        screens: {
+          xs: '100%',
+          lg: '1440px',
+        },
+      },
       colors: {
         red: "#F4013B",
         "dark-red": "#9A0017",
@@ -20,7 +29,7 @@ module.exports = {
       },
 
       fontFamily: {
-        sans: ["poppins", "sans-serif"],
+        sans: ["Poppins", "sans-serif"],
         syntax: "TrueSyntax",
       },
       fontSize: {

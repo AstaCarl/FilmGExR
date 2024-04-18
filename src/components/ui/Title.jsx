@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Title({ title, variant }) {
+export default function Title({ title, variant, ref}) {
 
   let classNames = '';
 
@@ -20,8 +20,11 @@ export default function Title({ title, variant }) {
   else if (variant === 'heroSubtitle') {
     classNames += 'text-xl text-white font-syntax font-bold'; // Example styles for footer links
   } 
+  else if (variant === 'subtitle') {
+    classNames += 'text-lg font-sans'; // Example styles for footer links
+  } 
   
   return (
-    <h1 className={classNames}>{title}</h1>
+    <h1 className={classNames} ref={ref}>{title}</h1>
   )
 }
