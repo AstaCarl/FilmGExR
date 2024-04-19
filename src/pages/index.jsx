@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import StudioModels from "@/components/StudioModels";
 import ImgWithParagraf from "@/components/ImgWithParagraf";
 import TitleWithParagraf from "@/components/TitleWithParagraf";
+import CookieBanner from "@/components/CookieBanner";
 
 
 
@@ -35,6 +36,7 @@ export default function Home({ tests, menu }) {
         <TitleWithParagraf/>
         <StudioModels/>
         <ImgWithParagraf/>
+        <CookieBanner/>
       </div>
     </main>
   );
