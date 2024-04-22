@@ -1,6 +1,7 @@
 import Title from "@/components/ui/Title";
 import { fetcher } from "../../../lib/api";
 
+
 export default function Contact({contactData}) {
 
 
@@ -18,7 +19,7 @@ export default function Contact({contactData}) {
         <div className="flex items-center gap-4">
           <img
             src={`http://localhost:1337${contactData.Address[0].icon.data.attributes.url}`}
-            alt={contactData.Address[0].icon.alternativeText}
+            alt={contactData.Address[0].icon.data.attributes.alternativeText}
           />
           <p className="">{contactData.Address[0].title}</p>
         </div>
@@ -27,7 +28,7 @@ export default function Contact({contactData}) {
             <div className="flex items-center gap-4">
               <img
                 src={`http://localhost:1337${contactData.Phone[0].icon.data.attributes.url}`}
-                alt={contactData.Phone[0].icon.alternativeText}
+                alt={contactData.Phone[0].icon.data.attributes.alternativeText}
               />
               <p>{contactData.Phone[0].title}</p>
             </div>
@@ -36,7 +37,7 @@ export default function Contact({contactData}) {
             <div className="flex items-center gap-4">
               <img
                 src={`http://localhost:1337${contactData.Email[0].icon.data.attributes.url}`}
-                alt={contactData.Email[0].icon.alternativeText}
+                alt={contactData.Email[0].icon.data.attributes.alternativeText}
               />
               <p>{contactData.Email[0].title}</p>
             </div>

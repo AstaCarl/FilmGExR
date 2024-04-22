@@ -1,5 +1,5 @@
 import Loader from "@/components/Loader";
-import { fetcher } from "../../lib/api";
+// import { fetcher } from "../../lib/api";
 import React, { useState, useEffect, useContext } from 'react';
 import { LoaderContext } from '../contexts/LoaderContext';
 import HeroSection from "@/components/HeroSection";

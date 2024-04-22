@@ -1,11 +1,14 @@
 import React from 'react'
+import Studio from '../components/Spline';
+import Title from './ui/Title';
+
 
 export default function StudioModels() {
   return (
-    <div>3DModels
+    <div>
+      <Title title="hejsa" variant="pageTitle"/>
+        <Studio/>
 
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.93/build/spline-viewer.js"></script>
-<spline-viewer url="https://prod.spline.design/nefFW10TGSMEDc0s/scene.splinecode"></spline-viewer>
     </div>
     
   )
