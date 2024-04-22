@@ -34,6 +34,10 @@
   .page-title-size{
     font-size: clamp(3rem, 1.3333rem + 7.619vw, 8rem);
   }
+  .animation {
+    animation: fadeOut 1s ease-in-out;
+    animation-delay: 3s;
+  }
 }
 
 
@@ -58,11 +62,12 @@
     animation-name: fadeIn;
   } */
 
-  .animation {
-    animation-name: fadeIn;
+  /* .animation {
+    animation-name: fadeOut;
     transition-duration: 2s;
+    transition-delay: 3.3s;
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-  }
+  } */
 
 
 @keyframes darkBlue {
@@ -192,20 +197,22 @@
 
 @keyframes fadeOut {
   0% {
-    background-color: transparent;
+    opacity: 0;
   }
-  100% {
-    background-color: #252525;
-  }
+    100% {
+      opacity: 1;
+    }
 }
 
 @keyframes fadeContent {
   0% {
     /* opacity: 0; */
     /* background-color: transparent; */
+    transform: translateY(20px);
   }
   100% {
     /* opacity: 1; */
     /* background-color: #252525; */
+    transform: translateY(0px);
   }
 }
