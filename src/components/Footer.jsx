@@ -12,14 +12,12 @@ export default function Footer({ footerData }) {
 
   return (
     <footer className="page-content-container space-y-8 py-8 relative z-[-1] bg-off-white">
-
-
         <ul className="md:flex md:justify-between items-center md:space-y-0">
-        {footerData.FooterItems.map((item, index) => (
+        {Array.isArray(footerData.FooterItems) && footerData.FooterItems.filter(item => item.__component === 'logo.logo').map((item, index) => {
           <div className="hidden md:block" key={index}>
             <Anchor  variant="logo" href={item.url} title={item.brandName} />
           </div>
-            ))}
+            })}
             <div className="space-y-2 md:flex md:justify-end md:space-y-0">
             {Array.isArray(footerData.FooterItems) && footerData.FooterItems.filter(item => item.__component === 'menu.menu-link').map((item, index) => {
   const isActive = item.url === activePathname;
