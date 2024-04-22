@@ -25,17 +25,17 @@ export default function Navigation({ navigationData }) {
 
 
   return (
-    <header className={`page-content-container fixed top-0 z-[999] flex justify-between w-full pt-4 transition-all duration-500 ease-in-out${
+    <header className={`page-content-container fixed top-0 z-[1] flex justify-between w-full pt-4 transition-all duration-500 ease-in-out${
       isOpen
-        ? "z-[999] bg-off-white h-screen transition-all duration-500 ease-in-out"
-        : " transition-all duration-500 ease-in-out"
+        ? "z-[999] bg-off-white transition-all duration-500 ease-in-out"
+        : " transition-all duration-500 ease-in-out h-60"
     }`}>
-      <div className='flex flex-1 '>
+      <div className='flex flex-1 h-10'>
         {navigationData.map((item,index) => (
           <Anchor key={index} variant="logo" href={item.url} title={item.brandName}/>
         ))}
       </div>
-      <div className={`flex flex-col items-end pt-4${isOpen ? "justify-between" : "justify-center"}`}>
+      <div className={`flex flex-col items-end pt-4${isOpen ? "justify-between h-screen" : "justify-center"}`}>
         <button onClick={handleMenuToggle} className='md:hidden flex items-center flex-col gap-1 duration-300'>
           <div className= {`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
         isOpen
@@ -53,7 +53,7 @@ export default function Navigation({ navigationData }) {
           : " translate-x-0 rotate-0"
       }`}></div>
           </button>
-          <nav className={`transition-transform duration-300 ease-in-out flex flex-col  items-end justify-end h-screen md:h-full md:justify-center ${isOpen ? 'translate-x-0 h-screen' : 'translate-x-full opacity-0 overflow-hidden md:translate-x-0 md:opacity-100'}`}>
+          <nav className={`transition-transform duration-300 ease-in-out flex flex-col pb-10 items-end justify-end h-screen md:h-full md:justify-center ${isOpen ? 'translate-x-0 h-screen' : 'translate-x-full opacity-0 overflow-hidden md:translate-x-0 md:opacity-100'}`}>
           <ul className={` space-y-6 text-right md:space-y-0 md:flex md:gap-4 `}>
           {navigationData.map((item, index) => {
   const isActive = item.url === activePathname;
