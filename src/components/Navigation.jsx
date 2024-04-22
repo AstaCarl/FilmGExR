@@ -35,7 +35,7 @@ export default function Navigation({ navigationData }) {
           <Anchor key={index} variant="logo" href={item.url} title={item.brandName}/>
         ))}
       </div>
-      <div className={`flex flex-col items-end pt-4${isOpen ? "justify-between" : "justify-center"}`}>
+      <div className={`flex flex-col items-end pt-4 ${isOpen ? "justify-between" : "justify-center"}`}>
         <button onClick={handleMenuToggle} className='md:hidden flex items-center flex-col gap-1 duration-300'>
           <div className= {`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
         isOpen
