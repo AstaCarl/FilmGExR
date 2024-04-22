@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Button({buttonText, variant, type}) {
+export default function Button({buttonText, variant, type, onClick}) {
   let classNames = 'font-sans pointer hover:opacity-80 hover:text-red transition-all duration-200 ease-in text-md font-semibold';
 
 
@@ -13,6 +13,6 @@ export default function Button({buttonText, variant, type}) {
 
 
   return (
-    <button type={type} className={classNames}>{buttonText}</button>
+    <button onClick={onClick} type={type} className={classNames}>{buttonText}</button>
   )
 }

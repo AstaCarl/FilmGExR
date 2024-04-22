@@ -11,7 +11,7 @@ export default function Footer({ footerData }) {
 
 
   return (
-    <footer className="page-content-container space-y-8 py-8 relative z-0 bg-off-white">
+    <footer className="page-content-container space-y-8 py-8 relative z-[-1] bg-off-white">
 
 
         <ul className="md:flex md:justify-between items-center md:space-y-0">
