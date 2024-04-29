@@ -7,6 +7,7 @@ import StudioModels from "@/components/StudioModels";
 import ImgWithParagraf from "@/components/ImgWithParagraf";
 import TitleWithParagraf from "@/components/TitleWithParagraf";
 import CookieBanner from "@/components/CookieBanner";
+// import VideoLoader from "@/components/VideoLoader";
 
 
 
@@ -17,7 +18,7 @@ export default function Home({ tests, menu }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setHasLoaded(true);
-    }, 4000);
+    }, 4200);
 
     return () => clearTimeout(timer);
   }, [setHasLoaded]);
@@ -26,17 +27,19 @@ export default function Home({ tests, menu }) {
 
   if (!hasLoaded) {
     return (
+      // <VideoLoader/>
       <Loader/>
     );
   } else {
   return (
-    <main  className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
+    <main  className={` transition-opacity ease-in duration-300 relative z-0 bg-dark h-screen`}>
       <div >
-        <HeroSection />
+
+        {/* <HeroSection />
         <TitleWithParagraf/>
         <StudioModels/>
         <ImgWithParagraf/>
-        <CookieBanner/>
+        <CookieBanner/> */}
       </div>
     </main>
   );
