@@ -22,6 +22,12 @@
   .v-space-lg {
     @apply mt-16;
   }
+  .v-space-xl {
+    @apply mt-32;
+  }
+  .fullscreen {
+    @apply h-screen flex items-center;
+  }
   .tw-grid-gap {
     @apply gap-4 md:gap-6;
   }

@@ -7,6 +7,8 @@ import StudioModels from "@/components/StudioModels";
 import ImgWithParagraf from "@/components/ImgWithParagraf";
 import TitleWithParagraf from "@/components/TitleWithParagraf";
 import CookieBanner from "@/components/CookieBanner";
+import Title from "@/components/ui/Title";
+
 // import VideoLoader from "@/components/VideoLoader";
 
 
@@ -56,9 +58,39 @@ export default function Home({ tests, menu}) {
 
         {/* <HeroSection /> */}
         <div className="h-screen w-screen bg-dark"></div>
+        <div className="fullscreen">
         <TitleWithParagraf introData={introData}/>
-        {/* <StudioModels/> */}
-        {/* <ImgWithParagraf/> */}
+        </div>
+        <div className="page-content-container v-space-xl">
+        <Title title="The benefits" variant="pageTitle"/>
+          <div className="sticky top-0">
+        <ImgWithParagraf
+        paragrafText="Transition seamlessly between various locations at the touch of a button. No need to transport your whole production to a different location."
+        title="Efficiency in Cost and Time"
+        />
+        </div>
+        <div className="sticky top-0">
+        <ImgWithParagraf
+        paragrafText="Thanks to In-Camera VFX, the final image is immediately visible."
+        title="Elimination of Extensive Post-Production"
+        />
+        </div>
+        <div className="sticky top-0">
+        <ImgWithParagraf
+        paragrafText="Overcome the traditional challenges associated with filming through elements like glass, smoke, and haze on a green screen."
+        title="Enhanced Environmental Effects"
+        />
+        </div>
+        </div>
+        <div className="page-content-container v-space-xl">
+        <StudioModels
+        title="Ideal production space"
+        paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        />
+        </div>
+
+
+
         {/* <CookieBanner/> */}
       </div>
     </main>
