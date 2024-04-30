@@ -16,7 +16,7 @@ export default function Anchor({ href, title, variant, children }) {
     classNames += ' text-2xl font-syntax hover:text-black'; // Example styles for footer links
   } // Add more variants as needed
   else if (variant === 'arrowLink') {
-    classNames += ' text-lg text-red hover:pr-1 ease-in duration-200'; // Example styles for footer links
+    classNames += ' text-2xl text-red hover:pr-1 ease-in duration-200'; // Example styles for footer links
   } // Add more variants as needed
 
 

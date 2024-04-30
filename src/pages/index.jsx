@@ -51,10 +51,11 @@ export default function Home({ tests, menu}) {
     );
   } else {
   return (
-    <main  className={` transition-opacity ease-in duration-300 relative z-0`}>
+    <main  className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
       <div >
 
         {/* <HeroSection /> */}
+        <div className="h-screen w-screen bg-dark"></div>
         <TitleWithParagraf introData={introData}/>
         {/* <StudioModels/> */}
         {/* <ImgWithParagraf/> */}

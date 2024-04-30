@@ -32,7 +32,7 @@
     padding-inline: clamp(1rem, 0.2857rem + 3.0476vw, 6rem);
   }
   .page-title-size{
-    font-size: clamp(3rem, 1.3333rem + 7.619vw, 8rem);
+    font-size: clamp(3rem, 1.3333rem + 7.619vw, 6rem);
   }
   .animation {
     animation: fadeOut 1s ease-in-out;
