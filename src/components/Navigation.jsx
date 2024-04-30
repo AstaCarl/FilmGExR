@@ -58,7 +58,7 @@ export default function Navigation({ navigationData }) {
           {navigationData.map((item, index) => {
   const isActive = item.url === activePathname;
   return (
-    <li className={`${isOpen ? "opacity-100" : "opacity-0"} text-black ${isActive ? "underline text-red underline-offset-4" : ""}`} key={index}>
+    <li className={`${isOpen ? "opacity-100" : "opacity-0 md:opacity-100"} text-black ${isActive ? "underline text-red underline-offset-4" : ""}`} key={index}>
       <Anchor 
         variant="nav" 
         href={item.url} 
