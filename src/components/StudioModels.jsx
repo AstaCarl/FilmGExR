@@ -10,7 +10,7 @@ export default function StudioModels({title, paragraf}) {
   return (
     <div className='flex flex-col text-end items-end gap-4'>
       <Title title={title} variant="pageTitle"/>
-      <Paragraf className="text-lg" paragrafText={paragraf}/>
+      <Paragraf className="text-lg md:w-2/3" paragrafText={paragraf}/>
       <ul className='flex gap-4'>
         <li>
           <Anchor variant="nav" href="/studio-models" title="Warehouse"/>

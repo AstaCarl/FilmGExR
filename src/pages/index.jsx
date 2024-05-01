@@ -13,35 +13,32 @@ import Title from "@/components/ui/Title";
 
 
 
-export default function Home({ tests, menu}) {
+export async function getStaticProps() {
+  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`)
+  const homeData = response.data.attributes
+  console.log("homeData", homeData)
+  return {
+    props: {
+      homeData: homeData
+    }
+  };
+};
+
+export default function Home({ tests, menu, homeData}) {
   const { hasLoaded, setHasLoaded } = useContext(LoaderContext);
   const [introData, setIntrodData] = useState({});
 
 
   useEffect(() => {
-    const fetchNavigationData = async () => {
-      try {
-        const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`);
-        const introData = await response;
-        setIntrodData(introData.data.attributes.introduction);
-        console.log("introData", introData)
+  setIntrodData(homeData.introduction)
+  console.log("introdata", homeData)
 
-      } catch (error) {
-        console.error("Error fetching navigation data:", error)
-      }
-    };
-    // setTimeout(fetchNavigationData, 2000);
-    fetchNavigationData();
-
-  }, []);
-
-
-  useEffect(() => {
     const timer = setTimeout(() => {
       setHasLoaded(true);
     }, 4200);
 
     return () => clearTimeout(timer);
+
   }, [setHasLoaded]);
 
 
@@ -59,7 +56,9 @@ export default function Home({ tests, menu}) {
         {/* <HeroSection /> */}
         <div className="h-screen w-screen bg-dark"></div>
         <div className="fullscreen">
-        <TitleWithParagraf introData={introData}/>
+        {introData && introData.arrowAnchor && introData.arrowAnchor.icon && introData.arrowAnchor.icon.data && introData.arrowAnchor.icon.data.attributes &&
+          <TitleWithParagraf introData={introData}/>
+        }
         </div>
         <div className="page-content-container v-space-xl">
         <Title title="The benefits" variant="pageTitle"/>
@@ -85,7 +84,7 @@ export default function Home({ tests, menu}) {
         <div className="page-content-container v-space-xl">
         <StudioModels
         title="Ideal production space"
-        paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
         </div>
 
@@ -98,17 +97,6 @@ export default function Home({ tests, menu}) {
 }
 }
 
-// export async function getStaticProps() {
-//   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=*`)
-//   const homeData = response.data.attributes
-//   console.log("homeData", homeData)
-//   return {
-//     props: {
-//       homeData: homeData
-//     }
-
-//   }
-// }
 
 
 

@@ -10,15 +10,17 @@ export default function Anchor({ href, title, variant, children }) {
   if (variant === 'nav') {
     classNames += ' text-lg hover:text-red'; // Example styles for nav links
   } else if (variant === 'footer') {
-    classNames += ' text-md hover:text-red'; // Example styles for footer links
+    classNames += ' text-md hover:text-red'; 
   } // Add more variants as needed
   else if (variant === 'logo') {
-    classNames += ' text-2xl font-syntax hover:text-black'; // Example styles for footer links
+    classNames += ' text-2xl font-syntax hover:text-black'; 
   } // Add more variants as needed
   else if (variant === 'arrowLink') {
-    classNames += ' text-2xl text-red hover:pr-1 ease-in duration-200'; // Example styles for footer links
-  } // Add more variants as needed
-
+    classNames += ' text-2xl text-red hover:pr-1 ease-in duration-200'; 
+  } 
+  else if (variant === 'smallArrowLink') {
+    classNames += ' text-lg text-red hover:pr-1 ease-in duration-200'; 
+  }
 
   return (
 <Link href={href} className={classNames}>

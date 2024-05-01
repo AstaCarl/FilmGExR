@@ -3,7 +3,6 @@ import Title from '@/components/ui/Title'
 import React from 'react'
 import { fetcher } from "../../lib/api";
 import Anchor from '@/components/ui/Anchor'
-import tv from '../../public/assets/404.gif'
 import ResponsiveImg from '../components/ResponsiveImg'
 
 
@@ -26,12 +25,6 @@ export default function ErrorPage({data}) {
 )}
 </div>
       </div>
-      <div>
-        <ResponsiveImg         
-        size_base="80vw"
-        size_md="50vw"
-        size_lg="33vw" src={tv} alt="404" />
-</div>
     </div>
   )
 }

@@ -7,19 +7,22 @@ export default function Title({ title, variant, ref}) {
 
   // Add additional classNames based on the variant prop
   if (variant === 'pageTitle') {
-    classNames += ' page-title-size font-syntax text-red'; // Example styles for nav links
+    classNames += ' page-title-size font-syntax text-red'; 
 
   } else if (variant === 'subtitle') {
-    classNames += ' text-xl md:text-2xl text-black font-sans'; // Example styles for footer links
-  } 
+    classNames += ' text-xl md:text-2xl text-black font-sans'; 
+} 
+else if (variant === 'largeTitle') {
+  classNames += ' text-3xl md:text-4xl text-white font-syntax';
+}
   else if (variant === '404') {
-    classNames += ' text-8xl lg:text-[12rem] font-syntax text-red'; // Example styles for footer links
+    classNames += ' text-8xl lg:text-[12rem] font-syntax text-red'; 
   } 
   else if (variant === 'heroTitle') {
-    classNames += 'text-3xl text-white font-syntax font-bold'; // Example styles for footer links
+    classNames += 'text-3xl text-white font-syntax font-bold'; 
   } 
   else if (variant === 'heroSubtitle') {
-    classNames += 'text-xl text-white font-syntax font-bold'; // Example styles for footer links
+    classNames += 'text-xl text-white font-syntax font-bold'; 
   } 
   
   return (
