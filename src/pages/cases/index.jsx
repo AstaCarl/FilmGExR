@@ -1,46 +1,49 @@
 import React from 'react'
-import Link from 'next/link';
 import WorkSection from '../../components/WorkSection'; 
 import Title from '../../components/ui/Title';
-import CarmenImage from '../../../public/assets/placeholder.jpeg';
-import ValdeImage from '../../../public/assets/grab1.jpg';
+import { fetcher } from "../../../lib/api";
 
 
-export default function Cases(title, subtitle, label) {
-    // Assuming you have an array of case IDs
-    const caseIds = [1, 2, 3]; // Example case IDs
+export async function getStaticProps() {
+
+    const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/cases-pages?populate=cases.thumbnail`)
+    console.log("response id", response.data.id );
+    const casesData = response.data.map(item => item);
+    return {
+      props: {
+        casesData: casesData,
+      }
+    };
+  };
+
+
+export default function Cases({casesData, caseId}) {
+
 
     return (
         <main className='v-space-xl' >
             <section className='bg-dark rounded-t-xl pt-10 flex flex-col gap-6'>
                 <div className='page-content-container'>
-            <Title title="Our work" variant='pageTitle' />
+            <Title title="Recent work" variant='pageTitle' />
             </div>
+            {casesData.map((caseItem, index) => {
+            return (
+            <div className='sticky top-0'
+             >
             <WorkSection
-            subtitle='Carmen Curlers'
-            label1='VP supervison'
-            label2='Custom LED'
+            key={index}
+            subtitle={caseItem.attributes.cases.title}
+            label1={caseItem.attributes.cases.label}
+            label2={caseItem.attributes.cases.label2}
+            image={`http://localhost:1337${caseItem.attributes.cases.thumbnail.data.attributes.url}`}
+            href={`/cases/${caseItem.id}`}
             link="Read more"
-            image={CarmenImage}
-            />
-                        <WorkSection
-            subtitle='Valdes Jul'
-            label1='VP supervison'
-            label2='LED Volume'
-            link="Read more"
-            image={ValdeImage}
-            />
+        />
+            </div>
+
+            )})}
+            
             </section>
-            <h1>Case Studies</h1>
-            <ul>
-                {caseIds.map(caseId => (
-                    <li key={caseId}>
-                        <Link href={`/cases/${caseId}`}>
-                            Case {caseId}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
         </main>
     );
 }

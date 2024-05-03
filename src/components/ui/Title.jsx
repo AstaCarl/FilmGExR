@@ -13,7 +13,7 @@ export default function Title({ title, variant, ref}) {
     classNames += ' text-xl md:text-2xl text-black font-sans'; 
 } 
 else if (variant === 'largeTitle') {
-  classNames += ' text-3xl md:text-4xl text-white font-syntax';
+  classNames += 'text-2xl md:leading-none md:page-title-size text-white font-syntax';
 }
   else if (variant === '404') {
     classNames += ' text-8xl lg:text-[12rem] font-syntax text-red'; 

@@ -2,21 +2,17 @@ import Loader from "@/components/Loader";
 import { fetcher } from "../../lib/api";
 import React, { useState, useEffect, useContext } from 'react';
 import { LoaderContext } from '../contexts/LoaderContext';
-import HeroSection from "@/components/HeroSection";
 import StudioModels from "@/components/StudioModels";
 import ImgWithParagraf from "@/components/ImgWithParagraf";
 import TitleWithParagraf from "@/components/TitleWithParagraf";
 import CookieBanner from "@/components/CookieBanner";
 import Title from "@/components/ui/Title";
-
-// import VideoLoader from "@/components/VideoLoader";
-
+import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`)
   const homeData = response.data.attributes
-  console.log("homeData", homeData)
   return {
     props: {
       homeData: homeData
@@ -24,14 +20,18 @@ export async function getStaticProps() {
   };
 };
 
-export default function Home({ tests, menu, homeData}) {
+export default function Home({ homeData}) {
   const { hasLoaded, setHasLoaded } = useContext(LoaderContext);
   const [introData, setIntrodData] = useState({});
+  const [isVisible, setIsVisible] = useState(false);
+
+  const ref = useIntersectionObserver(() => {
+    setIsVisible(true);
+  });
 
 
   useEffect(() => {
   setIntrodData(homeData.introduction)
-  console.log("introdata", homeData)
 
     const timer = setTimeout(() => {
       setHasLoaded(true);
@@ -45,15 +45,12 @@ export default function Home({ tests, menu, homeData}) {
 
   if (!hasLoaded) {
     return (
-      // <VideoLoader/>
       <Loader/>
     );
   } else {
   return (
     <main  className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
       <div >
-
-        {/* <HeroSection /> */}
         <div className="h-screen w-screen bg-dark"></div>
         <div className="fullscreen">
         {introData && introData.arrowAnchor && introData.arrowAnchor.icon && introData.arrowAnchor.icon.data && introData.arrowAnchor.icon.data.attributes &&
@@ -61,7 +58,9 @@ export default function Home({ tests, menu, homeData}) {
         }
         </div>
         <div className="page-content-container v-space-xl">
+          <div ref={ref} className={`${isVisible ? ' blur-none opacity-100 translate-y-0 transition-all delay-300 duration-1000 ease-in-out' : 'blur-[2px] opacity-0 translate-y-4'}`}>
         <Title title="The benefits" variant="pageTitle"/>
+        </div>
           <div className="sticky top-0">
         <ImgWithParagraf
         paragrafText="Transition seamlessly between various locations at the touch of a button. No need to transport your whole production to a different location."

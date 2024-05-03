@@ -6,7 +6,6 @@ export default function Footer({ footerData }) {
   const router = useRouter();
 
   const activePathname = router.pathname;
-  console.log("footerData", footerData)
 
 
 

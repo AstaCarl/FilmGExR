@@ -243,3 +243,15 @@ opacity: 1;}
     transform: translateY(0px);
   }
 }
+
+.custom-cursor {
+ cursor: url("../../public/assets/arrow-up-right.svg"), auto; 
+}
+
+.custom-shadow {
+  /* -webkit-box-shadow: inset -1px -200px 252px -17px rgba(0,0,0,0.75);
+-moz-box-shadow: inset -1px -200px 252px -17px rgba(0,0,0,0.75); */
+position: relative;
+z-index: 1000;
+}
+
