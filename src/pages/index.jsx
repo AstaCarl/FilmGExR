@@ -8,6 +8,9 @@ import TitleWithParagraf from "@/components/TitleWithParagraf";
 import CookieBanner from "@/components/CookieBanner";
 import Title from "@/components/ui/Title";
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
+import Anchor from "@/components/ui/Anchor";
+import Image from 'next/image';
+
 
 
 export async function getStaticProps() {
@@ -26,6 +29,10 @@ export default function Home({ homeData}) {
   const [isVisible, setIsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
+    setIsVisible(true);
+  });
+
+  const ref2 = useIntersectionObserver(() => {
     setIsVisible(true);
   });
 
@@ -52,10 +59,24 @@ export default function Home({ homeData}) {
     <main  className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
       <div >
         <div className="h-screen w-screen bg-dark"></div>
-        <div className="fullscreen">
-        {introData && introData.arrowAnchor && introData.arrowAnchor.icon && introData.arrowAnchor.icon.data && introData.arrowAnchor.icon.data.attributes &&
-          <TitleWithParagraf introData={introData}/>
-        }
+        <div className="fullscreen flex-col justify-center page-content-container">
+        {
+  introData && introData.arrowAnchor && introData.arrowAnchor.icon && introData.arrowAnchor.icon.data && introData.arrowAnchor.icon.data.attributes &&
+  (
+    <>
+      <TitleWithParagraf 
+        introData={introData}
+        subtitle={introData.subtitle} 
+        title={introData.title}
+        paragraf={introData.paragraf}
+      />
+      <div ref={ref2} className={`${isVisible ? ' blur-none opacity-100 translate-y-0 transition-all delay-300 duration-1000 ease-in-out' : 'blur-[2px] opacity-0 translate-y-4'} v-space-xl flex justify-start gap-2 w-full `}>
+        <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title}/>
+        <Image src={`http://localhost:1337${introData.arrowAnchor.icon.data.attributes.url}`} alt={introData.arrowAnchor.icon.data.attributes.alternativeText} width={40} height={40}/>
+      </div>
+    </>
+  )
+}
         </div>
         <div className="page-content-container v-space-xl">
           <div ref={ref} className={`${isVisible ? ' blur-none opacity-100 translate-y-0 transition-all delay-300 duration-1000 ease-in-out' : 'blur-[2px] opacity-0 translate-y-4'}`}>
