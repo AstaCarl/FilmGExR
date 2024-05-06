@@ -55,12 +55,12 @@ export default function WorkSection({ subtitle, label1, label2, link, image, hre
     style={style}
     onClick={onClick} className='flex flex-col md:justify-center items-center gap-6 pb-52 relative cursor-default transition-all duration-500'>
             <div
-            className={`${isVisible ? 'blur-none opacity-100 translate-y-0 transition-all duration-1000 ease-in-out' : 'blur-[2px] opacity-0 translate-y-2'} w-full relative inline-block md:w-[800px] overflow-hidden bg-cover bg-no-repeat rounded-md cursor-pointer lg:w-[1000px] xl:w-[1300px] 2xl:w-[1500px]`} 
+            className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} w-full relative inline-block md:w-[800px] overflow-hidden bg-cover bg-no-repeat rounded-md cursor-pointer lg:w-[1000px] xl:w-[1300px] 2xl:w-[1500px]`} 
             >
               
             <Image src={image} alt="default" width={400} height={400} className={` w-full transition-all duration-300 ease-in-out hover:scale-105 lg:w-full`}/>
             </div>
-            <div ref={ref1} className={`${isVisible ? 'blur-none opacity-100 translate-y-0 transition-all duration-1000 ease-in-out delay-150' : 'blur-[2px] opacity-0 translate-y-4'} absolute z-[2] cursor-pointer flex flex-col items-center w-full lg:w-[85%] gap-4 md:flex-row md:justify-between top-[40%] md:px-10 page-content-container`}>
+            <div ref={ref1} className={`${isVisible ? 'appear-on-scroll durantion-1000 delay-150' : 'before-scroll translate-y-4'} absolute z-[2] cursor-pointer flex flex-col items-center w-full lg:w-[85%] gap-4 md:flex-row md:justify-between top-[40%] md:px-10 page-content-container`}>
             <div className='w-full'>
             <Title title={subtitle} variant='largeTitle' />
             </div> 

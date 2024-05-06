@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "TrueSyntax";
-  src: url("../../public/fonts/TRSBL.TTF") format("truetype");
+  font-family: 'TrueSyntax';
+  src: url('../../public/fonts/TRSBL.TTF') format('truetype');
 }
 @font-face {
-  font-family: "Poppins";
-  src: url("../../public/fonts/Poppins-Regular.ttf") format("truetype");
+  font-family: 'Poppins';
+  src: url('../../public/fonts/Poppins-Regular.ttf') format('truetype');
 }
-
 
 @layer utilities {
   .v-space-sm {
@@ -34,10 +33,16 @@
   .tw-grid {
     @apply grid grid-cols-12 tw-grid-gap;
   }
-  .page-content-container {
-    padding-inline: clamp(1rem, 0.2857rem + 3.0476vw, 6rem);
+  .appear-on-scroll {
+    @apply blur-none opacity-100 translate-y-0 transition-all duration-1000 ease-in-out;
   }
-  .page-title-size{
+  .before-scroll {
+    @apply blur-sm opacity-0 translate-y-2;
+  }
+  .page-content-container {
+    padding-inline: clamp(1rem, 0.2857rem + 6.0476vw, 10rem);
+  }
+  .page-title-size {
     font-size: clamp(3rem, 1.3333rem + 7.619vw, 6rem);
   }
   .animation {
@@ -46,42 +51,12 @@
   }
 }
 
-
-
-  /* @keyframes fade-in {
-    0% { opacity: 0; }
-    30% { opacity: 0.3; }
-    50% { opacity: 0.5; }
-    75% { opacity: 0.75; }
-    100% { opacity: 1; }
-  } */
-  .fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-  }
-  
-  /* .animate-fadeIn {
-    animation-name: fadeIn;
-  } */
-
-  /* .animation {
-    animation-name: fadeOut;
-    transition-duration: 2s;
-    transition-delay: 3.3s;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-  } */
-
-
 @keyframes darkBlue {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   100% {
     background-color: #005975;
@@ -89,22 +64,22 @@
 }
 @keyframes lightBlue {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   100% {
-    background-color: #0091B6;
+    background-color: #0091b6;
   }
 }
 
 @keyframes white {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
 
   100% {
@@ -114,63 +89,51 @@
 
 @keyframes yellow {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
 
   100% {
-    background-color: #F7B200;
+    background-color: #f7b200;
   }
 }
 @keyframes orange {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
 
   100% {
-    background-color: #FD7E25;
+    background-color: #fd7e25;
   }
 }
 @keyframes brightRed {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
 
   100% {
-    background-color: #F4013B;
+    background-color: #f4013b;
   }
 }
 @keyframes darkRed {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   100% {
-    background-color: #9A0017;
+    background-color: #9a0017;
   }
 }
-
-/* @keyframes fadeText {
-  0% {
-    color: #252525;
-  }
-  50% {
-    color: #252525;
-  }
-  100% {
-    color: white;
-  }
-} */
 
 @keyframes fadeUp {
   0% {
@@ -178,9 +141,9 @@
     opacity: 0;
   }
   100% {
-
-transform: translateY(0px);  
-opacity: 1;}
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 @keyframes fadeDown {
   0% {
@@ -188,36 +151,31 @@ opacity: 1;}
     opacity: 0;
   }
   100% {
-
-transform: translateY(0px);  
-opacity: 1;}
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
-
-
 
 @keyframes darkRedBlink {
   0% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   25% {
-    background-color: #9A0017;
+    background-color: #9a0017;
   }
   50% {
-    background-color: #252525;
+    background-color: #1a1a1a;
   }
   100% {
-    background-color: #9A0017;
+    background-color: #9a0017;
   }
 }
 
 @keyframes fadeIn {
   0% {
-    /* opacity: 0; */
     background-color: black;
-
   }
   100% {
-    /* opacity: 1; */
     background-color: transparent;
   }
 }
@@ -226,32 +184,20 @@ opacity: 1;}
   0% {
     opacity: 0;
   }
-    100% {
-      opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeContent {
   0% {
-    /* opacity: 0; */
-    /* background-color: transparent; */
     transform: translateY(20px);
   }
   100% {
-    /* opacity: 1; */
-    /* background-color: #252525; */
     transform: translateY(0px);
   }
 }
 
 .custom-cursor {
- cursor: url("../../public/assets/arrow-up-right.svg"), auto; 
+  cursor: url('../../public/assets/arrow-up-right.svg'), auto;
 }
-
-.custom-shadow {
-  /* -webkit-box-shadow: inset -1px -200px 252px -17px rgba(0,0,0,0.75);
--moz-box-shadow: inset -1px -200px 252px -17px rgba(0,0,0,0.75); */
-position: relative;
-z-index: 1000;
-}
-
