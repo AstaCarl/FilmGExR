@@ -52,8 +52,6 @@ export default function Home({ homeData, clientData }) {
     return () => clearTimeout(timer);
   }, [setHasLoaded]);
 
-  // console.log("clients!!!!!!!", clientsData)
-
   if (!hasLoaded) {
     return <Loader />;
   } else {
@@ -124,7 +122,6 @@ export default function Home({ homeData, clientData }) {
           <div className="">
             <RollingBanner clientData={clientsData} />
           </div>
-          {/* <CookieBanner/> */}
         </div>
       </main>
     );

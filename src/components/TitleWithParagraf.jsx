@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Paragraf from './Paragraf';
 import Title from './ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
-import Anchor from './ui/Anchor';
 
 export default function TitleWithParagraf({ introData, title, subtitle, paragraf, variant }) {
   const [isVisible, setIsVisible] = useState(false);

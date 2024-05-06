@@ -3,7 +3,6 @@ import React from 'react';
 export default function Title({ title, variant, ref }) {
   let classNames = '';
 
-  // Add additional classNames based on the variant prop
   if (variant === 'pageTitle') {
     classNames += ' page-title-size font-syntax text-red';
   } else if (variant === 'subtitle') {

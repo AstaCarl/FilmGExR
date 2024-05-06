@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Title from './ui/Title';
 import Image from 'next/image';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
-import Paragraf from './Paragraf';
 
 export default function RollingBanner({ clientData }) {
   const [logos, setLogos] = useState([]);
@@ -25,7 +24,6 @@ export default function RollingBanner({ clientData }) {
     <article className=" flex flex-col gap-14">
       <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
         <Title title={clientData.title} variant="pageTitle" />
-        {/* <Title variant="subtitle" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " /> */}
       </div>
       <div className="overflow-hidden whitespace-nowrap">
         <div className="flex w-screen items-center justify-between gap-10 md:gap-24 lg:gap-28 ">
