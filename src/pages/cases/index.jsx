@@ -16,8 +16,8 @@ export async function getStaticProps() {
 
 export default function Cases({ casesData, caseId }) {
   return (
-    <main className="v-space-xl">
-      <section className="bg-off-white rounded-t-xl pt-10 flex flex-col gap-6">
+    <main className="pt-36 bg-off-white">
+      <section className="rounded-t-xl pt-10 flex flex-col gap-6">
         <div className="page-content-container">
           <Title title="Recent work" variant="pageTitle" />
         </div>

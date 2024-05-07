@@ -201,3 +201,20 @@
 .custom-cursor {
   cursor: url('../../public/assets/arrow-up-right.svg'), auto;
 }
+/* .rotated {
+  background-color: pink;
+  transform-origin: 0px 50% -70px;
+}
+
+@keyframes rotatedContent {
+  0% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 90deg);
+  }
+} */
+
+/* .animation-rotate {
+  animation: rotated 2s ease-in;
+} */

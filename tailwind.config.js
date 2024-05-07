@@ -10,11 +10,16 @@ module.exports = {
     extend: {
       animation: {
         marquee: 'marquee 15s linear infinite',
+        rotate: 'rotate 5s linear infinite',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-130%)' },
+        },
+        rotate: {
+          '0%': { transform: 'translateY(190%)' },
+          '100%': { transform: 'translateY(-200%) rotate(45deg)' },
         },
       },
       container: {

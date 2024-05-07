@@ -53,14 +53,15 @@ export default function Theprocess({ data }) {
                     <Title variant="subtitle" title={item.attributes.steps.subtitle} />
                   </div>
                   <div className="col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
-                    <button className="relative w-6 h-6" onClick={handleShowParagraf(item.attributes.steps.id)}>
-                      <div className="w-6 h-0.5 bg-red"></div>
+                    <button
+                      className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
+                      onClick={handleShowParagraf(item.attributes.steps.id)}
+                    >
+                      <div className="w-6 h-[2px] bg-red rounded-full"></div>
                       <div
                         className={`${
-                          showParagrafId === item.attributes.steps.id
-                            ? ' rotate-0 transition duration-300 ease-in-out'
-                            : 'rotate-90 transition duration-300 ease-in-out'
-                        } w-6 h-0.5 bg-red absolute top-3`}
+                          showParagrafId === item.attributes.steps.id ? 'rotate-0' : ' rotate-90 '
+                        } absolute bottom-2.5 bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
                       ></div>
                     </button>
                   </div>
