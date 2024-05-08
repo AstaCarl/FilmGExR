@@ -6,6 +6,7 @@ import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
 
 export default function ErrorPage({ data }) {
+  console.log('data', data);
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] gap-4">
       <div>
@@ -31,7 +32,7 @@ export default function ErrorPage({ data }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/error-pages/1?populate=arrowAnchor.icon`);
+  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/error-page?populate=arrowAnchor.icon`);
   const data = response.data.attributes;
   return {
     props: {

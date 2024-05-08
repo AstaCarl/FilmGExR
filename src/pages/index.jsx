@@ -13,16 +13,16 @@ import Image from 'next/image';
 import RollingBanner from '@/components/RollingBanner';
 
 export async function getStaticProps() {
+  // const response = await fetcher(
+  //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`
+  // );
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon`
   );
-  const clientsResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages?populate=clients.logos`);
   const homeData = response.data.attributes;
-  const clientData = clientsResponse.data;
   return {
     props: {
       homeData: homeData,
-      clientData: clientData,
     },
   };
 }
@@ -42,8 +42,9 @@ export default function Home({ homeData, clientData }) {
   });
 
   useEffect(() => {
-    setIntroData(homeData.introduction);
-    setClientsData(clientData[1].attributes.clients);
+    setIntroData(homeData);
+
+    // setClientsData(clientData[1].attributes.clients);
 
     const timer = setTimeout(() => {
       setHasLoaded(true);
@@ -69,9 +70,9 @@ export default function Home({ homeData, clientData }) {
                   <TitleWithParagraf
                     variant="pageTitle"
                     introData={introData}
-                    subtitle={introData.subtitle}
-                    title={introData.title}
-                    paragraf={introData.paragraf}
+                    subtitle={introData.introduction.subtitle}
+                    title={introData.introduction.title}
+                    paragraf={introData.introduction.paragraf}
                   />
                   <div
                     ref={ref2}
@@ -90,7 +91,7 @@ export default function Home({ homeData, clientData }) {
                 </>
               )}
           </div>
-          <div className="page-content-container v-space-xl pt-32">
+          {/* <div className="page-content-container v-space-xl pt-32">
             <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-4'}`}>
               <Title title="The benefits" variant="pageTitle" />
             </div>
@@ -112,15 +113,15 @@ export default function Home({ homeData, clientData }) {
                 title="Enhanced Environmental Effects"
               />
             </div>
-          </div>
-          <div className="page-content-container v-space-xl">
+          </div> */}
+          {/* <div className="page-content-container v-space-xl">
             <StudioModels
               title="Ideal production space"
               paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             />
-          </div>
+          </div> */}
           <div className="">
-            <RollingBanner clientData={clientsData} />
+            <RollingBanner clientData={introData.clients} />
           </div>
         </div>
       </main>

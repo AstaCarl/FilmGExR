@@ -8,7 +8,7 @@ export default function Title({ title, variant, ref }) {
   } else if (variant === 'subtitle') {
     classNames += ' text-xl md:text-2xl text-black font-sans';
   } else if (variant === 'largeTitle') {
-    classNames += 'text-2xl md:leading-none md:page-title-size text-white font-syntax';
+    classNames += 'text-2xl md:leading-none md:text-3xl text-white font-syntax';
   } else if (variant === '404') {
     classNames += ' text-8xl lg:text-[12rem] font-syntax text-red';
   } else if (variant === 'heroTitle') {

@@ -6,23 +6,24 @@ import { useEffect, useState } from 'react';
 
 export default function Layout({ children }) {
   const [navigationData, setNavigationData] = useState([]);
+
   const [footerData, setFooterData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const router = useRouter();
+  // const router = useRouter();
   useEffect(() => {
     const fetchNavigationData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetcher(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/navigation-link?populate[0]=navigationItems`
-        );
+        const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/header?populate=*`);
         const navData = await response;
-        setNavigationData(navData.data.attributes.navigationItems);
+        setNavigationData(navData.data.attributes);
 
-        const footerResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/footer?populate=FooterItems.icon`);
-        const data = await footerResponse;
-        setFooterData(data.data.attributes);
+        const footerResponse = await fetcher(
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/footer?populate=footerLink,logo,socials.icon`
+        );
+        const footerData = await footerResponse;
+        setFooterData(footerData.data.attributes);
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching navigation data:', error);
@@ -37,7 +38,6 @@ export default function Layout({ children }) {
   return (
     <div className="bg-off-white h-screen relative z-0">
       <Navigation navigationData={navigationData} />
-
       <main className="">{children}</main>
       <Footer footerData={footerData} />
     </div>

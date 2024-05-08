@@ -18,8 +18,6 @@ export default function RollingBanner({ clientData }) {
     }
   }, [clientData]);
 
-  console.log('logos', logos);
-
   return (
     <article className=" flex flex-col gap-14">
       <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
