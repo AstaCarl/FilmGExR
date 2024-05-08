@@ -20,12 +20,9 @@ export async function getStaticProps() {
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon`
   );
   const homeData = response.data.attributes;
-  console.log('homeData', homeData);
-  // const clientData = clientsResponse.data;
   return {
     props: {
       homeData: homeData,
-      // clientData: clientData,
     },
   };
 }
@@ -55,14 +52,12 @@ export default function Home({ homeData, clientData }) {
 
     return () => clearTimeout(timer);
   }, [setHasLoaded]);
-  console.log('homeData', introData);
 
   if (!hasLoaded) {
     return <Loader />;
   } else {
     return (
       <main className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
-        <h1>hello world</h1>
         <div>
           <div className="h-screen w-screen bg-dark"></div>
           <div className="fullscreen flex-col justify-center page-content-container">

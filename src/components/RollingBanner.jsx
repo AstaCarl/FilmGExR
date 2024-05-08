@@ -5,7 +5,6 @@ import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
 export default function RollingBanner({ clientData }) {
   const [logos, setLogos] = useState([]);
-  console.log('clientData', clientData);
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,8 +17,6 @@ export default function RollingBanner({ clientData }) {
       setLogos(clientData.logos.data);
     }
   }, [clientData]);
-
-  console.log('logos', logos);
 
   return (
     <article className=" flex flex-col gap-14">

@@ -67,8 +67,15 @@ export default function Navigation({ navigationData, navigationDataLogo }) {
             })} */}
             {navigationData.navLink.map((item, index) => {
               if (item && item.url) {
+                const isActive = item.url === activePathname;
                 return (
-                  <li className={`${isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'} text-black`} key={index}>
+                  <li
+                    className={`${isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'} text-black ${
+                      isActive ? 'underline text-red underline-offset-4' : ''
+                    }
+                `}
+                    key={index}
+                  >
                     <Anchor variant="nav" href={item.url} title={item.title} />
                   </li>
                 );
