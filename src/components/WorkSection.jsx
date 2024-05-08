@@ -69,7 +69,7 @@ export default function WorkSection({ subtitle, label1, label2, link, image, hre
         ref={ref1}
         className={`${
           isVisible ? 'appear-on-scroll durantion-1000 delay-150' : 'before-scroll translate-y-4'
-        } absolute z-[2] cursor-pointer flex flex-col items-center w-full lg:w-[85%] gap-4 md:flex-row md:justify-between top-[40%] md:px-10 page-content-container`}
+        } absolute z-[2] cursor-pointer flex flex-col items-center w-full lg:w-[85%] gap-4 md:flex-row md:justify-between top-[40%] md:px-20 lg:px-10 page-content-container`}
       >
         <div className="w-full">
           <Title title={subtitle} variant="largeTitle" />
