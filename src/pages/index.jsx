@@ -12,53 +12,58 @@ import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
 import RollingBanner from '@/components/RollingBanner';
 
-// export async function getStaticProps() {
-//   const response = await fetcher(
-//     `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`
-//   );
-//   const clientsResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages?populate=clients.logos`);
-//   const homeData = response.data.attributes;
-//   const clientData = clientsResponse.data;
-//   return {
-//     props: {
-//       homeData: homeData,
-//       clientData: clientData,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  // const response = await fetcher(
+  //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`
+  // );
+  const response = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon`
+  );
+  const homeData = response.data.attributes;
+  console.log('homeData', homeData);
+  // const clientData = clientsResponse.data;
+  return {
+    props: {
+      homeData: homeData,
+      // clientData: clientData,
+    },
+  };
+}
 
 export default function Home({ homeData, clientData }) {
-  // const { hasLoaded, setHasLoaded } = useContext(LoaderContext);
-  // const [introData, setIntroData] = useState({});
-  // const [clientsData, setClientsData] = useState({});
-  // const [isVisible, setIsVisible] = useState(false);
+  const { hasLoaded, setHasLoaded } = useContext(LoaderContext);
+  const [introData, setIntroData] = useState({});
+  const [clientsData, setClientsData] = useState({});
+  const [isVisible, setIsVisible] = useState(false);
 
-  // const ref = useIntersectionObserver(() => {
-  //   setIsVisible(true);
-  // });
+  const ref = useIntersectionObserver(() => {
+    setIsVisible(true);
+  });
 
-  // const ref2 = useIntersectionObserver(() => {
-  //   setIsVisible(true);
-  // });
+  const ref2 = useIntersectionObserver(() => {
+    setIsVisible(true);
+  });
 
-  // useEffect(() => {
-  //   setIntroData(homeData.introduction);
-  //   setClientsData(clientData[1].attributes.clients);
+  useEffect(() => {
+    setIntroData(homeData);
 
-  //   const timer = setTimeout(() => {
-  //     setHasLoaded(true);
-  //   }, 4200);
+    // setClientsData(clientData[1].attributes.clients);
 
-  //   return () => clearTimeout(timer);
-  // }, [setHasLoaded]);
+    const timer = setTimeout(() => {
+      setHasLoaded(true);
+    }, 4200);
 
-  // if (!hasLoaded) {
-  //   return <Loader />;
-  // } else {
-  return (
-    <main className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
-      <h1>hello world</h1>
-      {/* <div>
+    return () => clearTimeout(timer);
+  }, [setHasLoaded]);
+  console.log('homeData', introData);
+
+  if (!hasLoaded) {
+    return <Loader />;
+  } else {
+    return (
+      <main className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
+        <h1>hello world</h1>
+        <div>
           <div className="h-screen w-screen bg-dark"></div>
           <div className="fullscreen flex-col justify-center page-content-container">
             {introData &&
@@ -70,9 +75,9 @@ export default function Home({ homeData, clientData }) {
                   <TitleWithParagraf
                     variant="pageTitle"
                     introData={introData}
-                    subtitle={introData.subtitle}
-                    title={introData.title}
-                    paragraf={introData.paragraf}
+                    subtitle={introData.introduction.subtitle}
+                    title={introData.introduction.title}
+                    paragraf={introData.introduction.paragraf}
                   />
                   <div
                     ref={ref2}
@@ -91,7 +96,7 @@ export default function Home({ homeData, clientData }) {
                 </>
               )}
           </div>
-          <div className="page-content-container v-space-xl pt-32">
+          {/* <div className="page-content-container v-space-xl pt-32">
             <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-4'}`}>
               <Title title="The benefits" variant="pageTitle" />
             </div>
@@ -113,18 +118,18 @@ export default function Home({ homeData, clientData }) {
                 title="Enhanced Environmental Effects"
               />
             </div>
-          </div>
-          <div className="page-content-container v-space-xl">
+          </div> */}
+          {/* <div className="page-content-container v-space-xl">
             <StudioModels
               title="Ideal production space"
               paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             />
-          </div>
-          <div className="">
+          </div> */}
+          {/* <div className="">
             <RollingBanner clientData={clientsData} />
-          </div>
-        </div> */}
-    </main>
-  );
+          </div> */}
+        </div>
+      </main>
+    );
+  }
 }
-// }

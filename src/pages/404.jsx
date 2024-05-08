@@ -34,7 +34,6 @@ export default function ErrorPage({ data }) {
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/error-page?populate=arrowAnchor.icon`);
   const data = response.data.attributes;
-  console.log('data', data);
   return {
     props: {
       data: data,
