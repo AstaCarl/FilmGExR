@@ -125,9 +125,9 @@ export default function Home({ homeData, clientData }) {
               paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             />
           </div> */}
-          {/* <div className="">
-            <RollingBanner clientData={clientsData} />
-          </div> */}
+          <div className="">
+            <RollingBanner clientData={introData.clients} />
+          </div>
         </div>
       </main>
     );

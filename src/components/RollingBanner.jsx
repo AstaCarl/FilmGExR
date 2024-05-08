@@ -5,6 +5,7 @@ import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
 export default function RollingBanner({ clientData }) {
   const [logos, setLogos] = useState([]);
+  console.log('clientData', clientData);
 
   const [isVisible, setIsVisible] = useState(false);
 
