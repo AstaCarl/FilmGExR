@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 
-export default function Navigation({ navigationData }) {
+export default function Navigation({ navigationData, navigationDataLogo }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -28,9 +28,9 @@ export default function Navigation({ navigationData }) {
       }`}
     >
       <div className="flex flex-1 h-10">
-        {navigationData.map((item, index) => (
-          <Anchor key={index} variant="logo" href={item.url} title={item.brandName} />
-        ))}
+        {navigationData.logo && (
+          <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
+        )}
       </div>
       <div className={`flex flex-col items-end pt-4 ${isOpen ? 'justify-between h-screen' : 'justify-center'}`}>
         <button onClick={handleMenuToggle} className="md:hidden flex items-center flex-col gap-1 duration-300">
@@ -54,18 +54,26 @@ export default function Navigation({ navigationData }) {
           }`}
         >
           <ul className={` space-y-6 text-right md:space-y-0 md:flex md:gap-4`}>
-            {navigationData.map((item, index) => {
-              const isActive = item.url === activePathname;
-              return (
-                <li
-                  className={`${isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'} text-black ${
-                    isActive ? 'underline text-red underline-offset-4' : ''
-                  }`}
-                  key={index}
-                >
-                  <Anchor variant="nav" href={item.url} title={item.title} />
-                </li>
-              );
+            {/* {navigationData.navLink.map((item, index) => {
+              if (item && item.navLink) {
+                // const isActive = item.navLink.url === activePathname;
+                return (
+                  <li className={`${isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'} text-black`} key={index}>
+                    <Anchor variant="nav" href={item.url} title={item.title} />
+                  </li>
+                );
+              }
+              return null;
+            })} */}
+            {navigationData.navLink.map((item, index) => {
+              if (item && item.url) {
+                return (
+                  <li className={`${isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'} text-black`} key={index}>
+                    <Anchor variant="nav" href={item.url} title={item.title} />
+                  </li>
+                );
+              }
+              return null;
             })}
           </ul>
         </nav>
