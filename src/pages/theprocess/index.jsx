@@ -33,7 +33,7 @@ export default function Theprocess({ data }) {
   };
 
   return (
-    <div className=" bg-off-white py-36 flex">
+    <div className=" bg-off-white v-space-xl flex">
       <article className="tw-grid">
         <div className="col-span-full ">
           <div className="page-content-container">

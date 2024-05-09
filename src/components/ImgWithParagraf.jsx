@@ -5,7 +5,7 @@ import Title from './ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Paragraf from './Paragraf';
 
-export default function ImgWithParagraf({ paragrafText, title }) {
+export default function ImgWithParagraf({ paragrafText, title, src }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
@@ -21,7 +21,7 @@ export default function ImgWithParagraf({ paragrafText, title }) {
             <Paragraf className="text-lg" paragrafText={paragrafText} />
           </div>
           <div className="w-full md:w-1/2">
-            <Image src={defaultImage} alt="default" width={1000} height={1000} className="rounded-md mt-6 md:mt-0" />
+            <Image src={src} alt="default" width={1000} height={1000} className="rounded-md mt-6 md:mt-0" />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Paragraf from './Paragraf';
 import Title from './ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
-export default function TitleWithParagraf({ introData, title, subtitle, paragraf, variant }) {
+export default function TitleWithParagraf({ introData, title, subtitle, paragraf, variant, componentvariant }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
@@ -11,8 +11,14 @@ export default function TitleWithParagraf({ introData, title, subtitle, paragraf
   });
 
   return (
-    <article className="tw-grid transition-all duration-500 ease-in-out">
-      <div className="col-span-full md:col-span-full lg:col-span-10 space-y-4">
+    <article
+      className={`${componentvariant === 'opposite' ? 'text-end' : ''} tw-grid transition-all duration-500 ease-in-out`}
+    >
+      <div
+        className={`space-y-4 col-span-full ${
+          componentvariant === 'opposite' ? ' md:col-start-2' : ' lg:col-span-10 '
+        }`}
+      >
         <div className={`${isVisible ? 'appear-on-scroll' : 'blur-[2px] opacity-0 translate-y-2'}`} ref={ref}>
           <Title variant={variant} title={title} />
         </div>
@@ -20,10 +26,15 @@ export default function TitleWithParagraf({ introData, title, subtitle, paragraf
           <Title variant="subtitle" title={subtitle} />
         </div>
         <div
-          className={`${isVisible ? 'md:w-2/3 appear-on-scroll delay-300' : 'blur-[2px] opacity-0 translate-y-4'}`}
+          className={`${isVisible ? 'md:w-2/3 appear-on-scroll delay-300' : 'blur-[2px] opacity-0 translate-y-4'} ${
+            componentvariant === 'opposite' ? ' md:w-full flex justify-end' : ''
+          }`}
           ref={ref}
         >
-          <Paragraf paragrafText={paragraf} />
+          <Paragraf
+            paragrafText={paragraf}
+            className={`${componentvariant === 'opposite' ? 'text-end md:w-2/3' : ''}`}
+          />
         </div>
       </div>
     </article>

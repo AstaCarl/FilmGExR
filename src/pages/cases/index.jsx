@@ -16,14 +16,14 @@ export async function getStaticProps() {
 
 export default function Cases({ casesData, caseId }) {
   return (
-    <main className="pt-36 bg-off-white">
-      <section className="rounded-t-xl pt-10 flex flex-col gap-6">
+    <main className="v-space-xl bg-off-white">
+      <section className="rounded-t-xl flex flex-col gap-6">
         <div className="page-content-container">
           <Title title="Recent work" variant="pageTitle" />
         </div>
         {casesData.map((caseItem, index) => {
           return (
-            <div className="sticky top-0">
+            <div className="relative">
               <WorkSection
                 key={index}
                 subtitle={caseItem.attributes.cases.title}

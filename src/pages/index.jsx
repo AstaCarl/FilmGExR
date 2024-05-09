@@ -17,7 +17,7 @@ export async function getStaticProps() {
   //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`
   // );
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image`
   );
   const homeData = response.data.attributes;
   return {
@@ -27,10 +27,9 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ homeData, clientData }) {
+export default function Home({ homeData }) {
   const { hasLoaded, setHasLoaded } = useContext(LoaderContext);
   const [introData, setIntroData] = useState({});
-  const [clientsData, setClientsData] = useState({});
   const [isVisible, setIsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
@@ -44,8 +43,6 @@ export default function Home({ homeData, clientData }) {
   useEffect(() => {
     setIntroData(homeData);
 
-    // setClientsData(clientData[1].attributes.clients);
-
     const timer = setTimeout(() => {
       setHasLoaded(true);
     }, 4200);
@@ -57,7 +54,7 @@ export default function Home({ homeData, clientData }) {
     return <Loader />;
   } else {
     return (
-      <main className={` transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
+      <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
         <div>
           <div className="h-screen w-screen bg-dark"></div>
           <div className="fullscreen flex-col justify-center page-content-container">
@@ -91,37 +88,29 @@ export default function Home({ homeData, clientData }) {
                 </>
               )}
           </div>
-          {/* <div className="page-content-container v-space-xl pt-32">
+          <div className="page-content-container v-space-xl pt-32">
             <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-4'}`}>
               <Title title="The benefits" variant="pageTitle" />
             </div>
-            <div className="sticky top-0">
-              <ImgWithParagraf
-                paragrafText="Transition seamlessly between various locations at the touch of a button. No need to transport your whole production to a different location."
-                title="Efficiency in Cost and Time"
+            {introData.benefits &&
+              introData.benefits.map((benefit) => (
+                <div className="sticky top-0">
+                  <ImgWithParagraf
+                    paragrafText={benefit.paragraf}
+                    title={benefit.subtitle}
+                    src={`http://localhost:1337${benefit.image.data.attributes.url}`}
+                  />
+                </div>
+              ))}
+            <div className=" v-space-xl relative bg-off-white">
+              <StudioModels
+                title="Ideal production space"
+                paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
               />
             </div>
-            <div className="sticky top-0">
-              <ImgWithParagraf
-                paragrafText="Thanks to In-Camera VFX, the final image is immediately visible."
-                title="Elimination of Extensive Post-Production"
-              />
-            </div>
-            <div className="sticky top-0">
-              <ImgWithParagraf
-                paragrafText="Overcome the traditional challenges associated with filming through elements like glass, smoke, and haze on a green screen."
-                title="Enhanced Environmental Effects"
-              />
-            </div>
-          </div> */}
-          {/* <div className="page-content-container v-space-xl">
-            <StudioModels
-              title="Ideal production space"
-              paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            />
-          </div> */}
-          <div className="">
-            <RollingBanner clientData={introData.clients} />
+            {/* <div className="">
+              <RollingBanner clientData={introData.clients} />
+            </div> */}
           </div>
         </div>
       </main>
