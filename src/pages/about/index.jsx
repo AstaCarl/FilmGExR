@@ -25,25 +25,26 @@ export default function About(data) {
   console.log('data', data);
   return (
     <article className="page-content-container v-space-xl bg-off-white">
-      <div className="flex flex-col gap-20">
+      <div className="pb-14">
         <Title title={data.data.title} variant="pageTitle" />
-        {data.data.aboutUs.map((item, index) => (
-          <div>
-            <TitleWithParagraf
-              variant="subtitle"
-              title={item.subtitle}
-              paragraf={item.paragraf}
-              componentvariant={index % 2 !== 0 ? 'opposite' : ''}
-            />
-          </div>
-        ))}
-        <Title title="Meet the Team" variant="pageTitle" />
-        <section className="tw-grid">
-          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
-          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
-          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
-        </section>
+        <Title title={data.data.subtitle} variant="subtitle" />
       </div>
+      {data.data.aboutUs.map((item, index) => (
+        <div className="pb-14">
+          <TitleWithParagraf
+            variant="subtitle"
+            title={item.subtitle}
+            paragraf={item.paragraf}
+            componentvariant={index % 2 !== 0 ? 'opposite' : ''}
+          />
+        </div>
+      ))}
+      <Title title="Meet the Team" variant="pageTitle" />
+      <section className="tw-grid">
+        <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
+        <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
+        <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
+      </section>
     </article>
   );
 }

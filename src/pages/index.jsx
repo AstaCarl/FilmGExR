@@ -99,16 +99,27 @@ export default function Home({ homeData }) {
             <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-4'}`}>
               <Title title="The benefits" variant="pageTitle" />
             </div>
-            {introData.benefits &&
-              introData.benefits.map((benefit, index) => (
-                <div key={index} className="sticky top-0">
-                  <ImgWithParagraf
-                    paragrafText={benefit.paragraf}
-                    title={benefit.subtitle}
-                    src={`http://localhost:1337${benefit.image.data.attributes.url}`}
-                  />
-                </div>
-              ))}
+            <div className="">
+              {introData.benefits &&
+                introData.benefits.map((benefit, index) => (
+                  <div key={index} className="sticky top-0">
+                    <ImgWithParagraf
+                      paragrafText={benefit.paragraf}
+                      title={benefit.subtitle}
+                      src={`http://localhost:1337${benefit.image.data.attributes.url}`}
+                    />
+                  </div>
+                ))}
+              <div className="relative flex gap-2">
+                <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title} />
+                <Image
+                  src={`http://localhost:1337${introData.arrowAnchor.icon.data.attributes.url}`}
+                  alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                  width={40}
+                  height={40}
+                />
+              </div>
+            </div>
             <div className=" v-space-xl relative bg-off-white">
               <StudioModels
                 title="Ideal production space"
