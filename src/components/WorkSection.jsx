@@ -92,15 +92,15 @@ export default function WorkSection({ subtitle, label1, label2, link, image, hre
           height={400}
           className={` w-full transition-all duration-300 ease-in-out md:h-[500px] lg:h-[700px] object-cover`}
         />
-      </div>
-      <div
-        ref={ref1}
-        className={`${
-          isVisible ? 'appear-on-scroll durantion-300 delay-150' : 'before-scroll translate-y-4'
-        } absolute z-[2] top-1/2 md:top-2/3 page-content-container`}
-      >
-        <div className="w-full">
-          <Title title={subtitle} variant="largeTitle" />
+        <div
+          ref={ref1}
+          className={`${
+            isVisible ? 'appear-on-scroll durantion-300 delay-150' : 'before-scroll translate-y-4'
+          } absolute z-[2] bottom-4 md:bottom-8 page-content-container`}
+        >
+          <div className="w-full">
+            <Title title={subtitle} variant="largeTitle" />
+          </div>
         </div>
       </div>
     </article>

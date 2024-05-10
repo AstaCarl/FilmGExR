@@ -11,13 +11,15 @@ import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
 import RollingBanner from '@/components/RollingBanner';
+import Facilities from '@/components/Facilities';
+import Video from '@/components/Video';
 
 export async function getStaticProps() {
   // const response = await fetcher(
   //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-pages/1?populate=introduction.arrowAnchor.icon`
   // );
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo`
   );
   const homeData = response.data.attributes;
   return {
@@ -50,13 +52,18 @@ export default function Home({ homeData }) {
     return () => clearTimeout(timer);
   }, [setHasLoaded]);
 
+  const mobileSrc = `http://localhost:1337${homeData.HeroVideo.data[0].attributes.url}`;
+  const desktopSrc = `http://localhost:1337${homeData.HeroVideo.data[1].attributes.url}`;
+
   if (!hasLoaded) {
     return <Loader />;
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
         <div>
-          <div className="h-screen w-screen bg-dark"></div>
+          <div className="h-screen w-screen bg-dark">
+            <Video mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
+          </div>
           <div className="fullscreen flex-col justify-center page-content-container">
             {introData &&
               introData.arrowAnchor &&
@@ -88,13 +95,13 @@ export default function Home({ homeData }) {
                 </>
               )}
           </div>
-          <div className="page-content-container v-space-xl pt-32">
+          <div className="page-content-container v-space-xl">
             <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-4'}`}>
               <Title title="The benefits" variant="pageTitle" />
             </div>
             {introData.benefits &&
-              introData.benefits.map((benefit) => (
-                <div className="sticky top-0">
+              introData.benefits.map((benefit, index) => (
+                <div key={index} className="sticky top-0">
                   <ImgWithParagraf
                     paragrafText={benefit.paragraf}
                     title={benefit.subtitle}
@@ -108,9 +115,10 @@ export default function Home({ homeData }) {
                 paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
               />
             </div>
-            {/* <div className="">
-              <RollingBanner clientData={introData.clients} />
-            </div> */}
+            <Facilities />
+          </div>
+          <div className="v-space-xl pb-36 relative bg-off-white ">
+            <RollingBanner clientData={introData.clients} />
           </div>
         </div>
       </main>

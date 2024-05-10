@@ -15,7 +15,7 @@ export default function Layout({ children }) {
     const fetchNavigationData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/header?populate=*`);
+        const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/header?populate=logo.logo,navLink`);
         const navData = await response;
         setNavigationData(navData.data.attributes);
 

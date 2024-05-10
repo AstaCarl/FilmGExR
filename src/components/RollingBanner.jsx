@@ -5,7 +5,6 @@ import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
 export default function RollingBanner({ clientData }) {
   const [logos, setLogos] = useState([]);
-  console.log('clientData', clientData);
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -24,22 +23,22 @@ export default function RollingBanner({ clientData }) {
   }
 
   return (
-    <article className=" flex flex-col gap-14">
-      <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
-        <Title title={clientData.title} variant="pageTitle" />
+    <article className=" flex flex-col gap-6">
+      <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container `}>
+        <Title title={clientData.title} variant="subtitle" />
       </div>
       <div className="overflow-hidden whitespace-nowrap">
-        <div className="flex w-screen items-center justify-between gap-10 md:gap-24 lg:gap-28 ">
-          {[...Array(1)].map((_, i) => (
+        <div className="flex min-w-full items-center justify-between gap-20 md:gap-24 lg:gap-28 animate-marquee">
+          {[...Array(2)].map((_, i) => (
             <React.Fragment key={i}>
               {logos.map((logo) => (
                 <Image
                   key={logo.id}
                   src={`http://localhost:1337${logo.attributes.url}`}
                   alt="placeholder"
-                  width={1000}
-                  height={1000}
-                  className="w-auto h-full px-4 lg:w-[150px]"
+                  width={50}
+                  height={50}
+                  className="w-auto h-full px-4 "
                 />
               ))}
             </React.Fragment>

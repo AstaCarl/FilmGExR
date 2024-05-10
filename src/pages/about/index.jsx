@@ -39,9 +39,9 @@ export default function About(data) {
         ))}
         <Title title="Meet the Team" variant="pageTitle" />
         <section className="tw-grid">
-          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." />
-          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." />
-          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." />
+          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
+          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
+          <TeamCard title="Our Team" src={teamImage} paragraf="roles...." alt="Teammeber" />
         </section>
       </div>
     </article>

@@ -2,9 +2,10 @@ import Paragraf from '@/components/Paragraf';
 import Title from '@/components/ui/Title';
 import React, { useEffect, useState } from 'react';
 import { fetcher } from '../../../lib/api';
+import { useIntersectionObserver } from '../../../lib/interSectionObserver';
 
 export async function getStaticProps() {
-  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/the-processes?populate=*`);
+  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/the-process?populate=*`);
   const data = response.data;
   return {
     props: {
@@ -14,21 +15,30 @@ export async function getStaticProps() {
 }
 
 export default function Theprocess({ data }) {
-  const [stepsData, setStepsData] = useState([]);
-  const [showParagrafId, setShowParagrafId] = useState(null);
+  const [showParagrafId, setShowParagrafId] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    setStepsData(data);
-    [data];
+  const ref = useIntersectionObserver(() => {
+    setIsVisible(true);
   });
 
+  console.log('stepsData', data);
+
+  // const handleShowParagraf = (id) => () => {
+  //   if (showParagrafId !== id) {
+  //     setShowParagrafId(id);
+  //     console.log('showParagrafId', showParagrafId);
+  //   } else {
+  //     setShowParagrafId(null);
+  //     console.log('showParagrafId null', showParagrafId);
+  //   }
+  // };
+
   const handleShowParagraf = (id) => () => {
-    if (showParagrafId !== id) {
-      setShowParagrafId(id);
-      console.log('showParagrafId', showParagrafId);
+    if (showParagrafId.includes(id)) {
+      setShowParagrafId(showParagrafId.filter((item) => item !== id));
     } else {
-      setShowParagrafId(null);
-      console.log('showParagrafId null', showParagrafId);
+      setShowParagrafId([...showParagrafId, id]);
     }
   };
 
@@ -36,31 +46,39 @@ export default function Theprocess({ data }) {
     <div className=" bg-off-white v-space-xl flex">
       <article className="tw-grid">
         <div className="col-span-full ">
-          <div className="page-content-container">
-            <Title title="Just five steps" variant="pageTitle" />
+          <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
+            <Title title={data.attributes.title} variant="pageTitle" />
+            <Title title={data.attributes.subtitle} variant="subtitle" />
           </div>
           <section className="v-space-lg">
-            {stepsData.map((item, index) => (
+            {data.attributes.steps.map((item, index) => (
               <div
                 key={item.id}
-                style={{ borderBottom: index === stepsData.length - 1 ? '1px solid rgba(244, 1, 59, 0.2)' : 'none' }}
+                style={{
+                  borderBottom: index === data.attributes.steps.length - 1 ? '1px solid rgba(244, 1, 59, 0.2)' : 'none',
+                }}
               >
-                <div className="tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center">
+                <div
+                  ref={ref}
+                  className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center ${
+                    isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'
+                  }`}
+                >
                   <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                    0{item.attributes.steps.number}
+                    0{item.number}
                   </span>
                   <div className="col-span-8">
-                    <Title variant="subtitle" title={item.attributes.steps.subtitle} />
+                    <Title variant="subtitle" title={item.subtitle} />
                   </div>
                   <div className="col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
                     <button
                       className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
-                      onClick={handleShowParagraf(item.attributes.steps.id)}
+                      onClick={handleShowParagraf(item.id)}
                     >
                       <div className="w-6 h-[2px] bg-red rounded-full"></div>
                       <div
                         className={`${
-                          showParagrafId === item.attributes.steps.id ? 'rotate-0' : ' rotate-90 '
+                          showParagrafId.includes(item.id) ? 'rotate-0' : ' rotate-90 '
                         } absolute bottom-2.5 bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
                       ></div>
                     </button>
@@ -70,9 +88,9 @@ export default function Theprocess({ data }) {
                   <div className="tw-grid ">
                     <Paragraf
                       className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
-                        showParagrafId === item.attributes.steps.id ? 'pt-6 h-[300px]' : ' h-0'
+                        showParagrafId.includes(item.id) ? 'pt-6 h-[300px]' : ' h-0'
                       }`}
-                      paragrafText={item.attributes.steps.paragraf}
+                      paragrafText={item.paragraf}
                     />
                   </div>
                 </div>

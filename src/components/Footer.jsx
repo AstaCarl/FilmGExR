@@ -18,7 +18,7 @@ export default function Footer({ footerData }) {
             if (item && item.url) {
               const isActive = item.url === activePathname;
               return (
-                <li className={`md:ml-4 ${isActive ? 'underline text-red underline-offset-4' : ''}`} key={index}>
+                <li className={`md:ml-4 ${isActive ? 'text-red' : ''}`} key={index}>
                   <Anchor variant="footer" href={item.url} title={item.title} />
                 </li>
               );
@@ -45,7 +45,7 @@ export default function Footer({ footerData }) {
             </li>
           ))}
         </ul>
-        <p className="md:order-first">{footerData.Copyright}</p>
+        <p className="md:order-first">{footerData.copyright}</p>
       </div>
     </footer>
   );
