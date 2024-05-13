@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function Anchor({ href, title, variant, children }) {
+export default function Anchor({ href, title, variant, children, target }) {
   let classNames = 'font-sans pointer transition-all duration-200 ease-in';
 
   if (variant === 'nav') {
@@ -17,7 +17,7 @@ export default function Anchor({ href, title, variant, children }) {
   }
 
   return (
-    <Link href={href} className={classNames}>
+    <Link href={href} className={classNames} target={target}>
       {title}
       {children}
     </Link>

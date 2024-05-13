@@ -11,7 +11,7 @@ export default function ErrorPage({ data }) {
     <div className="flex flex-col justify-center items-center h-[80vh] gap-4">
       <div>
         <Title variant="404" title={data.title} />
-        <Paragraf className="text-lg" paragrafText={data.subtitle} />
+        <Title variant="subtitle" title={data.subtitle} />
         <div className="flex gap-2 my-8">
           <Paragraf className="text-lg" paragrafText={data.paragraf} />
           {data.arrowAnchor && (

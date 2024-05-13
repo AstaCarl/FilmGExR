@@ -22,18 +22,6 @@ export default function Theprocess({ data }) {
     setIsVisible(true);
   });
 
-  console.log('stepsData', data);
-
-  // const handleShowParagraf = (id) => () => {
-  //   if (showParagrafId !== id) {
-  //     setShowParagrafId(id);
-  //     console.log('showParagrafId', showParagrafId);
-  //   } else {
-  //     setShowParagrafId(null);
-  //     console.log('showParagrafId null', showParagrafId);
-  //   }
-  // };
-
   const handleShowParagraf = (id) => () => {
     if (showParagrafId.includes(id)) {
       setShowParagrafId(showParagrafId.filter((item) => item !== id));
@@ -74,6 +62,7 @@ export default function Theprocess({ data }) {
                     <button
                       className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
                       onClick={handleShowParagraf(item.id)}
+                      aria-label="Show or hide steps"
                     >
                       <div className="w-6 h-[2px] bg-red rounded-full"></div>
                       <div

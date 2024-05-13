@@ -3,6 +3,7 @@ import Title from '@/components/ui/Title';
 import { fetcher } from '../../../lib/api';
 import { useIntersectionObserver } from '../../../lib/interSectionObserver';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const response = await fetcher(
@@ -53,7 +54,7 @@ export default function Contact({ contactData }) {
         className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-5'} flex flex-col gap-14`}
       >
         {contactData.Address && (
-          <div className="flex items-center gap-4">
+          <Link href={contactData.Address.url} className="flex items-center gap-4" aria-label="Navigate to address">
             <Image
               width={30}
               height={30}
@@ -61,7 +62,7 @@ export default function Contact({ contactData }) {
               alt={contactData.Address.icon.data.attributes.alternativeText || 'Address icon'}
             />
             <p className="text-lg">{contactData.Address.title}</p>
-          </div>
+          </Link>
         )}
         {contactData.Phone && (
           <div className="flex items-center gap-4">
@@ -75,7 +76,11 @@ export default function Contact({ contactData }) {
           </div>
         )}
         {contactData.Email && (
-          <div className="flex items-center gap-4">
+          <Link
+            href={`mailto:${contactData.Email.title}`}
+            aria-label={`Send email to ${contactData.Email.title}`}
+            className="flex items-center gap-4"
+          >
             <Image
               width={30}
               height={30}
@@ -83,7 +88,7 @@ export default function Contact({ contactData }) {
               alt={contactData.Email.icon.data.attributes.alternativeText || 'Email icon'}
             />
             <p className="text-lg">{contactData.Email.title}</p>
-          </div>
+          </Link>
         )}
       </div>
     </div>

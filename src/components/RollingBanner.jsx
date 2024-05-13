@@ -35,7 +35,7 @@ export default function RollingBanner({ clientData }) {
                 <Image
                   key={logo.id}
                   src={`http://localhost:1337${logo.attributes.url}`}
-                  alt="placeholder"
+                  alt={logo.attributes.alternativeText}
                   width={50}
                   height={50}
                   className="w-auto h-full px-4 "

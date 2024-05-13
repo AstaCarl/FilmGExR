@@ -42,12 +42,39 @@
   .page-content-container {
     padding-inline: clamp(1rem, 0.2857rem + 6.0476vw, 10rem);
   }
+  .left-content-container {
+    padding-left: clamp(1rem, 0.2857rem + 6.0476vw, 10rem);
+  }
   .page-title-size {
     font-size: clamp(3rem, 1.3333rem + 7.619vw, 6rem);
   }
   .animation {
     animation: fadeOut 1s ease-in-out;
     animation-delay: 3s;
+  }
+}
+
+@keyframes spell {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes long {
+  0% {
+    width: 0;
+  }
+  33% {
+    width: 0px;
+  }
+  100% {
+    width: 96px;
   }
 }
 
@@ -198,9 +225,6 @@
   }
 }
 
-.custom-cursor {
-  cursor: url('../../public/assets/arrow-up-right.svg'), auto;
-}
 /* .rotated {
   background-color: pink;
   transform-origin: 0px 50% -70px;

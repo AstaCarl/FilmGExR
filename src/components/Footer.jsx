@@ -32,7 +32,7 @@ export default function Footer({ footerData }) {
           {footerData.socials.map((item, index) => (
             <li className="" key={index}>
               {item.icon && (
-                <Anchor href={item.url} target="_blank" rel="noopener noreferrer">
+                <Anchor href={item.url} target="_blank">
                   <Image
                     width={30}
                     height={30}

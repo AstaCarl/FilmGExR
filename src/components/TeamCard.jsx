@@ -6,8 +6,8 @@ import Paragraf from './Paragraf';
 export default function TeamCard({ alt, src, title, paragraf }) {
   return (
     <section className="col-span-6 md:col-span-4">
-      <div className="flex flex-col items-center gap-2">
-        <Image width={200} height={200} alt={alt} src={src} />
+      <div className="flex flex-col items-center text-center gap-4">
+        <Image width={300} height={300} alt={alt} src={src} className="rounded-md" />
         <Title title={title} variant="subtitle" />
         <Paragraf paragrafText={paragraf} />
       </div>

@@ -5,7 +5,7 @@ import Title from './ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Paragraf from './Paragraf';
 
-export default function ImgWithParagraf({ paragrafText, title, src }) {
+export default function ImgWithParagraf({ paragrafText, title, src, alt }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
@@ -13,16 +13,20 @@ export default function ImgWithParagraf({ paragrafText, title, src }) {
   });
 
   return (
-    <article className="flex items-center py-28 bg-off-white rounded-lg">
+    <article className="flex items-center bg-off-white rounded-lg">
       <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} `}>
-        <div className="lg:flex lg:justify-between">
-          <div className="flex flex-col gap-4 lg:justify-center lg:w-2/5">
+        <div className="tw-grid ">
+          <div className="col-span-full py-10 lg:col-span-5 lg:place-content-center left-content-container">
             <Title title={title} variant="subtitle" />
             <Paragraf className="text-lg" paragrafText={paragrafText} />
           </div>
-          <div className="w-full lg:w-1/2">
-            <Image src={src} alt="default" width={1000} height={1000} className="rounded-md mt-6 lg:mt-0" />
-          </div>
+          <Image
+            src={src}
+            alt={alt}
+            width={2000}
+            height={2000}
+            className="rounded-md w-full object-cover col-span-full lg:col-span-7"
+          />
         </div>
       </div>
     </article>

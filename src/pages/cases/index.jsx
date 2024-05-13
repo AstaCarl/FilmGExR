@@ -4,9 +4,9 @@ import Title from '../../components/ui/Title';
 import { fetcher } from '../../../lib/api';
 
 export async function getStaticProps() {
-  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/cases-pages?populate=cases.thumbnail`);
-  console.log('response id', response.data.id);
-  const casesData = response.data.map((item) => item);
+  const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/cases-page?populate=cases.video`);
+  console.log('response data', response);
+  const casesData = response.data.attributes;
   return {
     props: {
       casesData: casesData,
@@ -15,23 +15,20 @@ export async function getStaticProps() {
 }
 
 export default function Cases({ casesData, caseId }) {
+  console.log('casesData', casesData);
   return (
     <main className="v-space-xl bg-off-white">
       <section className="rounded-t-xl flex flex-col gap-6">
         <div className="page-content-container">
-          <Title title="Recent work" variant="pageTitle" />
+          <Title title={casesData.title} variant="pageTitle" />
         </div>
-        {casesData.map((caseItem, index) => {
+        {casesData.cases.map((caseItem, index) => {
           return (
-            <div className="relative">
+            <div className="relative" key={index}>
               <WorkSection
                 key={index}
-                subtitle={caseItem.attributes.cases.title}
-                label1={caseItem.attributes.cases.label}
-                label2={caseItem.attributes.cases.label2}
-                image={`http://localhost:1337${caseItem.attributes.cases.thumbnail.data.attributes.url}`}
-                href={`/cases/${caseItem.id}`}
-                link="Read more"
+                subtitle={caseItem.title}
+                video={`http://localhost:1337${caseItem.video.data.attributes.url}`}
               />
             </div>
           );

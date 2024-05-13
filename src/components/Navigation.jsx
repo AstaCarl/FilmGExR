@@ -25,71 +25,73 @@ export default function Navigation({ navigationData, navigationDataLogo }) {
 
   return (
     <header
-      className={`page-content-container fixed top-0 z-[1] flex justify-between w-full transition-all duration-300 ease-in-out${
-        isOpen ? 'z-[999] bg-off-white' : 'bg-transparent'
-      }`}
+      className={`${isOpen ? '' : ''}fixed top-0 z-20 w-screen md:flex md:justify-between md:items-center md:h-20`}
     >
-      <div className="flex flex-1">
-        {/* {navigationData.logo && (
-          <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
-        )} */}
-        {navigationData.logo && (
-          <Link href={navigationData.logo.url}>
-            <Image
-              width={100}
-              height={100}
-              src={`http://localhost:1337${navigationData.logo.logo.data.attributes.url}`}
-              alt="test"
-              className="h-[80px] w-auto"
-            />
-          </Link>
-        )}
-      </div>
-      <div className={`flex flex-col items-end ${isOpen ? 'justify-between h-screen' : 'justify-center'}`}>
-        <button
-          onClick={handleMenuToggle}
-          className={`md:hidden h-[80px] flex justify-center flex-col gap-1 duration-300 ${isOpen ? '' : ''}`}
+      <div>
+        <div
+          className={` flex justify-between items-center ${isOpen ? ' relative z-[999]' : ''} page-content-container`}
         >
-          <div
-            className={`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
-              isOpen ? 'translate-y-[4px] rotate-45 bg-red' : ' translate-x-0 rotate-0'
-            }`}
-          ></div>
-          <div className={`h-0.5 bg-black w-6 rounded-full ${isOpen ? 'opacity-0' : 'opacity-1'}`}></div>
-          <div
-            className={`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
-              isOpen ? '-translate-y-[8px] -rotate-45 bg-red' : ' translate-x-0 rotate-0'
-            }`}
-          ></div>
-        </button>
-        <nav
-          className={`transition-all delay-100 duration-700 ease-in-out flex flex-col items-end justify-end md:h-full md:justify-center ${
-            isOpen
-              ? 'translate-x-0 h-screen pb-10 md:pb-0 '
-              : 'translate-x-full opacity-0 h-0 pb-10 md:pb-0 overflow-hidden md:translate-x-0 md:opacity-100'
-          }`}
-        >
-          <ul className={` space-y-6 text-right md:space-y-0 md:flex md:gap-4`}>
-            {navigationData.navLink.map((item, index) => {
-              if (item && item.url) {
-                const isActive = item.url === activePathname;
-                return (
-                  <li
-                    className={`${isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'} text-black ${
-                      isActive ? 'text-red' : ''
-                    }
-                `}
-                    key={index}
-                  >
-                    <Anchor variant="nav" href={item.url} title={item.title} />
-                  </li>
-                );
-              }
-              return null;
-            })}
-          </ul>
-        </nav>
+          {/* {navigationData.logo && (
+      <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
+    )} */}
+          {navigationData.logo && (
+            <Link href={navigationData.logo.url}>
+              <Image
+                width={100}
+                height={100}
+                src={`http://localhost:1337${navigationData.logo.logo.data.attributes.url}`}
+                alt={navigationData.logo.logo.data.attributes.alternativeText}
+                className="h-[40px] w-auto"
+              />
+            </Link>
+          )}
+          <button
+            onClick={handleMenuToggle}
+            className={`md:hidden h-20 flex justify-center flex-col gap-1 duration-300 ${isOpen ? '' : ''}`}
+          >
+            <div
+              className={`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
+                isOpen ? 'translate-y-[4px] rotate-45 bg-red' : ' translate-x-0 rotate-0'
+              }`}
+            ></div>
+            <div className={`h-0.5 bg-black w-6 rounded-full ${isOpen ? 'opacity-0' : 'opacity-1'}`}></div>
+            <div
+              className={`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
+                isOpen ? '-translate-y-[8px] -rotate-45 bg-red' : ' translate-x-0 rotate-0'
+              }`}
+            ></div>
+          </button>
+        </div>
       </div>
+      <nav
+        className={`${
+          isOpen ? ' bg-off-white sticky z-10  translate-x-0 blur-none' : ' translate-x-full overflow-hidden blur-lg'
+        } transition-all delay-100 duration-700 ease-in-out -translate-y-20 pb-10 md:pb-0 h-screen flex justify-end items-end md:translate-x-0 md:blur-none md:justify-start md:items-center md:h-20 md:translate-y-0`}
+      >
+        <ul
+          className={` space-y-6 text-right md:space-y-0 md:flex md:gap-4 page-content-container transition-all duration-700 ease-in-out `}
+        >
+          {navigationData.navLink.map((item, index) => {
+            if (item && item.url) {
+              const isActive = item.url === activePathname;
+              return (
+                <li
+                  className={` transition-all duration-300 ease-in-out ${
+                    isOpen
+                      ? 'opacity-100 transition-all duration-700 delay-100 ease-in-out'
+                      : 'opacity-0 md:opacity-100 transition-all delay-100 duration-700 ease-in-out'
+                  } text-black ${isActive ? 'text-red' : ''}
+               md:opacity-100`}
+                  key={index}
+                >
+                  <Anchor variant="nav" href={item.url} title={item.title} />
+                </li>
+              );
+            }
+            return null;
+          })}
+        </ul>
+      </nav>
     </header>
   );
 }
