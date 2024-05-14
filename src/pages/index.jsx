@@ -96,6 +96,9 @@ export default function Home({ homeData }) {
                 </>
               )}
           </div>
+          <div className="v-space-xl pb-36 relative bg-off-white ">
+            <RollingBanner clientData={introData.clients} />
+          </div>
           <div className="v-space-xl">
             <div
               ref={ref}
@@ -105,10 +108,10 @@ export default function Home({ homeData }) {
             >
               <Title title="The benefits" variant="pageTitle" />
             </div>
-            <div className="snap-y h-screen snap-always overflow-scroll">
+            <div className="">
               {introData.benefits &&
                 introData.benefits.map((benefit, index) => (
-                  <div key={index} className="py-36 snap-start">
+                  <div key={index} className="py-36 bg-of-white sticky top-0">
                     <ImgWithParagraf
                       paragrafText={benefit.paragraf}
                       title={benefit.subtitle}
@@ -138,16 +141,13 @@ export default function Home({ homeData }) {
                   </div>
                 ))}
             </div>
-            <div className=" v-space-xl bg-off-white">
+            <div className=" v-space-xl relative bg-off-white">
               <StudioModels
                 title="Ideal production space"
                 paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
               />
             </div>
             <Facilities />
-          </div>
-          <div className="v-space-xl pb-36 relative bg-off-white ">
-            <RollingBanner clientData={introData.clients} />
           </div>
         </div>
       </main>

@@ -77,7 +77,7 @@ export default function Theprocess({ data }) {
                   <div className="tw-grid ">
                     <Paragraf
                       className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
-                        showParagrafId.includes(item.id) ? 'pt-6 h-[300px]' : ' h-0'
+                        showParagrafId.includes(item.id) ? 'pt-6 h-[320px]' : ' h-0'
                       }`}
                       paragrafText={item.paragraf}
                     />

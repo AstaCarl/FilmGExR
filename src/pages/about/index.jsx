@@ -24,7 +24,6 @@ export default function About(data) {
     <article className="page-content-container v-space-xl bg-off-white">
       <div className="pb-14">
         <Title title={data.data.title} variant="pageTitle" />
-        <Title title={data.data.subtitle} variant="subtitle" />
       </div>
       {data.data.aboutUs.map((item, index) => (
         <div key={index} className="pb-14">

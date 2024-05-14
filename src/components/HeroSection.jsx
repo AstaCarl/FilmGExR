@@ -15,7 +15,7 @@ export default function HeroSection({ mobileSrc, desktopSrc }) {
             <span style={{ animation: `spell 2s ease infinite ${i / 10}s` }}>{char}</span>
           ))}
           <span
-            style={{ animation: 'long 2s 2s ease infinite' }}
+            style={{ animation: 'long 2s ease infinite' }}
             className="bg-white h-0.5 absolute translate-y-[18px] translate-x-4"
           ></span>
         </Link>
