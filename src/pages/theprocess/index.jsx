@@ -1,6 +1,6 @@
 import Paragraf from '@/components/Paragraf';
 import Title from '@/components/ui/Title';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { fetcher } from '../../../lib/api';
 import { useIntersectionObserver } from '../../../lib/interSectionObserver';
 

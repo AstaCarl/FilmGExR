@@ -3,7 +3,7 @@ import Paragraf from './Paragraf';
 import Title from './ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
-export default function TitleWithParagraf({ introData, title, subtitle, paragraf, variant, componentvariant }) {
+export default function TitleWithParagraf({ title, subtitle, paragraf, variant, componentvariant }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import defaultImage from '../../public/assets/default.png';
 import Title from './ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Paragraf from './Paragraf';

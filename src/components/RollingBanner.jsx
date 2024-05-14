@@ -19,7 +19,7 @@ export default function RollingBanner({ clientData }) {
   }, [clientData]);
 
   if (!clientData) {
-    return <div></div>; // Or some other loading state
+    return <div></div>;
   }
 
   return (

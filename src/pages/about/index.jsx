@@ -1,7 +1,6 @@
 import Title from '@/components/ui/Title';
 import { fetcher } from '../../../lib/api';
 import React from 'react';
-import teamImage from '../../../public/assets/teamMember.png';
 import TitleWithParagraf from '@/components/TitleWithParagraf';
 import TeamCard from '@/components/TeamCard';
 import Image from 'next/image';

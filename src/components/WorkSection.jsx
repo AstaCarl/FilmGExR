@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Title from '@/components/ui/Title';
-import Labels from './ui/Labels';
-import Anchor from './ui/Anchor';
-import Link from 'next/link';
 import { usePreciseObserver } from '../../lib/preciseObserver';
-import { useEffect, useRef } from 'react';
 
-export default function WorkSection({ subtitle, label1, label2, link, image, href, onClick, alt, video }) {
+export default function WorkSection({ subtitle, video }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [style, setStyle] = useState({});
-  const ref1 = useRef();
-  const myRef = useRef();
+  const ref = useRef();
 
-  usePreciseObserver(ref1, () => {
+  usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
 
@@ -33,7 +26,7 @@ export default function WorkSection({ subtitle, label1, label2, link, image, hre
           <source src={video} />
         </video>
         <div
-          ref={ref1}
+          ref={ref}
           className={`${
             isVisible ? 'appear-on-scroll durantion-300 delay-150' : 'before-scroll translate-y-4'
           } absolute z-[2] bottom-4 md:bottom-8 page-content-container`}
