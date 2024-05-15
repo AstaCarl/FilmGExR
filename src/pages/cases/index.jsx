@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import WorkSection from '../../components/WorkSection';
 import Title from '../../components/ui/Title';
 import { fetcher } from '../../../lib/api';
+import { usePreciseObserver } from '../../../lib/preciseObserver';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/cases-page?populate=cases.video`);
@@ -14,12 +15,19 @@ export async function getStaticProps() {
   };
 }
 
-export default function Cases({ casesData, caseId }) {
+export default function Cases({ casesData }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef();
+
+  usePreciseObserver(ref, () => {
+    setIsVisible(true);
+  });
+
   console.log('casesData', casesData);
   return (
     <main className="v-space-xl bg-off-white">
       <section className="rounded-t-xl flex flex-col gap-6">
-        <div className="page-content-container">
+        <div ref={ref} className={`page-content-container ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
           <Title title={casesData.title} variant="pageTitle" />
         </div>
         {casesData.cases.map((caseItem, index) => {

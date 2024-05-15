@@ -36,6 +36,11 @@ export default function Theprocess({ data }) {
         <div className="col-span-full ">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
             <Title title={data.attributes.title} variant="pageTitle" />
+          </div>
+          <div
+            ref={ref}
+            className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} page-content-container`}
+          >
             <Title title={data.attributes.subtitle} variant="subtitle" />
           </div>
           <section className="v-space-lg">
@@ -49,7 +54,7 @@ export default function Theprocess({ data }) {
                 <div
                   ref={ref}
                   className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center ${
-                    isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'
+                    isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'
                   }`}
                 >
                   <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">

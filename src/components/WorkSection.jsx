@@ -12,7 +12,10 @@ export default function WorkSection({ subtitle, video }) {
 
   return (
     <article className="mb-20">
-      <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} w-full h-full relative `}>
+      <div
+        ref={ref}
+        className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} w-full h-full relative `}
+      >
         <video
           autoPlay
           preload="auto"
@@ -28,7 +31,7 @@ export default function WorkSection({ subtitle, video }) {
         <div
           ref={ref}
           className={`${
-            isVisible ? 'appear-on-scroll durantion-300 delay-150' : 'before-scroll translate-y-4'
+            isVisible ? 'appear-on-scroll durantion-300 delay-300' : 'before-scroll translate-y-4'
           } absolute z-[2] bottom-4 md:bottom-8 page-content-container`}
         >
           <div className="w-full">
