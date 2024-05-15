@@ -69,16 +69,17 @@ export default function About(data) {
       </div>
       <div
         ref={logosRef}
-        className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex v-space-sm`}
+        className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex v-space-sm  `}
       >
         {data.data.partners.map((item, index) => (
-          <Link href={item.url} target="_blank">
+          <Link key={index} href={item.url} target="_blank">
             <Image
               key={index}
               width={200}
               height={200}
               alt={item.logos.data.attributes.alternativeText}
               src={`http://localhost:1337${item.logos.data.attributes.url}`}
+              className="w-auto h-auto"
             />
           </Link>
         ))}
@@ -89,16 +90,16 @@ export default function About(data) {
       <section className="tw-grid v-space-sm">
         {data.data.teamMemberCard.map((item, index) => (
           <div
+            key={index}
             ref={teamCardRef}
             className={` ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'} 
             delay-${index * 150} col-span-6 md:col-span-4`}
           >
             <TeamCard
-              key={index}
               title={item.title}
               src={`http://localhost:1337${item.profile.data.attributes.url}`}
               paragraf={item.subtitle}
-              alt="Teammeber"
+              alt={item.profile.data.attributes.alternativeText}
             />
           </div>
         ))}

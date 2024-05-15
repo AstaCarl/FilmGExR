@@ -8,10 +8,6 @@ export default function ImgWithParagraf({ paragrafText, title, src, alt }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
 
-  // const ref = usePreciseObserver(() => {
-  //   setIsVisible(true);
-  // });
-
   usePreciseObserver(ref, () => {
     setIsVisible(true);
   });

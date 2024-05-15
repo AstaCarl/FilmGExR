@@ -28,8 +28,6 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
     setShowBullets2(false);
   };
 
-  console.log(uniqueData);
-
   return (
     <article className="h-screen flex flex-col v-space-xl mt-36">
       <div

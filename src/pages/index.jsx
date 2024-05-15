@@ -89,7 +89,7 @@ export default function Home({ homeData }) {
                     ref={ref}
                     className={`${
                       isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
-                    } v-space-xl flex justify-start gap-2 w-full `}
+                    } v-space-xl flex justify-start gap-2 w-full`}
                   >
                     <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title} />
                     <Image
@@ -97,6 +97,7 @@ export default function Home({ homeData }) {
                       alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
                       width={40}
                       height={40}
+                      className="h-auto w-auto"
                     />
                   </div>
                 </>
@@ -108,7 +109,7 @@ export default function Home({ homeData }) {
           >
             <ClientsBanner clientData={introData} />
           </div>
-          <div className="">
+          <div>
             <div
               ref={benefitsRef}
               className={`${
@@ -144,6 +145,7 @@ export default function Home({ homeData }) {
                             alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
                             width={40}
                             height={40}
+                            className="h-auto w-auto"
                           />
                         </div>
                       )}

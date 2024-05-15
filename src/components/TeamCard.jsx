@@ -7,7 +7,7 @@ export default function TeamCard({ alt, src, title, paragraf }) {
   return (
     <section className="">
       <div className="flex flex-col items-center text-center gap-4">
-        <Image width={300} height={300} alt={alt} src={src} className="rounded-md" />
+        <Image width={300} height={300} alt={alt} src={src} className="rounded-md w-auto h-auto" />
         <Title title={title} variant="subtitle" />
         <Paragraf paragrafText={paragraf} />
       </div>

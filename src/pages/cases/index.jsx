@@ -6,7 +6,6 @@ import { usePreciseObserver } from '../../../lib/preciseObserver';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/cases-page?populate=cases.video`);
-  console.log('response data', response);
   const casesData = response.data.attributes;
   return {
     props: {
