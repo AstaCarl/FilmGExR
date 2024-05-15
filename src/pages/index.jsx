@@ -16,7 +16,7 @@ import HeroSection from '@/components/HeroSection';
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios,uniqueInScandinavia.bulletpoints,fullService.bulletpoints,virtualProduction.bulletpoints`
   );
   const homeData = response.data.attributes;
   return {
@@ -142,9 +142,13 @@ export default function Home({ homeData }) {
             <div className=" v-space-xl relative bg-off-white">
               <StudioModels studioData={homeData.Studios} />
             </div>
-            <Facilities />
           </div>
         </div>
+        <Facilities
+          uniqueData={introData.uniqueInScandinavia}
+          serviceData={introData.fullService}
+          productionData={introData.virtualProduction}
+        />
       </main>
     );
   }

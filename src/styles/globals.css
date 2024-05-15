@@ -55,6 +55,9 @@
     animation: fadeOut 1s ease-in-out;
     animation-delay: 3s;
   }
+  li::marker {
+    color: #f4013b;
+  }
 }
 
 @keyframes spell {
