@@ -30,14 +30,16 @@ export default function Home({ homeData }) {
   const { hasLoaded, setHasLoaded } = useContext(LoaderContext);
   const [introData, setIntroData] = useState({});
   const [isVisible, setIsVisible] = useState(false);
+  const [isClientsVisible, setIsClientsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
     setIsVisible(true);
   });
 
-  const ref2 = useIntersectionObserver(() => {
-    setIsVisible(true);
+  const clientsRef = useIntersectionObserver(() => {
+    setIsClientsVisible(true);
   });
+
   const ref3 = useIntersectionObserver(() => {
     setIsVisible(true);
   });
@@ -83,7 +85,7 @@ export default function Home({ homeData }) {
                     paragraf={introData.introduction.paragraf}
                   />
                   <div
-                    ref={ref2}
+                    ref={ref}
                     className={`${
                       isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
                     } v-space-xl flex justify-start gap-2 w-full `}
@@ -99,7 +101,10 @@ export default function Home({ homeData }) {
                 </>
               )}
           </div>
-          <div className={`pb-36 bg-off-white `}>
+          <div
+            ref={clientsRef}
+            className={`pb-36 bg-off-white ${isClientsVisible ? ' appear-on-scroll' : 'before-scroll translate-y-4'} `}
+          >
             <ClientsBanner clientData={introData} />
           </div>
           <div className="">

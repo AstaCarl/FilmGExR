@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Button from './ui/Button';
 
-export default function StudioModels({ title, paragraf, studioData }) {
+export default function StudioModels({ studioData }) {
   const [isVisible, setIsVisible] = useState(false);
   const [showMedium, setShowMedium] = useState(false);
   const [showBig, setShowBig] = useState(true);

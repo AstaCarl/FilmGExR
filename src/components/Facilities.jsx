@@ -50,7 +50,7 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
           }`}
         >
           <div className="col-span-10 col-start-1 w-full">
-            <Title variant="subtitle" title={uniqueData.title} />
+            <Title variant="subtitle" title={uniqueData && uniqueData.title} />
           </div>
           <div className="col-span-1 col-start-12">
             <button
@@ -72,11 +72,12 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
             showBullets ? 'h-[300px]' : 'h-0'
           }`}
         >
-          {uniqueData.bulletpoints.map((item, index) => (
-            <li key={index} className={`n p-2`}>
-              {item.point}
-            </li>
-          ))}
+          {uniqueData &&
+            uniqueData.bulletpoints.map((item, index) => (
+              <li key={index} className={`n p-2`}>
+                {item.point}
+              </li>
+            ))}
         </div>
         <div
           ref={ref}
@@ -85,7 +86,7 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
           }`}
         >
           <div className="col-span-10 col-start-1 w-full">
-            <Title variant="subtitle" title={serviceData.title} />
+            <Title variant="subtitle" title={serviceData && serviceData.title} />
           </div>
           <div className="col-span-1 col-start-12">
             <button
@@ -107,11 +108,12 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
             showBullets2 ? 'h-[300px]' : 'h-0'
           }`}
         >
-          {serviceData.bulletpoints.map((item, index) => (
-            <li key={index} className={`n p-2`}>
-              {item.point}
-            </li>
-          ))}
+          {serviceData &&
+            serviceData.bulletpoints.map((item, index) => (
+              <li key={index} className={`n p-2`}>
+                {item.point}
+              </li>
+            ))}
         </div>
         <div
           ref={ref}
@@ -120,7 +122,7 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
           }`}
         >
           <div className="col-span-10 col-start-1 w-full">
-            <Title variant="subtitle" title={productionData.title} />
+            <Title variant="subtitle" title={productionData && productionData.title} />
           </div>
           <div className="col-span-1 col-start-12">
             <button
@@ -142,11 +144,12 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
             showBullets3 ? 'h-[300px]' : 'h-0'
           }`}
         >
-          {productionData.bulletpoints.map((item, index) => (
-            <li key={index} className={`n p-2`}>
-              {item.point}
-            </li>
-          ))}
+          {productionData &&
+            productionData.bulletpoints.map((item, index) => (
+              <li key={index} className={`n p-2`}>
+                {item.point}
+              </li>
+            ))}
         </div>
       </div>
     </article>
