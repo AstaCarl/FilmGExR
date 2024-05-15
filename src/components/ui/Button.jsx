@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Button({ buttonText, variant, type, onClick }) {
   let classNames =
-    'font-sans pointer hover:opacity-80 hover:text-red transition-all duration-200 ease-in text-lg font-semibold';
+    'font-sans pointer hover:opacity-80 hover:text-red transition-all duration-200 ease-in text-md font-semibold';
 
   if (variant === 'cookie-accept') {
     classNames += ' bg-white rounded-lg px-6 py-2';

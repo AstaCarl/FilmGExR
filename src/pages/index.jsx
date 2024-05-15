@@ -63,6 +63,7 @@ export default function Home({ homeData }) {
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
+        <CookieBanner />
         <div>
           <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
           <div id="firstSection" className="fullscreen flex-col justify-center page-content-container">
