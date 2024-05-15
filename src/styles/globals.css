@@ -45,6 +45,9 @@
   .left-content-container {
     padding-left: clamp(1rem, 0.2857rem + 6.0476vw, 10rem);
   }
+  .right-content-container {
+    padding-right: clamp(1rem, 0.2857rem + 6.0476vw, 10rem);
+  }
   .page-title-size {
     font-size: clamp(3rem, 1.3333rem + 7.619vw, 6rem);
   }

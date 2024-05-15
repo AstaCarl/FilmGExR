@@ -97,7 +97,7 @@ export default function Home({ homeData }) {
               )}
           </div>
           <div className="v-space-xl pb-36 relative bg-off-white ">
-            <RollingBanner clientData={introData.clients} />
+            <RollingBanner clientData={introData} />
           </div>
           <div className="v-space-xl">
             <div
@@ -111,7 +111,7 @@ export default function Home({ homeData }) {
             <div className="">
               {introData.benefits &&
                 introData.benefits.map((benefit, index) => (
-                  <div key={index} className="py-36 bg-of-white sticky top-0">
+                  <div key={index} className="pb-36 bg-of-white sticky top-[20%] md:top-[25%] scroll-smooth">
                     <ImgWithParagraf
                       paragrafText={benefit.paragraf}
                       title={benefit.subtitle}
