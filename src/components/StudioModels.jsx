@@ -28,7 +28,7 @@ export default function StudioModels({ studioData }) {
   };
 
   return (
-    <div className=" flex flex-col gap-4 py-36 page-content-container">
+    <div className=" flex flex-col gap-4 page-content-container">
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
         <Title title={studioData.title} variant="pageTitle" />
       </div>

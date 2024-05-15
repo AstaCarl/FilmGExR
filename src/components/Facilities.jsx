@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // import { fetcher } from '../../../lib/api';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 
-export default function Facilities({ uniqueData, serviceData, productionData }) {
+export default function Facilities({ uniqueData, serviceData, productionData, title }) {
   const [showBullets, setShowBullets] = useState(false);
   const [showBullets2, setShowBullets2] = useState(false);
   const [showBullets3, setShowBullets3] = useState(false);
@@ -31,7 +31,7 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
   console.log(uniqueData);
 
   return (
-    <article className="relative h-screen flex flex-col justify-center">
+    <article className="h-screen flex flex-col v-space-xl mt-36">
       <div
         ref={ref}
         className={`${
@@ -41,7 +41,7 @@ export default function Facilities({ uniqueData, serviceData, productionData }) 
         } `}
       >
         <div className={` page-content-container`}>
-          <Title title="The VP stage" variant="pageTitle" />
+          <Title title={title} variant="pageTitle" />
         </div>
         <div
           ref={ref}

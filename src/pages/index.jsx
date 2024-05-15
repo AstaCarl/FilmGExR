@@ -31,6 +31,7 @@ export default function Home({ homeData }) {
   const [introData, setIntroData] = useState({});
   const [isVisible, setIsVisible] = useState(false);
   const [isClientsVisible, setIsClientsVisible] = useState(false);
+  const [isBenefitsVisible, setIsBenefitsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
     setIsVisible(true);
@@ -40,8 +41,8 @@ export default function Home({ homeData }) {
     setIsClientsVisible(true);
   });
 
-  const ref3 = useIntersectionObserver(() => {
-    setIsVisible(true);
+  const benefitsRef = useIntersectionObserver(() => {
+    setIsBenefitsVisible(true);
   });
 
   useEffect(() => {
@@ -108,8 +109,13 @@ export default function Home({ homeData }) {
             <ClientsBanner clientData={introData} />
           </div>
           <div className="">
-            <div className={` page-content-container`}>
-              <Title title="The benefits" variant="pageTitle" />
+            <div
+              ref={benefitsRef}
+              className={`${
+                isBenefitsVisible ? ' appear-on-scroll' : 'before-scroll translate-y-4'
+              } page-content-container`}
+            >
+              <Title title={introData.benefitsTitle} variant="pageTitle" />
             </div>
             <div className="">
               {introData.benefits &&
@@ -153,6 +159,7 @@ export default function Home({ homeData }) {
           uniqueData={introData.uniqueInScandinavia}
           serviceData={introData.fullService}
           productionData={introData.virtualProduction}
+          title={introData.bulletsTitle}
         />
       </main>
     );
