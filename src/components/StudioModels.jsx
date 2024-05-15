@@ -37,13 +37,13 @@ export default function StudioModels({ title, paragraf, studioData }) {
         <Paragraf
           className={`${
             showBig ? 'opacity-100 ' : 'opacity-0 '
-          } transition-opacity duration-1000 ease-in-out text-md h-24`}
+          } transition-opacity duration-1000 ease-in-out text-md md:h-24`}
           paragrafText={studioData.bigStudText}
         />
       )}
       {showMedium && (
         <Paragraf
-          className={`text-md h-24 ${
+          className={`text-md md:h-24 ${
             showMedium ? 'opacity-100 ' : 'opacity-0 '
           } transition-opacity duration-1000 ease-in-out`}
           paragrafText={studioData.smallStudText}
