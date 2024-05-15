@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Title from '@/components/ui/Title';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
@@ -12,7 +12,7 @@ export default function WorkSection({ subtitle, video }) {
 
   return (
     <article className="mb-20">
-      <div className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} w-full h-full relative `}>
+      <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} w-full h-full relative `}>
         <video
           autoPlay
           preload="auto"

@@ -8,11 +8,14 @@ export default function HeroSection({ mobileSrc, desktopSrc }) {
       <div className="relative z-0">
         <Video mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <Link
+          smooth={true}
           to="firstSection"
-          className="scroll-link uppercase absolute bottom-48 text-xl text-white rotate-90 left-[45%] font-sans tracking-widest scoll-link cursor-pointer"
+          className="scroll-link scroll-smooth uppercase absolute bottom-48 text-xl text-white rotate-90 left-[45%] font-sans tracking-widest scoll-link cursor-pointer"
         >
           {'scroll'.split('').map((char, i) => (
-            <span style={{ animation: `spell 2s ease infinite ${i / 10}s` }}>{char}</span>
+            <span key={i} style={{ animation: `spell 2s ease infinite ${i / 10}s` }}>
+              {char}
+            </span>
           ))}
           <span
             style={{ animation: 'long 2s ease infinite' }}

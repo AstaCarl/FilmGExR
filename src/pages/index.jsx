@@ -10,14 +10,13 @@ import Title from '@/components/ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
-import RollingBanner from '@/components/RollingBanner';
+import ClientsBanner from '@/components/ClientsBanner';
 import Facilities from '@/components/Facilities';
-import Video from '@/components/Video';
 import HeroSection from '@/components/HeroSection';
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios`
   );
   const homeData = response.data.attributes;
   return {
@@ -39,9 +38,12 @@ export default function Home({ homeData }) {
   const ref2 = useIntersectionObserver(() => {
     setIsVisible(true);
   });
+  const ref3 = useIntersectionObserver(() => {
+    setIsVisible(true);
+  });
 
   useEffect(() => {
-    if (homeData && homeData.arrowAnchor && homeData.arrowAnchor.icon) {
+    if (homeData && homeData.arrowAnchor && homeData.arrowAnchor.icon && homeData.clients) {
       setIntroData(homeData);
     }
 
@@ -57,6 +59,7 @@ export default function Home({ homeData }) {
 
   const mobileSrc = `http://localhost:1337${homeData.HeroVideo.data[0].attributes.url}`;
   const desktopSrc = `http://localhost:1337${homeData.HeroVideo.data[1].attributes.url}`;
+  console.log('homeData', homeData);
 
   if (!hasLoaded) {
     return <Loader />;
@@ -97,22 +100,17 @@ export default function Home({ homeData }) {
                 </>
               )}
           </div>
-          <div className="v-space-xl pb-36 relative bg-off-white ">
-            <RollingBanner clientData={introData} />
+          <div className={`pb-36 bg-off-white `}>
+            <ClientsBanner clientData={introData} />
           </div>
-          <div className="v-space-xl">
-            <div
-              ref={ref}
-              className={`${
-                isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-4'
-              } page-content-container`}
-            >
+          <div className="">
+            <div className={` page-content-container`}>
               <Title title="The benefits" variant="pageTitle" />
             </div>
             <div className="">
               {introData.benefits &&
                 introData.benefits.map((benefit, index) => (
-                  <div key={index} className="pb-36 bg-of-white sticky top-[20%] md:top-[25%] scroll-smooth">
+                  <div key={index} className="pb-36 bg-of-white sticky top-[20%] md:top-[25%] scroll-smooth ">
                     <ImgWithParagraf
                       paragrafText={benefit.paragraf}
                       title={benefit.subtitle}
@@ -125,7 +123,7 @@ export default function Home({ homeData }) {
                       introData.arrowAnchor.icon.data &&
                       introData.arrowAnchor.icon.data.attributes &&
                       index === introData.benefits.length - 1 && (
-                        <div className="hidden relative lg:bottom-10 xl:bottom-24 lg:flex gap-2 page-content-container">
+                        <div className="hidden lg:flex w-full gap-2 page-content-container">
                           <Anchor
                             variant="arrowLink"
                             href={introData.arrowAnchor.url}
@@ -143,10 +141,7 @@ export default function Home({ homeData }) {
                 ))}
             </div>
             <div className=" v-space-xl relative bg-off-white">
-              <StudioModels
-                title="Ideal production space"
-                paragraf="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              />
+              <StudioModels studioData={homeData.Studios} />
             </div>
             <Facilities />
           </div>

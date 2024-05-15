@@ -4,10 +4,11 @@ import React from 'react';
 import TitleWithParagraf from '@/components/TitleWithParagraf';
 import TeamCard from '@/components/TeamCard';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/about-page?populate=aboutUs,teamMemberCard.profile,Partners.logos`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/about-page?populate=aboutUs,teamMemberCard.profile,partners.logos`
   );
   console.log('response', response);
   const data = response.data.attributes;
@@ -35,22 +36,24 @@ export default function About(data) {
           />
         </div>
       ))}
-      <Title title={data.data.Partners.title} variant="pageTitle" />
-      <div className="flex v-space-md">
-        {data.data.Partners.logos.data.map((item, index) => (
-          <Image
-            key={index}
-            width={200}
-            height={200}
-            alt={item.attributes.alternativeText}
-            src={`http://localhost:1337${item.attributes.url}`}
-          />
+      <Title title={data.data.partnersTitle} variant="pageTitle" />
+      <div className="flex v-space-sm">
+        {data.data.partners.map((item, index) => (
+          <Link href={item.url} target="_blank">
+            <Image
+              key={index}
+              width={200}
+              height={200}
+              alt={item.logos.data.attributes.alternativeText}
+              src={`http://localhost:1337${item.logos.data.attributes.url}`}
+            />
+          </Link>
         ))}
       </div>
       <div className="v-space-xl">
         <Title title={data.data.teamTitle} variant="pageTitle" />
       </div>
-      <section className="tw-grid v-space-lg">
+      <section className="tw-grid v-space-sm">
         {data.data.teamMemberCard.map((item, index) => (
           <TeamCard
             key={index}

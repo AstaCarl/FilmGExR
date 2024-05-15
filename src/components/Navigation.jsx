@@ -28,9 +28,7 @@ export default function Navigation({ navigationData }) {
       className={`${isOpen ? '' : ''}fixed top-0 z-20 w-screen md:flex md:justify-between md:items-center md:h-20`}
     >
       <div>
-        <div
-          className={` flex justify-between items-center ${isOpen ? ' relative z-[999]' : ''} page-content-container`}
-        >
+        <div className={` flex justify-between items-center ${isOpen ? ' relative z-[999]' : ''}`}>
           {/* {navigationData.logo && (
       <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
     )} */}
@@ -41,13 +39,15 @@ export default function Navigation({ navigationData }) {
                 height={100}
                 src={`http://localhost:1337${navigationData.logo.logo.data.attributes.url}`}
                 alt={navigationData.logo.logo.data.attributes.alternativeText}
-                className="h-[40px] w-auto"
+                className="h-[40px] w-auto left-content-container"
               />
             </Link>
           )}
           <button
             onClick={handleMenuToggle}
-            className={`md:hidden h-20 flex justify-center flex-col gap-1 duration-300 ${isOpen ? '' : ''}`}
+            className={`md:hidden h-20 flex justify-center flex-col gap-1 duration-300 right-content-container ${
+              isOpen ? '' : ''
+            }`}
           >
             <div
               className={`h-0.5 bg-black w-6 rounded-full transition-transform duration-300 ease-linear ${
@@ -69,7 +69,7 @@ export default function Navigation({ navigationData }) {
         } transition-all delay-100 duration-700 ease-in-out -translate-y-20 pb-10 md:pb-0 h-screen flex justify-end items-end md:translate-x-0 md:blur-none md:justify-start md:items-center md:h-20 md:translate-y-0`}
       >
         <ul
-          className={` space-y-6 text-right md:space-y-0 md:flex md:gap-4 page-content-container transition-all duration-700 ease-in-out `}
+          className={` space-y-6 text-right md:space-y-0 md:flex md:gap-2 lg:gap-6 right-content-container transition-all duration-700 ease-in-out `}
         >
           {navigationData.navLink.map((item, index) => {
             if (item && item.url) {

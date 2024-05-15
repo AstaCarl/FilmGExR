@@ -49,7 +49,7 @@
     padding-right: clamp(1rem, 0.2857rem + 6.0476vw, 10rem);
   }
   .page-title-size {
-    font-size: clamp(3rem, 1.3333rem + 7.619vw, 6rem);
+    font-size: clamp(3rem, 1.3333rem + 7.619vw, 4rem);
   }
   .animation {
     animation: fadeOut 1s ease-in-out;
