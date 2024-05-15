@@ -10,7 +10,6 @@ export default function StudioModels({ title, paragraf, studioData }) {
   const [showMedium, setShowMedium] = useState(false);
   const [showBig, setShowBig] = useState(true);
   const [active, setActive] = useState('big');
-  console.log('studioData', studioData);
 
   const ref = useIntersectionObserver(() => {
     setIsVisible(true);

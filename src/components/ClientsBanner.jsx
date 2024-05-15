@@ -8,8 +8,6 @@ export default function ClientsBanner({ clientData }) {
     return null; // or a loading spinner, or some fallback UI
   }
 
-  console.log('clientsbanner', clientData);
-
   return (
     <article className="md:tw-grid ">
       <div className={` md:col-span-6 left-content-container space-y-4 `}>

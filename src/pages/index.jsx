@@ -59,7 +59,6 @@ export default function Home({ homeData }) {
 
   const mobileSrc = `http://localhost:1337${homeData.HeroVideo.data[0].attributes.url}`;
   const desktopSrc = `http://localhost:1337${homeData.HeroVideo.data[1].attributes.url}`;
-  console.log('homeData', homeData);
 
   if (!hasLoaded) {
     return <Loader />;
