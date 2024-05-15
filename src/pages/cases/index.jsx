@@ -22,7 +22,6 @@ export default function Cases({ casesData }) {
     setIsVisible(true);
   });
 
-  console.log('casesData', casesData);
   return (
     <main className="v-space-xl bg-off-white">
       <section className="rounded-t-xl flex flex-col gap-6">
