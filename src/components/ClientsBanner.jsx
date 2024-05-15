@@ -22,7 +22,7 @@ export default function ClientsBanner({ clientData }) {
           {clientData.clients &&
             clientData.clients.map((logo, index) => (
               <div className="col-span-4 ">
-                <div className="h-24 w-24 flex items-center justify-center">
+                <div className="h-24 w-24 flex items-start justify-center">
                   <Image
                     key={index}
                     src={`http://localhost:1337${logo.logos.data.attributes.url}`}

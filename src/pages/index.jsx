@@ -109,7 +109,7 @@ export default function Home({ homeData }) {
             <div className="">
               {introData.benefits &&
                 introData.benefits.map((benefit, index) => (
-                  <div key={index} className="pb-36 bg-of-white sticky top-[20%] md:top-[25%] scroll-smooth ">
+                  <div key={index} className="pb-36 bg-of-white sticky top-[20%] lg:top-[25%] scroll-smooth ">
                     <ImgWithParagraf
                       paragrafText={benefit.paragraf}
                       title={benefit.subtitle}
