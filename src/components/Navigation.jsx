@@ -25,7 +25,7 @@ export default function Navigation({ navigationData }) {
 
   return (
     <header
-      className={`${isOpen ? '' : ''}fixed top-0 z-20 w-screen md:flex md:justify-between md:items-center md:h-20`}
+      className={`${isOpen ? '' : ''}fixed h-20 top-0 z-20 w-screen lg:flex lg:justify-between lg:items-center lg:h-20`}
     >
       <div>
         <div className={` flex justify-between items-center ${isOpen ? ' relative z-[999]' : ''}`}>
@@ -45,7 +45,7 @@ export default function Navigation({ navigationData }) {
           )}
           <button
             onClick={handleMenuToggle}
-            className={`md:hidden h-20 flex justify-center flex-col gap-1 duration-300 right-content-container ${
+            className={`lg:hidden h-20 flex justify-center flex-col gap-1 duration-300 right-content-container ${
               isOpen ? '' : ''
             }`}
           >
@@ -66,10 +66,10 @@ export default function Navigation({ navigationData }) {
       <nav
         className={`${
           isOpen ? ' bg-off-white sticky z-10  translate-x-0 blur-none' : ' translate-x-full overflow-hidden blur-lg'
-        } transition-all delay-100 duration-700 ease-in-out -translate-y-20 pb-10 md:pb-0 h-screen flex justify-end items-end md:translate-x-0 md:blur-none md:justify-start md:items-center md:h-20 md:translate-y-0`}
+        } transition-all delay-100 duration-700 ease-in-out -translate-y-20 pb-10 lg:pb-0 h-screen flex justify-end items-end lg:translate-x-0 lg:blur-none lg:justify-start lg:items-center lg:h-20 lg:translate-y-0`}
       >
         <ul
-          className={` space-y-6 text-right md:space-y-0 md:flex md:gap-2 lg:gap-6 right-content-container transition-all duration-700 ease-in-out `}
+          className={` space-y-6 text-right lg:space-y-0 lg:flex lg:gap-6 right-content-container transition-all duration-700 ease-in-out `}
         >
           {navigationData.navLink.map((item, index) => {
             if (item && item.url) {
@@ -79,9 +79,9 @@ export default function Navigation({ navigationData }) {
                   className={` transition-all duration-300 ease-in-out ${
                     isOpen
                       ? 'opacity-100 transition-all duration-700 delay-100 ease-in-out'
-                      : 'opacity-0 md:opacity-100 transition-all delay-100 duration-700 ease-in-out'
+                      : 'opacity-0 lg:opacity-100 transition-all delay-100 duration-700 ease-in-out'
                   } text-black ${isActive ? 'text-red' : ''}
-               md:opacity-100`}
+               lg:opacity-100`}
                   key={index}
                 >
                   <Anchor variant="nav" href={item.url} title={item.title} />

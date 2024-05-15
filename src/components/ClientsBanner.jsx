@@ -12,15 +12,15 @@ export default function ClientsBanner({ clientData }) {
 
   return (
     <article className="md:tw-grid ">
-      <div className={` md:col-span-6 page-content-container space-y-4 `}>
+      <div className={` md:col-span-6 left-content-container space-y-4 `}>
         <Title title={clientData.clientsTitle} variant="subtitle" />
         <Paragraf paragrafText={clientData.clientSummary} />
       </div>
       <div
-        className={`hidden md:block col-span-6 page-content-container 
+        className={`hidden md:block col-span-6 
           `}
       >
-        <div className="grid grid-cols-12 gap-6 place-items-center">
+        <div className="grid grid-cols-12 gap-6 place-items-center right-content-container">
           {clientData.clients &&
             clientData.clients.map((logo, index) => (
               <div className="col-span-4 ">
