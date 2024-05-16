@@ -7,8 +7,16 @@
   src: url('../../public/fonts/TRSBL.TTF') format('truetype');
 }
 @font-face {
+  font-family: 'TrueSyntax';
+  src: url('../../public/fonts/TRSBL.eot') format('truetype');
+}
+@font-face {
   font-family: 'Poppins';
   src: url('../../public/fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../public/fonts/Poppins-Regular.eot') format('truetype');
 }
 
 @layer utilities {

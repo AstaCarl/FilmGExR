@@ -3,10 +3,10 @@ import { LoaderContext } from '../contexts/LoaderContext';
 import { useContext } from 'react';
 
 export default function Loader() {
-  const { hasLoaded } = useContext(LoaderContext);
-  if (hasLoaded) {
-    return null;
-  }
+  // const { hasLoaded } = useContext(LoaderContext);
+  // if (hasLoaded) {
+  //   return null;
+  // }
 
   return (
     <div className="opacity-100 h-screen w-screen top-0 fixed z-[2000] bg-dark flex flex-col items-center justify-center">
