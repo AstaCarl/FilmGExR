@@ -18,7 +18,7 @@ export default function Loader() {
       ></div>
       <h1
         style={{ animation: 'fadeUp 1.2s forwards', animationDelay: '2s' }}
-        className="text-white opacity-0 font-sans font-bold text-[48px] lg:text-[96px] flex w-[214px] lg:w-[428px] lg:-mb-4 justify-start"
+        className="text-white opacity-0 font-sans font-bold text-[45px] lg:text-[96px] flex w-[214px] lg:w-[428px] lg:-mb-4 justify-start"
       >
         FilmGExR
       </h1>
@@ -58,7 +58,7 @@ export default function Loader() {
       </div>
       <h2
         style={{ animation: 'fadeDown 1s forwards', animationIterationCount: 1, animationDelay: '2.2s' }}
-        className="text-white font-sans pt-2 font-bold text-[17px] lg:text-[34px] flex justify-start opacity-0"
+        className="text-white font-sans pt-2 font-bold text-[14px] lg:text-[34px] flex justify-start opacity-0"
       >
         Virtual production studio
       </h2>
