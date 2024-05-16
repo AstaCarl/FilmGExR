@@ -1,6 +1,6 @@
 import Loader from '@/components/Loader';
 import { fetcher } from '../../lib/api';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { LoaderContext } from '../contexts/LoaderContext';
 import StudioModels from '@/components/StudioModels';
 import ImgWithParagraf from '@/components/ImgWithParagraf';
@@ -8,6 +8,7 @@ import TitleWithParagraf from '@/components/TitleWithParagraf';
 import CookieBanner from '@/components/CookieBanner';
 import Title from '@/components/ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
+import { usePreciseObserver } from '../../lib/preciseObserver';
 import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
 import ClientsBanner from '@/components/ClientsBanner';
@@ -37,7 +38,13 @@ export default function Home({ homeData }) {
     setIsVisible(true);
   });
 
-  const clientsRef = useIntersectionObserver(() => {
+  // const clientsRef = useIntersectionObserver(() => {
+  //   setIsClientsVisible(true);
+  // });
+
+  const clientsRef = useRef();
+
+  usePreciseObserver(clientsRef, () => {
     setIsClientsVisible(true);
   });
 
@@ -105,7 +112,9 @@ export default function Home({ homeData }) {
           </div>
           <div
             ref={clientsRef}
-            className={`pb-36 bg-off-white ${isClientsVisible ? ' appear-on-scroll' : 'before-scroll translate-y-4'} `}
+            className={`pb-36 bg-off-white ${
+              isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'
+            } `}
           >
             <ClientsBanner clientData={introData} />
           </div>
