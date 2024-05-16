@@ -12,7 +12,9 @@ export default function TitleWithParagraf({ title, subtitle, paragraf, variant, 
 
   return (
     <article
-      className={`${componentvariant === 'opposite' ? 'text-end' : ''} tw-grid transition-all duration-500 ease-in-out`}
+      className={`${
+        componentvariant === 'opposite' ? 'md:text-end' : ''
+      } tw-grid transition-all duration-500 ease-in-out`}
     >
       <div
         className={`space-y-4 col-span-full ${
@@ -27,13 +29,13 @@ export default function TitleWithParagraf({ title, subtitle, paragraf, variant, 
         </div>
         <div
           className={`${isVisible ? 'md:w-2/3 appear-on-scroll delay-300' : 'before-scroll'} ${
-            componentvariant === 'opposite' ? ' md:w-full flex justify-end' : ''
+            componentvariant === 'opposite' ? ' md:w-full md:flex md:justify-end' : ''
           }`}
           ref={ref}
         >
           <Paragraf
             paragrafText={paragraf}
-            className={`${componentvariant === 'opposite' ? 'text-end md:w-2/3' : ''}`}
+            className={`${componentvariant === 'opposite' ? 'md:text-end md:w-2/3' : ''}`}
           />
         </div>
       </div>
