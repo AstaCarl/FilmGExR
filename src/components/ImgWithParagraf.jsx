@@ -25,7 +25,7 @@ export default function ImgWithParagraf({ paragrafText, title, src, alt }) {
             alt={alt}
             width={2000}
             height={2000}
-            className="rounded-md  w-full col-span-full lg:col-span-7 "
+            className="lg:rounded-md  w-full col-span-full lg:col-span-7 "
           />
         </div>
       </div>
