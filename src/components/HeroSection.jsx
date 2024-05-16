@@ -10,7 +10,7 @@ export default function HeroSection({ mobileSrc, desktopSrc }) {
         <Link
           smooth={true}
           to="firstSection"
-          className="scroll-link scroll-smooth uppercase absolute bottom-48 text-xl text-white rotate-90 left-[45%] font-sans tracking-widest scoll-link cursor-pointer"
+          className="scroll-link scroll-smooth uppercase absolute bottom-48 text-xl text-white rotate-90 left-[30%] font-sans tracking-widest scoll-link cursor-pointer"
         >
           {'scroll'.split('').map((char, i) => (
             <span key={i} style={{ animation: `spell 2s ease infinite ${i / 10}s` }}>
