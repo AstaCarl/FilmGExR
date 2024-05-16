@@ -16,7 +16,7 @@ export default function ImgWithParagraf({ paragrafText, title, src, alt }) {
     <article className={`flex items-center bg-off-white rounded-lg pb-24 `}>
       <div ref={ref} className={`${isVisible ? 'appear-on-scroll duration-1000' : 'before-scroll'} `}>
         <div className="tw-grid ">
-          <div className="col-span-full py-10 lg:col-span-5 lg:place-content-center left-content-container">
+          <div className="col-span-full py-10 lg:col-span-5 lg:place-content-center page-content-container lg:pr-0">
             <Title title={title} variant="subtitle" />
             <Paragraf className="text-lg" paragrafText={paragrafText} />
           </div>
