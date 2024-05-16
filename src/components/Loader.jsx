@@ -58,7 +58,7 @@ export default function Loader() {
       </div>
       <h2
         style={{ animation: 'fadeDown 1s forwards', animationIterationCount: 1, animationDelay: '2.2s' }}
-        className="text-white font-sans pt-2 font-bold w-[214px] lg:w-[428px] text-[17px] lg:text-[34px] flex justify-center opacity-0"
+        className="text-white font-syntax uppercase pt-2 w-[214px] lg:w-[428px] text-[13px] lg:text-[26px] flex justify-center opacity-0"
       >
         Virtual production studio
       </h2>
