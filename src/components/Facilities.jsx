@@ -16,6 +16,8 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
 
   const handleShowBullets = () => {
     setShowBullets(!showBullets);
+    setShowBullets3(false);
+    setShowBullets2(false);
   };
   const handleShowBullets2 = () => {
     setShowBullets2(!showBullets2);
