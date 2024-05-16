@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 
 export default function HeroSection({ mobileSrc, desktopSrc }) {
   return (
-    <div className="h-[calc(100dvh)] w-screen bg-dark">
+    <div className="h-screen w-screen bg-dark">
       <div className="relative z-0">
         <Video mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <Link
