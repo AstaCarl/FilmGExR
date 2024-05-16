@@ -33,7 +33,7 @@
     @apply pt-32;
   }
   .fullscreen {
-    @apply h-[calc(100dvh)] flex items-center;
+    @apply h-screen flex items-center;
   }
   .tw-grid-gap {
     @apply gap-4 md:gap-6;
