@@ -1,8 +1,6 @@
-import Paragraf from '@/components/Paragraf';
 import Title from '@/components/ui/Title';
-import React, { useState } from 'react';
-// import { fetcher } from '../../../lib/api';
-import { useIntersectionObserver } from '../../lib/interSectionObserver';
+import React, { useState, useRef } from 'react';
+import { usePreciseObserver } from '../../lib/preciseObserver';
 
 export default function Facilities({ uniqueData, serviceData, productionData, title }) {
   const [showBullets, setShowBullets] = useState(false);
@@ -10,7 +8,9 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
   const [showBullets3, setShowBullets3] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const ref = useIntersectionObserver(() => {
+  const ref = useRef();
+
+  usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
 
