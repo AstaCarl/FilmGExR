@@ -18,7 +18,7 @@ export default function Loader() {
       ></div>
       <h1
         style={{ animation: 'fadeUp 1.2s forwards', animationDelay: '2s' }}
-        className="text-white opacity-0 font-sans font-bold text-[48px] lg:text-[96px] flex w-[214px] lg:w-[428px] lg:-mb-4 justify-start"
+        className="text-white opacity-0 font-syntax text-[45px] lg:text-[90px] flex w-[214px] lg:w-[428px] lg:-mb-4 justify-start"
       >
         FilmGExR
       </h1>
