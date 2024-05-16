@@ -66,7 +66,7 @@ export default function Navigation({ navigationData }) {
       <nav
         className={`${
           isOpen ? ' bg-off-white sticky z-10  translate-x-0 blur-none' : ' translate-x-full overflow-hidden blur-lg'
-        } transition-all delay-100 duration-700 ease-in-out -translate-y-20 pb-10 lg:pb-0 h-screen flex justify-end items-end lg:translate-x-0 lg:blur-none lg:justify-start lg:items-center lg:h-20 lg:translate-y-0`}
+        } transition-all delay-100 duration-700 ease-in-out -translate-y-20 pb-10 lg:pb-0 h-[calc(100dvh)] flex justify-end items-end lg:translate-x-0 lg:blur-none lg:justify-start lg:items-center lg:h-20 lg:translate-y-0`}
       >
         <ul
           className={` space-y-6 text-right lg:space-y-0 lg:flex lg:gap-6 right-content-container transition-all duration-700 ease-in-out `}
