@@ -44,7 +44,7 @@ export default function ErrorPage({ data }) {
             >
               <Anchor variant="smallArrowLink" href={data.arrowAnchor.url} title={data.arrowAnchor.title} />
               <Image
-                src={`http://localhost:1337${data.arrowAnchor.icon.data.attributes.url}`}
+                src={data.arrowAnchor.icon.data.attributes.url}
                 alt={data.arrowAnchor.icon.data.attributes.alternativeText}
                 width={28}
                 height={28}

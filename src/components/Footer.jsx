@@ -37,7 +37,7 @@ export default function Footer({ footerData }) {
                     width={30}
                     height={30}
                     className="w-8 mr-4 md:mr-0 md:ml-4"
-                    src={`http://localhost:1337${item.icon.data.attributes.url}`}
+                    src={item.icon.data.attributes.url}
                     alt={item.icon.data.attributes.alternativeText}
                   />
                 </Anchor>

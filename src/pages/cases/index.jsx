@@ -31,11 +31,7 @@ export default function Cases({ casesData }) {
         {casesData.cases.map((caseItem, index) => {
           return (
             <div className="relative" key={index}>
-              <WorkSection
-                key={index}
-                subtitle={caseItem.title}
-                video={`http://localhost:1337${caseItem.video.data.attributes.url}`}
-              />
+              <WorkSection key={index} subtitle={caseItem.title} video={caseItem.video.data.attributes.url} />
             </div>
           );
         })}

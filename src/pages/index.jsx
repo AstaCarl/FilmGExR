@@ -60,8 +60,8 @@ export default function Home({ homeData }) {
     };
   }, [setHasLoaded, homeData]);
 
-  const mobileSrc = `http://localhost:1337${homeData.HeroVideo.data[0].attributes.url}`;
-  const desktopSrc = `http://localhost:1337${homeData.HeroVideo.data[1].attributes.url}`;
+  const mobileSrc = homeData.HeroVideo.data[0].attributes.url;
+  const desktopSrc = homeData.HeroVideo.data[1].attributes.url;
 
   if (!hasLoaded) {
     return <Loader />;
@@ -93,7 +93,7 @@ export default function Home({ homeData }) {
                   >
                     <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title} />
                     <Image
-                      src={`http://localhost:1337${introData.arrowAnchor.icon.data.attributes.url}`}
+                      src={introData.arrowAnchor.icon.data.attributes.url}
                       alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
                       width={40}
                       height={40}
@@ -125,7 +125,7 @@ export default function Home({ homeData }) {
                     <ImgWithParagraf
                       paragrafText={benefit.paragraf}
                       title={benefit.subtitle}
-                      src={`http://localhost:1337${benefit.image.data.attributes.url}`}
+                      src={benefit.image.data.attributes.url}
                       alt={benefit.image.data.attributes.alternativeText}
                     />
                     {introData &&
@@ -141,7 +141,7 @@ export default function Home({ homeData }) {
                             title={introData.arrowAnchor.title}
                           />
                           <Image
-                            src={`http://localhost:1337${introData.arrowAnchor.icon.data.attributes.url}`}
+                            src={introData.arrowAnchor.icon.data.attributes.url}
                             alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
                             width={40}
                             height={40}

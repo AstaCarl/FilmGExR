@@ -78,7 +78,7 @@ export default function About(data) {
               width={200}
               height={200}
               alt={item.logos.data.attributes.alternativeText}
-              src={`http://localhost:1337${item.logos.data.attributes.url}`}
+              src={item.logos.data.attributes.url}
               className="w-auto h-auto"
             />
           </Link>
@@ -97,7 +97,7 @@ export default function About(data) {
           >
             <TeamCard
               title={item.title}
-              src={`http://localhost:1337${item.profile.data.attributes.url}`}
+              src={item.profile.data.attributes.url}
               paragraf={item.subtitle}
               alt={item.profile.data.attributes.alternativeText}
             />

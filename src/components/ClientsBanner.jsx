@@ -24,7 +24,7 @@ export default function ClientsBanner({ clientData }) {
               <div key={index} className="col-span-4 ">
                 <div className="h-24 w-24 flex items-start justify-center">
                   <Image
-                    src={`http://localhost:1337${logo.logos.data.attributes.url}`}
+                    src={logo.logos.data.attributes.url}
                     alt={logo.logos.data.attributes.alternativeText}
                     width={50}
                     height={50}
@@ -43,7 +43,7 @@ export default function ClientsBanner({ clientData }) {
                 clientData.clients.map((logo, index) => (
                   <Image
                     key={index}
-                    src={`http://localhost:1337${logo.logos.data.attributes.url}`}
+                    src={logo.logos.data.attributes.url}
                     alt={logo.logos.data.attributes.alternativeText}
                     width={50}
                     height={50}

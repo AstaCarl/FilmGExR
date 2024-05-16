@@ -68,7 +68,7 @@ export default function StudioModels({ studioData }) {
       </ul>
       <div className="relative w-full">
         <Image
-          src={`http://localhost:1337${studioData.studios.data[0].attributes.url}`}
+          src={studioData.studios.data[0].attributes.url}
           alt="default"
           width={2000}
           height={2000}
@@ -77,7 +77,7 @@ export default function StudioModels({ studioData }) {
           } w-full opacity-0 transition-opacity duration-1000 ease-in-out relative`}
         />
         <Image
-          src={`http://localhost:1337${studioData.studios.data[1].attributes.url}`}
+          src={studioData.studios.data[1].attributes.url}
           alt="default"
           width={4000}
           height={4000}

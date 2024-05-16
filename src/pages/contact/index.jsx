@@ -58,7 +58,7 @@ export default function Contact({ contactData }) {
             <Image
               width={30}
               height={30}
-              src={`http://localhost:1337${contactData.Address.icon.data.attributes.url}`}
+              src={contactData.Address.icon.data.attributes.url}
               alt={contactData.Address.icon.data.attributes.alternativeText || 'Address icon'}
             />
             <p className="text-lg">{contactData.Address.title}</p>
@@ -69,7 +69,7 @@ export default function Contact({ contactData }) {
             <Image
               width={30}
               height={30}
-              src={`http://localhost:1337${contactData.Phone.icon.data.attributes.url}`}
+              src={contactData.Phone.icon.data.attributes.url}
               alt={contactData.Phone.icon.data.attributes.alternativeText || 'Phone icon'}
             />
             <p className="text-lg">{contactData.Phone.title}</p>
@@ -84,7 +84,7 @@ export default function Contact({ contactData }) {
             <Image
               width={30}
               height={30}
-              src={`http://localhost:1337${contactData.Email.icon.data.attributes.url}`}
+              src={contactData.Email.icon.data.attributes.url}
               alt={contactData.Email.icon.data.attributes.alternativeText || 'Email icon'}
             />
             <p className="text-lg">{contactData.Email.title}</p>

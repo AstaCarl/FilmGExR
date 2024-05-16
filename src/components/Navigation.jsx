@@ -37,7 +37,7 @@ export default function Navigation({ navigationData }) {
               <Image
                 width={100}
                 height={100}
-                src={`http://localhost:1337${navigationData.logo.logo.data.attributes.url}`}
+                src={navigationData.logo.logo.data.attributes.url}
                 alt={navigationData.logo.logo.data.attributes.alternativeText}
                 className="h-[40px] w-auto left-content-container"
               />

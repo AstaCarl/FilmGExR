@@ -4,9 +4,9 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
+        protocol: 'https',
+        hostname: 'wise-approval-1b4d22b6f0.media.strapiapp.com',
+        port: '',
       },
     ],
   },
