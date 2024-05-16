@@ -1,8 +1,8 @@
 import Paragraf from '@/components/Paragraf';
 import Title from '@/components/ui/Title';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { fetcher } from '../../../lib/api';
-import { useIntersectionObserver } from '../../../lib/interSectionObserver';
+import { usePreciseObserver } from '../../../lib/preciseObserver';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/the-process?populate=*`);
@@ -18,7 +18,9 @@ export default function Theprocess({ data }) {
   const [showParagrafId, setShowParagrafId] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const ref = useIntersectionObserver(() => {
+  const ref = useRef();
+
+  usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
 
