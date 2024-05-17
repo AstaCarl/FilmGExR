@@ -112,22 +112,15 @@ export default function Home({ homeData }) {
           <ClientsBanner clientData={introData} />
         </div>
         <div>
-          <div
-            ref={benefitsRef}
-            className={`${
-              isBenefitsVisible ? ' appear-on-scroll' : 'before-scroll translate-y-4'
-            } page-content-container`}
-          >
-            <Title title={introData.benefitsTitle} variant="pageTitle" />
-          </div>
           {introData.benefits &&
             introData.benefits.map((benefit, index) => (
-              <div key={index} className=" sticky top-[10%] lg:top-[25%] scroll-smooth space-y-6">
+              <div key={index} className=" sticky top-[10%] lg:top-[0%] scroll-smooth space-y-6">
                 <ImgWithParagraf
                   paragrafText={benefit.paragraf}
-                  title={benefit.subtitle}
+                  subtitle={benefit.subtitle}
                   src={benefit.image.data.attributes.url}
                   alt={benefit.image.data.attributes.alternativeText}
+                  title={index === 0 ? introData.benefitsTitle : undefined}
                 />
                 {/* {introData &&
                   introData.arrowAnchor &&

@@ -49,10 +49,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
             isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'
           }`}
         >
-          <div className="col-span-10 col-start-1 w-full">
+          <div className="col-span-10 col-start-1 w-full lg:col-span-6 lg:col-start-2">
             <Title variant="subtitle" title={uniqueData && uniqueData.title} />
           </div>
-          <div className="col-span-1 col-start-12">
+          <div className="col-span-1 col-start-12 lg:col-start-11">
             <button
               className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
               onClick={handleShowBullets}
@@ -85,10 +85,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
             isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'
           }`}
         >
-          <div className="col-span-10 col-start-1 w-full">
+          <div className="col-span-10 col-start-1 w-full lg:col-span-6 lg:col-start-2">
             <Title variant="subtitle" title={serviceData && serviceData.title} />
           </div>
-          <div className="col-span-1 col-start-12">
+          <div className="col-span-1 col-start-12 lg:col-start-11">
             <button
               className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
               onClick={handleShowBullets2}
@@ -121,10 +121,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
             isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'
           }`}
         >
-          <div className="col-span-10 col-start-1 w-full">
+          <div className="col-span-10 col-start-1 w-full lg:col-span-6 lg:col-start-2">
             <Title variant="subtitle" title={productionData && productionData.title} />
           </div>
-          <div className="col-span-1 col-start-12">
+          <div className="col-span-1 col-start-12 lg:col-start-11">
             <button
               className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
               onClick={handleShowBullets3}

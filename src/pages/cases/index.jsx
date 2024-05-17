@@ -24,13 +24,16 @@ export default function Cases({ casesData }) {
 
   return (
     <main className="v-space-xl bg-off-white">
-      <section className="rounded-t-xl flex flex-col gap-6">
-        <div ref={ref} className={`page-content-container ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
+      <section>
+        <div
+          ref={ref}
+          className={`page-content-container mb-12 ${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'}`}
+        >
           <Title title={casesData.title} variant="pageTitle" />
         </div>
         {casesData.cases.map((caseItem, index) => {
           return (
-            <div className="relative" key={index}>
+            <div className="mb-20" key={index}>
               <WorkSection key={index} subtitle={caseItem.title} video={caseItem.video.data.attributes.url} />
             </div>
           );

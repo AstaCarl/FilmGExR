@@ -50,60 +50,64 @@ export default function About(data) {
   });
 
   return (
-    <article className="page-content-container v-space-xl bg-off-white">
-      <div ref={aboutRef} className={`pb-14 ${isAboutVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
-        <Title title={data.data.title} variant="pageTitle" />
-      </div>
-      {data.data.aboutUs.map((item, index) => (
-        <div key={index} className={`pb-14 `}>
-          <TitleWithParagraf
-            variant="subtitle"
-            title={item.subtitle}
-            paragraf={item.paragraf}
-            componentvariant={index % 2 !== 0 ? 'opposite' : ''}
-          />
+    <article className="page-content-container flex flex-col gap-36 bg-off-white">
+      <div className="flex flex-col gap-12">
+        <div ref={aboutRef} className={` ${isAboutVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}>
+          <Title title={data.data.title} variant="pageTitle" />
         </div>
-      ))}
-      <div ref={partnersRef} className={` ${isPartnersVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-lg`}>
-        <Title title={data.data.partnersTitle} variant="pageTitle" />
-      </div>
-      <div
-        ref={logosRef}
-        className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex v-space-sm  `}
-      >
-        {data.data.partners.map((item, index) => (
-          <Link key={index} href={item.url} target="_blank">
-            <Image
-              key={index}
-              width={200}
-              height={200}
-              alt={item.logos.data.attributes.alternativeText}
-              src={item.logos.data.attributes.url}
-              className="w-auto h-auto"
-            />
-          </Link>
-        ))}
-      </div>
-      <div ref={teamRef} className={`v-space-xl ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '}`}>
-        <Title title={data.data.teamTitle} variant="pageTitle" />
-      </div>
-      <section className="tw-grid v-space-sm">
-        {data.data.teamMemberCard.map((item, index) => (
-          <div
-            key={index}
-            ref={teamCardRef}
-            className={` ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'} 
-            delay-${index * 150} col-span-6 md:col-span-4`}
-          >
-            <TeamCard
-              title={item.title}
-              src={item.profile.data.attributes.url}
-              paragraf={item.subtitle}
-              alt={item.profile.data.attributes.alternativeText}
+        {data.data.aboutUs.map((item, index) => (
+          <div key={index} className={``}>
+            <TitleWithParagraf
+              variant="subtitle"
+              title={item.subtitle}
+              paragraf={item.paragraf}
+              componentvariant={index % 2 !== 0 ? 'opposite' : ''}
             />
           </div>
         ))}
-      </section>
+      </div>
+
+      <div>
+        <div ref={partnersRef} className={` ${isPartnersVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
+          <Title title={data.data.partnersTitle} variant="pageTitle" />
+        </div>
+        <div ref={logosRef} className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex `}>
+          {data.data.partners.map((item, index) => (
+            <Link key={index} href={item.url} target="_blank">
+              <Image
+                key={index}
+                width={200}
+                height={200}
+                alt={item.logos.data.attributes.alternativeText}
+                src={item.logos.data.attributes.url}
+                className="w-auto h-auto"
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div ref={teamRef} className={` ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '}`}>
+          <Title title={data.data.teamTitle} variant="pageTitle" />
+        </div>
+        <section className="tw-grid ">
+          {data.data.teamMemberCard.map((item, index) => (
+            <div
+              key={index}
+              ref={teamCardRef}
+              className={` ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'} 
+            delay-${index * 150} col-span-6 md:col-span-4`}
+            >
+              <TeamCard
+                title={item.title}
+                src={item.profile.data.attributes.url}
+                paragraf={item.subtitle}
+                alt={item.profile.data.attributes.alternativeText}
+              />
+            </div>
+          ))}
+        </section>
+      </div>
     </article>
   );
 }

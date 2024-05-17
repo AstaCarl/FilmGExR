@@ -4,7 +4,7 @@ import Title from './ui/Title';
 import Paragraf from './Paragraf';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
-export default function ImgWithParagraf({ paragrafText, title, src, alt }) {
+export default function ImgWithParagraf({ paragrafText, title, subtitle, src, alt }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
 
@@ -13,11 +13,17 @@ export default function ImgWithParagraf({ paragrafText, title, src, alt }) {
   });
 
   return (
-    <article className={`h-screen flex items-center bg-off-white rounded-lg`}>
+    <article className={`h-screen lg:-mt-36 flex items-center bg-off-white rounded-lg`}>
       <div ref={ref} className={`${isVisible ? 'appear-on-scroll duration-1000' : 'before-scroll'} `}>
+        <div className="page-content-container">
+          <Title title={title} variant="pageTitle" />
+        </div>
         <div className="tw-grid ">
           <div className="col-span-full py-10 lg:col-span-5 lg:place-content-center page-content-container lg:pr-0">
-            <Title title={title} variant="subtitle" />
+            <div className="mb-8 lg:hidden">
+              <Title title={title} variant="pageTitle" />
+            </div>
+            <Title title={subtitle} variant="subtitle" />
             <Paragraf className="pt-2 lg:text-lg" paragrafText={paragrafText} />
           </div>
           <Image

@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Paragraf from './Paragraf';
 import Title from './ui/Title';
-import { useIntersectionObserver } from '../../lib/interSectionObserver';
+import { usePreciseObserver } from '../../lib/preciseObserver';
 
 export default function TitleWithParagraf({ title, subtitle, paragraf, variant, componentvariant }) {
   const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef();
 
-  const ref = useIntersectionObserver(() => {
+  usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
 
