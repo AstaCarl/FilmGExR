@@ -38,10 +38,6 @@ export default function Home({ homeData }) {
     setIsVisible(true);
   });
 
-  // const clientsRef = useIntersectionObserver(() => {
-  //   setIsClientsVisible(true);
-  // });
-
   const clientsRef = useRef();
 
   usePreciseObserver(clientsRef, () => {
@@ -74,98 +70,91 @@ export default function Home({ homeData }) {
     return <Loader />;
   } else {
     return (
-      <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white`}>
-        <CookieBanner />
-        <div>
-          <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
-          <div id="firstSection" className="fullscreen flex-col justify-center page-content-container">
-            {introData &&
-              introData.arrowAnchor &&
-              introData.arrowAnchor.icon &&
-              introData.arrowAnchor.icon.data &&
-              introData.arrowAnchor.icon.data.attributes && (
-                <>
-                  <TitleWithParagraf
-                    variant="pageTitle"
-                    introData={introData}
-                    subtitle={introData.introduction.subtitle}
-                    title={introData.introduction.title}
-                    paragraf={introData.introduction.paragraf}
+      <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col gap-36`}>
+        {/* <CookieBanner /> */}
+        <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
+        <div id="firstSection" className="page-content-container ">
+          {introData &&
+            introData.arrowAnchor &&
+            introData.arrowAnchor.icon &&
+            introData.arrowAnchor.icon.data &&
+            introData.arrowAnchor.icon.data.attributes && (
+              <>
+                <TitleWithParagraf
+                  variant="pageTitle"
+                  introData={introData}
+                  subtitle={introData.introduction.subtitle}
+                  title={introData.introduction.title}
+                  paragraf={introData.introduction.paragraf}
+                />
+                <div
+                  ref={ref}
+                  className={`${
+                    isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
+                  } v-space-md md:v-space-lg flex justify-start gap-2 w-full`}
+                >
+                  <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title} />
+                  <Image
+                    src={introData.arrowAnchor.icon.data.attributes.url}
+                    alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                    width={40}
+                    height={40}
+                    className="h-auto w-auto"
                   />
-                  <div
-                    ref={ref}
-                    className={`${
-                      isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
-                    } v-space-xl flex justify-start gap-2 w-full`}
-                  >
-                    <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title} />
-                    <Image
-                      src={introData.arrowAnchor.icon.data.attributes.url}
-                      alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                      width={40}
-                      height={40}
-                      className="h-auto w-auto"
-                    />
-                  </div>
-                </>
-              )}
-          </div>
-          <div
-            ref={clientsRef}
-            className={`pb-36 bg-off-white ${
-              isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'
-            } `}
-          >
-            <ClientsBanner clientData={introData} />
-          </div>
-          <div>
-            <div
-              ref={benefitsRef}
-              className={`${
-                isBenefitsVisible ? ' appear-on-scroll' : 'before-scroll translate-y-4'
-              } page-content-container`}
-            >
-              <Title title={introData.benefitsTitle} variant="pageTitle" />
-            </div>
-            <div className="">
-              {introData.benefits &&
-                introData.benefits.map((benefit, index) => (
-                  <div key={index} className="pb-36 bg-of-white sticky top-[20%] lg:top-[25%] scroll-smooth ">
-                    <ImgWithParagraf
-                      paragrafText={benefit.paragraf}
-                      title={benefit.subtitle}
-                      src={benefit.image.data.attributes.url}
-                      alt={benefit.image.data.attributes.alternativeText}
-                    />
-                    {introData &&
-                      introData.arrowAnchor &&
-                      introData.arrowAnchor.icon &&
-                      introData.arrowAnchor.icon.data &&
-                      introData.arrowAnchor.icon.data.attributes &&
-                      index === introData.benefits.length - 1 && (
-                        <div className="hidden lg:flex w-full gap-2 page-content-container">
-                          <Anchor
-                            variant="arrowLink"
-                            href={introData.arrowAnchor.url}
-                            title={introData.arrowAnchor.title}
-                          />
-                          <Image
-                            src={introData.arrowAnchor.icon.data.attributes.url}
-                            alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                            width={40}
-                            height={40}
-                            className="h-auto w-auto"
-                          />
-                        </div>
-                      )}
-                  </div>
-                ))}
-            </div>
-            <div className=" v-space-xl relative bg-off-white">
-              <StudioModels studioData={homeData.Studios} />
-            </div>
-          </div>
+                </div>
+              </>
+            )}
         </div>
+        <div
+          ref={clientsRef}
+          className={`${isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'} `}
+        >
+          <ClientsBanner clientData={introData} />
+        </div>
+        <div>
+          <div
+            ref={benefitsRef}
+            className={`${
+              isBenefitsVisible ? ' appear-on-scroll' : 'before-scroll translate-y-4'
+            } page-content-container`}
+          >
+            <Title title={introData.benefitsTitle} variant="pageTitle" />
+          </div>
+          {introData.benefits &&
+            introData.benefits.map((benefit, index) => (
+              <div key={index} className=" sticky top-[10%] lg:top-[25%] scroll-smooth space-y-6">
+                <ImgWithParagraf
+                  paragrafText={benefit.paragraf}
+                  title={benefit.subtitle}
+                  src={benefit.image.data.attributes.url}
+                  alt={benefit.image.data.attributes.alternativeText}
+                />
+                {/* {introData &&
+                  introData.arrowAnchor &&
+                  introData.arrowAnchor.icon &&
+                  introData.arrowAnchor.icon.data &&
+                  introData.arrowAnchor.icon.data.attributes &&
+                  index === introData.benefits.length - 1 && (
+                    <div className="hidden lg:flex w-full gap-2 page-content-container">
+                      <Anchor
+                        variant="arrowLink"
+                        href={introData.arrowAnchor.url}
+                        title={introData.arrowAnchor.title}
+                      />
+                      <Image
+                        src={introData.arrowAnchor.icon.data.attributes.url}
+                        alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                        width={40}
+                        height={40}
+                        className="h-auto w-auto"
+                      />
+                    </div>
+                  )} */}
+              </div>
+            ))}
+        </div>
+
+        <StudioModels studioData={homeData.Studios} />
         <Facilities
           uniqueData={introData.uniqueInScandinavia}
           serviceData={introData.fullService}

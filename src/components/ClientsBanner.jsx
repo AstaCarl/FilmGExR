@@ -9,33 +9,25 @@ export default function ClientsBanner({ clientData }) {
   }
 
   return (
-    <article className="md:tw-grid ">
-      <div className={` md:col-span-6 left-content-container space-y-4 `}>
+    <article className="tw-grid page-content-container space-y-4">
+      <div className={` col-span-full `}>
         <Title title={clientData.clientsTitle} variant="subtitle" />
         <Paragraf paragrafText={clientData.clientSummary} />
       </div>
-      <div
-        className={`hidden md:block col-span-6 
-          `}
-      >
-        <div className="grid grid-cols-12 gap-6 place-items-center right-content-container">
-          {clientData.clients &&
-            clientData.clients.map((logo, index) => (
-              <div key={index} className="col-span-4 ">
-                <div className="h-24 w-24 flex items-start justify-center">
-                  <Image
-                    src={logo.logos.data.attributes.url}
-                    alt={logo.logos.data.attributes.alternativeText}
-                    width={50}
-                    height={50}
-                    className="w-20 lg:w-24"
-                  />
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
-      <div className={`md:hidden overflow-hidden whitespace-nowrap pt-10 `}>
+
+      {clientData.clients &&
+        clientData.clients.map((logo, index) => (
+          <div key={index} className="col-span-3">
+            <Image
+              src={logo.logos.data.attributes.url}
+              alt={logo.logos.data.attributes.alternativeText}
+              width={50}
+              height={50}
+              className="w-24 h-auto"
+            />
+          </div>
+        ))}
+      {/* <div className={`md:hidden overflow-hidden whitespace-nowrap pt-10 `}>
         <div className="flex min-w-full items-center justify-between gap-20 animate-marquee">
           {[...Array(2)].map((_, index) => (
             <React.Fragment key={index}>
@@ -53,7 +45,7 @@ export default function ClientsBanner({ clientData }) {
             </React.Fragment>
           ))}
         </div>
-      </div>
+      </div> */}
     </article>
   );
 }

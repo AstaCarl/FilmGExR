@@ -31,7 +31,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
   };
 
   return (
-    <article className="h-screen flex flex-col v-space-xl mt-36">
+    <article className="relative bg-off-white">
       <div
         ref={ref}
         className={`${
@@ -45,7 +45,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
         </div>
         <div
           ref={ref}
-          className={`tw-grid mt-16  h-[120px] place-items-center border-t-2 transition-all ease-in duration-300 border-red border-opacity-20 page-content-container ${
+          className={`tw-grid mt-10  h-[120px] place-items-center border-t-2 transition-all ease-in duration-300 border-red border-opacity-20 page-content-container ${
             isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'
           }`}
         >
