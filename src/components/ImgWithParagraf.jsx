@@ -4,7 +4,7 @@ import Title from './ui/Title';
 import Paragraf from './Paragraf';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
-export default function ImgWithParagraf({ paragrafText, title, subtitle, src, alt }) {
+export default function ImgWithParagraf({ paragrafText, title, subtitle, src, alt, anchor }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
 
@@ -25,6 +25,7 @@ export default function ImgWithParagraf({ paragrafText, title, subtitle, src, al
             </div>
             <Title title={subtitle} variant="subtitle" />
             <Paragraf className="pt-2 lg:text-lg" paragrafText={paragrafText} />
+            {anchor}
           </div>
           <Image
             src={src}

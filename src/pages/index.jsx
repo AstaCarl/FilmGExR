@@ -121,6 +121,29 @@ export default function Home({ homeData }) {
                   src={benefit.image.data.attributes.url}
                   alt={benefit.image.data.attributes.alternativeText}
                   title={index === 0 ? introData.benefitsTitle : undefined}
+                  anchor={
+                    introData &&
+                    introData.arrowAnchor &&
+                    introData.arrowAnchor.icon &&
+                    introData.arrowAnchor.icon.data &&
+                    introData.arrowAnchor.icon.data.attributes &&
+                    index === introData.benefits.length - 1 ? (
+                      <div className="hidden lg:flex w-full gap-2 pt-2 xl:pt-10">
+                        <Anchor
+                          variant="arrowLink"
+                          href={introData.arrowAnchor.url}
+                          title={introData.arrowAnchor.title}
+                        />
+                        <Image
+                          src={introData.arrowAnchor.icon.data.attributes.url}
+                          alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                          width={40}
+                          height={40}
+                          className="h-auto w-auto"
+                        />
+                      </div>
+                    ) : undefined
+                  }
                 />
                 {/* {introData &&
                   introData.arrowAnchor &&
@@ -128,20 +151,7 @@ export default function Home({ homeData }) {
                   introData.arrowAnchor.icon.data &&
                   introData.arrowAnchor.icon.data.attributes &&
                   index === introData.benefits.length - 1 && (
-                    <div className="hidden lg:flex w-full gap-2 page-content-container">
-                      <Anchor
-                        variant="arrowLink"
-                        href={introData.arrowAnchor.url}
-                        title={introData.arrowAnchor.title}
-                      />
-                      <Image
-                        src={introData.arrowAnchor.icon.data.attributes.url}
-                        alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                        width={40}
-                        height={40}
-                        className="h-auto w-auto"
-                      />
-                    </div>
+
                   )} */}
               </div>
             ))}

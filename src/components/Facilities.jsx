@@ -68,13 +68,13 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
         </div>
         <div
-          className={`page-content-container overflow-hidden transition-all duration-300 ease-i ${
+          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
             showBullets ? 'h-[300px]' : 'h-0'
           }`}
         >
           {uniqueData &&
             uniqueData.bulletpoints.map((item, index) => (
-              <li key={index} className={`n p-2`}>
+              <li key={index} className={`p-2 col-span-full lg:col-start-2`}>
                 {item.point}
               </li>
             ))}
@@ -104,13 +104,13 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
         </div>
         <div
-          className={`page-content-container overflow-hidden transition-all duration-300 ease-i ${
-            showBullets2 ? 'h-[300px]' : 'h-0'
+          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
+            showBullets2 ? 'h-[200px]' : 'h-0'
           }`}
         >
           {serviceData &&
             serviceData.bulletpoints.map((item, index) => (
-              <li key={index} className={`n p-2`}>
+              <li key={index} className={`col-span-full lg:col-start-2`}>
                 {item.point}
               </li>
             ))}
@@ -140,13 +140,13 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
         </div>
         <div
-          className={`page-content-container overflow-hidden transition-all duration-300 ease-i ${
-            showBullets3 ? 'h-[300px]' : 'h-0'
+          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
+            showBullets3 ? 'h-[200px]' : 'h-0'
           }`}
         >
           {productionData &&
             productionData.bulletpoints.map((item, index) => (
-              <li key={index} className={`n p-2`}>
+              <li key={index} className={`col-span-full lg:col-start-2 p-2`}>
                 {item.point}
               </li>
             ))}
