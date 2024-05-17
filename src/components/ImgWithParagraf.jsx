@@ -15,7 +15,7 @@ export default function ImgWithParagraf({ paragrafText, title, subtitle, src, al
   return (
     <article className={`h-screen lg:-mt-36 flex items-center bg-off-white rounded-lg`}>
       <div ref={ref} className={`${isVisible ? 'appear-on-scroll duration-1000' : 'before-scroll'} `}>
-        <div className="page-content-container">
+        <div className="page-content-container hidden lg:block">
           <Title title={title} variant="pageTitle" />
         </div>
         <div className="tw-grid ">
