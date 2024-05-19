@@ -114,7 +114,7 @@ export default function Home({ homeData }) {
         <div>
           {introData.benefits &&
             introData.benefits.map((benefit, index) => (
-              <div key={index} className=" sticky top-[10%] lg:top-[0%] scroll-smooth space-y-6">
+              <div key={index} className=" sticky top-0 lg:top-[0%] scroll-smooth space-y-6">
                 <ImgWithParagraf
                   paragrafText={benefit.paragraf}
                   subtitle={benefit.subtitle}
@@ -145,14 +145,6 @@ export default function Home({ homeData }) {
                     ) : undefined
                   }
                 />
-                {/* {introData &&
-                  introData.arrowAnchor &&
-                  introData.arrowAnchor.icon &&
-                  introData.arrowAnchor.icon.data &&
-                  introData.arrowAnchor.icon.data.attributes &&
-                  index === introData.benefits.length - 1 && (
-
-                  )} */}
               </div>
             ))}
         </div>
