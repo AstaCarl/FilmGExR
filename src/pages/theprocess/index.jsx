@@ -1,8 +1,9 @@
 import Paragraf from '@/components/Paragraf';
 import Title from '@/components/ui/Title';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { fetcher } from '../../../lib/api';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
+import { Link } from 'react-scroll';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/the-process?populate=*`);
@@ -17,6 +18,11 @@ export async function getStaticProps() {
 export default function Theprocess({ data }) {
   const [showParagrafId, setShowParagrafId] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [showParagraf1, setShowParagraf1] = useState(false);
+  const [showParagraf2, setShowParagraf2] = useState(false);
+  const [showParagraf3, setShowParagraf3] = useState(false);
+  const [showParagraf4, setShowParagraf4] = useState(false);
+  const [showParagraf5, setShowParagraf5] = useState(false);
 
   const ref = useRef();
 
@@ -32,6 +38,24 @@ export default function Theprocess({ data }) {
     }
   };
 
+  const handleShowParagraf1 = () => {
+    setShowParagraf1(!showParagraf1);
+  };
+  const handleShowParagraf2 = () => {
+    setShowParagraf2(!showParagraf2);
+  };
+  const handleShowParagraf3 = () => {
+    setShowParagraf3(!showParagraf3);
+  };
+  const handleShowParagraf4 = () => {
+    setShowParagraf4(!showParagraf4);
+  };
+
+  const handleShowParagraf5 = () => {
+    setShowParagraf5(!showParagraf5);
+  };
+  console.log('data', data);
+
   return (
     <div className=" bg-off-white v-space-xl flex">
       <article className="tw-grid">
@@ -42,51 +66,203 @@ export default function Theprocess({ data }) {
           <div className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} page-content-container`}>
             <Title title={data.attributes.subtitle} variant="subtitle" />
           </div>
-          <section ref={ref} className={`v-space-lg ${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'}`}>
-            {data.attributes.steps.map((item, index) => (
+          <div
+            ref={ref}
+            className={`v-space-lg ${
+              isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'
+            } border-b-2 border-red border-opacity-20`}
+          >
+            <section>
               <div
-                key={item.id}
-                style={{
-                  borderBottom: index === data.attributes.steps.length - 1 ? '1px solid rgba(244, 1, 59, 0.2)' : 'none',
-                }}
+                className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center `}
               >
-                <div
-                  className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center `}
-                >
-                  <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                    0{item.number}
-                  </span>
-                  <div className="col-span-8">
-                    <Title variant="subtitle" title={item.subtitle} />
-                  </div>
-                  <div className="col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
-                    <button
-                      className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
-                      onClick={handleShowParagraf(item.id)}
-                      aria-label="Show or hide steps"
-                    >
-                      <div className="w-6 h-[2px] bg-red rounded-full"></div>
-                      <div
-                        className={`${
-                          showParagrafId.includes(item.id) ? 'rotate-0' : ' rotate-90 '
-                        } absolute bottom-2.5 bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
-                      ></div>
-                    </button>
-                  </div>
+                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                  0{data.attributes.step1.number}
+                </span>
+                <div className="col-span-8">
+                  <Title variant="subtitle" title={data.attributes.step1.subtitle} />
                 </div>
-                <div className="page-content-container  ">
-                  <div className="tw-grid ">
-                    <Paragraf
-                      className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
-                        showParagrafId.includes(item.id) ? 'pt-4 h-[480px] md:h-[350px] md:pt-0 lg:h-[300px]' : ' h-0'
-                      }`}
-                      paragrafText={item.paragraf}
-                    />
-                  </div>
+                <Link
+                  smooth={true}
+                  to="paragraf1"
+                  offset={-200}
+                  className={`cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11 `}
+                  onClick={handleShowParagraf1}
+                  aria-label="Show or hide steps"
+                >
+                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
+                  <div
+                    className={`${
+                      showParagraf1 ? 'rotate-0' : ' rotate-90 '
+                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                  ></div>
+                </Link>
+              </div>
+              <div className="page-content-container  ">
+                <div className="tw-grid ">
+                  <Paragraf
+                    id="paragraf1"
+                    className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
+                      showParagraf1 ? 'pt-4 h-[350px] md:h-[260px] md:pt-0 lg:h-[250px]' : ' h-0'
+                    }`}
+                    paragrafText={data.attributes.step1.paragraf}
+                  />
                 </div>
               </div>
-            ))}
-          </section>
+            </section>
+            <section>
+              <div
+                className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center `}
+              >
+                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                  0{data.attributes.step2.number}
+                </span>
+                <div className="col-span-8">
+                  <Title variant="subtitle" title={data.attributes.step2.subtitle} />
+                </div>
+                <Link
+                  smooth={true}
+                  to="paragraf2"
+                  offset={-200}
+                  className={`cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11 `}
+                  onClick={handleShowParagraf2}
+                  aria-label="Show or hide steps"
+                >
+                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
+                  <div
+                    className={`${
+                      showParagraf2 ? 'rotate-0' : ' rotate-90 '
+                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                  ></div>
+                </Link>
+              </div>
+              <div className="page-content-container  ">
+                <div className="tw-grid ">
+                  <Paragraf
+                    id="paragraf2"
+                    className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
+                      showParagraf2 ? 'pt-4 h-[400px] md:h-[300px] md:pt-0 lg:h-[250px]' : ' h-0'
+                    }`}
+                    paragrafText={data.attributes.step2.paragraf}
+                  />
+                </div>
+              </div>
+            </section>
+            <section>
+              <div
+                className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center `}
+              >
+                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                  0{data.attributes.step3.number}
+                </span>
+                <div className="col-span-8">
+                  <Title variant="subtitle" title={data.attributes.step3.subtitle} />
+                </div>
+                <Link
+                  smooth={true}
+                  to="paragraf3"
+                  offset={-200}
+                  className={`cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11 `}
+                  onClick={handleShowParagraf3}
+                  aria-label="Show or hide steps"
+                >
+                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
+                  <div
+                    className={`${
+                      showParagraf3 ? 'rotate-0' : ' rotate-90 '
+                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                  ></div>
+                </Link>
+              </div>
+              <div className="page-content-container  ">
+                <div className="tw-grid ">
+                  <Paragraf
+                    id="paragraf3"
+                    className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
+                      showParagraf3 ? 'pt-4 h-[500px] md:h-[390px] md:pt-0 lg:h-[250px]' : ' h-0'
+                    }`}
+                    paragrafText={data.attributes.step3.paragraf}
+                  />
+                </div>
+              </div>
+            </section>
+            <section>
+              <div
+                className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center `}
+              >
+                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                  0{data.attributes.step4.number}
+                </span>
+                <div className="col-span-8">
+                  <Title variant="subtitle" title={data.attributes.step4.subtitle} />
+                </div>
+                <Link
+                  smooth={true}
+                  to="paragraf4"
+                  offset={-200}
+                  className={`cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11 `}
+                  onClick={handleShowParagraf4}
+                  aria-label="Show or hide steps"
+                >
+                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
+                  <div
+                    className={`${
+                      showParagraf4 ? 'rotate-0' : ' rotate-90 '
+                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                  ></div>
+                </Link>
+              </div>
+              <div className="page-content-container  ">
+                <div className="tw-grid ">
+                  <Paragraf
+                    id="paragraf4"
+                    className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
+                      showParagraf4 ? 'pt-4 h-[340px] md:h-[240px] md:pt-0 lg:h-[250px]' : ' h-0'
+                    }`}
+                    paragrafText={data.attributes.step4.paragraf}
+                  />
+                </div>
+              </div>
+            </section>
+            <section>
+              <div
+                className={`tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20  page-content-container justify-between gap-10 items-center `}
+              >
+                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                  0{data.attributes.step5.number}
+                </span>
+                <div className="col-span-8">
+                  <Title variant="subtitle" title={data.attributes.step5.subtitle} />
+                </div>
+                <Link
+                  smooth={true}
+                  to="paragraf5"
+                  offset={-200}
+                  className={`cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11 `}
+                  onClick={handleShowParagraf5}
+                  aria-label="Show or hide steps"
+                >
+                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
+                  <div
+                    className={`${
+                      showParagraf5 ? 'rotate-0' : ' rotate-90 '
+                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                  ></div>
+                </Link>
+              </div>
+              <div className="page-content-container  ">
+                <div className="tw-grid ">
+                  <Paragraf
+                    id="paragraf5"
+                    className={`transition-all duration-300 ease-in overflow-hidden col-span-full md:col-span-8 md:col-start-3 lg:col-span-8 lg:col-start-3 ${
+                      showParagraf5 ? 'pt-4 h-[310px] md:h-[240px] md:pt-0 lg:h-[250px]' : ' h-0'
+                    }`}
+                    paragrafText={data.attributes.step5.paragraf}
+                  />
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </article>
     </div>

@@ -45,7 +45,7 @@ export default function Contact({ contactData }) {
               isVisible ? 'appear-on-scroll delay-200' : 'before-scroll translate-y-5'
             } space-y-2 md:w-[70%]`}
           >
-            <Title variant="subtitle" title={contactData.subtitle} />
+            <h2 className="text-lg">{contactData.subtitle}</h2>
           </div>
         </div>
       )}
@@ -61,7 +61,7 @@ export default function Contact({ contactData }) {
               src={contactData.Address.icon.data.attributes.url}
               alt={contactData.Address.icon.data.attributes.alternativeText || 'Address icon'}
             />
-            <p className="text-lg">{contactData.Address.title}</p>
+            <p className="text-md md:text-lg">{contactData.Address.title}</p>
           </Link>
         )}
         {contactData.Phone && (
@@ -72,7 +72,7 @@ export default function Contact({ contactData }) {
               src={contactData.Phone.icon.data.attributes.url}
               alt={contactData.Phone.icon.data.attributes.alternativeText || 'Phone icon'}
             />
-            <p className="text-lg">{contactData.Phone.title}</p>
+            <p className="text-md md:text-lg">{contactData.Phone.title}</p>
           </div>
         )}
         {contactData.Email && (
@@ -87,7 +87,7 @@ export default function Contact({ contactData }) {
               src={contactData.Email.icon.data.attributes.url}
               alt={contactData.Email.icon.data.attributes.alternativeText || 'Email icon'}
             />
-            <p className="text-lg">{contactData.Email.title}</p>
+            <p className="text-md md:text-lg">{contactData.Email.title}</p>
           </Link>
         )}
       </div>
