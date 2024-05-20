@@ -5,7 +5,6 @@ import { LoaderContext } from '../contexts/LoaderContext';
 import StudioModels from '@/components/StudioModels';
 import ImgWithParagraf from '@/components/ImgWithParagraf';
 import TitleWithParagraf from '@/components/TitleWithParagraf';
-import CookieBanner from '@/components/CookieBanner';
 import Title from '@/components/ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import { usePreciseObserver } from '../../lib/preciseObserver';
@@ -71,7 +70,6 @@ export default function Home({ homeData }) {
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col gap-36`}>
-        {/* <CookieBanner /> */}
         <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <div id="firstSection" className="page-content-container ">
           {introData &&

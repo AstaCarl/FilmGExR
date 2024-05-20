@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Footer from '../components/Footer';
 import { fetcher } from '../../lib/api';
 import { useEffect, useState } from 'react';
+import CookieBanner from '@/components/CookieBanner';
 
 export default function Layout({ children }) {
   const [navigationData, setNavigationData] = useState([]);
@@ -38,7 +39,11 @@ export default function Layout({ children }) {
   return (
     <div className="bg-off-white h-screen relative z-0">
       <Navigation navigationData={navigationData} />
-      <main className="">{children}</main>
+      <main className="">
+        <CookieBanner />
+
+        {children}
+      </main>
       <Footer footerData={footerData} />
     </div>
   );
