@@ -23,11 +23,13 @@ export async function getStaticProps() {
 
 export default function About(data) {
   const [isAboutVisible, setIsAboutVisible] = useState(false);
+  const [isAboutTitleVisible, setIsAboutTitleVisible] = useState(false);
   const [isPartnersVisible, setIsParagrafVisible] = useState(false);
   const [isLogosVisible, setIsLogosVisible] = useState(false);
   const [isTeamVisible, setIsTeamVisible] = useState(false);
   const [isTeamCardVisible, setIsTeamCardVisible] = useState(false);
   const aboutRef = useRef();
+  const aboutTitleRef = useRef();
   const partnersRef = useRef();
   const logosRef = useRef();
   const teamRef = useRef();
@@ -35,6 +37,9 @@ export default function About(data) {
 
   usePreciseObserver(aboutRef, () => {
     setIsAboutVisible(true);
+  });
+  usePreciseObserver(aboutTitleRef, () => {
+    setIsAboutTitleVisible(true);
   });
 
   usePreciseObserver(partnersRef, () => {
@@ -55,7 +60,10 @@ export default function About(data) {
   return (
     <article className="page-content-container flex flex-col gap-36 bg-off-white">
       <div className="flex flex-col gap-12">
-        <div ref={aboutRef} className={` ${isAboutVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}>
+        <div
+          ref={aboutTitleRef}
+          className={` ${isAboutTitleVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}
+        >
           <Title title={data.data.title} variant="pageTitle" />
         </div>
         {data.data.aboutUs.map((item, index) => (
@@ -68,7 +76,12 @@ export default function About(data) {
             />
           </div>
         ))}
-        <div ref={aboutRef} className="flex gap-2 items-center justify-end">
+        <div
+          ref={aboutRef}
+          className={`flex gap-2 items-center justify-end ${
+            isAboutVisible ? 'appear-on-scroll' : 'before-scroll'
+          } v-space-xl`}
+        >
           <Anchor variant="arrowLink" href={data.data.arrowAnchor.url} title={data.data.arrowAnchor.title} />
           <Image
             src={data.data.arrowAnchor.icon.data.attributes.url}
@@ -86,7 +99,7 @@ export default function About(data) {
         </div>
         <div
           ref={logosRef}
-          className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex gap-16`}
+          className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex gap-1 md:gap-16`}
         >
           {data.data.partners.map((item, index) => (
             <Link key={index} href={item.url} target="_blank">
@@ -106,14 +119,12 @@ export default function About(data) {
         <div ref={teamRef} className={` ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '}`}>
           <Title title={data.data.teamTitle} variant="pageTitle" />
         </div>
-        <section className="tw-grid ">
+        <section
+          ref={teamCardRef}
+          className={`tw-grid ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'}`}
+        >
           {data.data.teamMemberCard.map((item, index) => (
-            <div
-              key={index}
-              ref={teamCardRef}
-              className={` ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'} 
-            delay-${index * 150} col-span-6 md:col-span-4`}
-            >
+            <div key={index} className="col-span-6 md:col-span-4">
               <TeamCard
                 title={item.title}
                 src={item.profile.data.attributes.url}
