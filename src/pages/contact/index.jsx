@@ -45,7 +45,7 @@ export default function Contact({ contactData }) {
               isVisible ? 'appear-on-scroll delay-200' : 'before-scroll translate-y-5'
             } space-y-2 md:w-[70%]`}
           >
-            <h2 className="text-lg">{contactData.subtitle}</h2>
+            <h2 className="text-lg lg:text-xl">{contactData.subtitle}</h2>
           </div>
         </div>
       )}

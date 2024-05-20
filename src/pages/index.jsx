@@ -5,7 +5,6 @@ import { LoaderContext } from '../contexts/LoaderContext';
 import StudioModels from '@/components/StudioModels';
 import ImgWithParagraf from '@/components/ImgWithParagraf';
 import TitleWithParagraf from '@/components/TitleWithParagraf';
-import Title from '@/components/ui/Title';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 import Anchor from '@/components/ui/Anchor';
@@ -69,9 +68,9 @@ export default function Home({ homeData }) {
     return <Loader />;
   } else {
     return (
-      <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col gap-36`}>
+      <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
         <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
-        <div id="firstSection" className="page-content-container ">
+        <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
           {introData &&
             introData.arrowAnchor &&
             introData.arrowAnchor.icon &&
@@ -103,57 +102,58 @@ export default function Home({ homeData }) {
               </>
             )}
         </div>
-        <div
-          ref={clientsRef}
-          className={`${isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'} `}
-        >
-          <ClientsBanner clientData={introData} />
+        <div className="flex flex-col gap-36">
+          <div
+            ref={clientsRef}
+            className={`${isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'} `}
+          >
+            <ClientsBanner clientData={introData} />
+          </div>
+          <div>
+            {introData.benefits &&
+              introData.benefits.map((benefit, index) => (
+                <div key={index} className=" sticky -top-10  scroll-smooth space-y-6">
+                  <ImgWithParagraf
+                    paragrafText={benefit.paragraf}
+                    subtitle={benefit.subtitle}
+                    src={benefit.image.data.attributes.url}
+                    alt={benefit.image.data.attributes.alternativeText}
+                    title={index === 0 ? introData.benefitsTitle : undefined}
+                    anchor={
+                      introData &&
+                      introData.arrowAnchor &&
+                      introData.arrowAnchor.icon &&
+                      introData.arrowAnchor.icon.data &&
+                      introData.arrowAnchor.icon.data.attributes &&
+                      index === introData.benefits.length - 1 ? (
+                        <div className="hidden lg:flex w-full gap-2 pt-2 xl:pt-10">
+                          <Anchor
+                            variant="arrowLink"
+                            href={introData.arrowAnchor.url}
+                            title={introData.arrowAnchor.title}
+                          />
+                          <Image
+                            src={introData.arrowAnchor.icon.data.attributes.url}
+                            alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                            width={40}
+                            height={40}
+                            className="h-auto w-auto"
+                          />
+                        </div>
+                      ) : undefined
+                    }
+                  />
+                </div>
+              ))}
+          </div>
+          <StudioModels studioData={homeData.Studios} />
+          <Facilities
+            uniqueData={introData.uniqueInScandinavia}
+            serviceData={introData.fullService}
+            productionData={introData.virtualProduction}
+            title={introData.bulletsTitle}
+          />
         </div>
-        <div>
-          {introData.benefits &&
-            introData.benefits.map((benefit, index) => (
-              <div key={index} className=" sticky top-0 lg:top-[0%] scroll-smooth space-y-6">
-                <ImgWithParagraf
-                  paragrafText={benefit.paragraf}
-                  subtitle={benefit.subtitle}
-                  src={benefit.image.data.attributes.url}
-                  alt={benefit.image.data.attributes.alternativeText}
-                  title={index === 0 ? introData.benefitsTitle : undefined}
-                  anchor={
-                    introData &&
-                    introData.arrowAnchor &&
-                    introData.arrowAnchor.icon &&
-                    introData.arrowAnchor.icon.data &&
-                    introData.arrowAnchor.icon.data.attributes &&
-                    index === introData.benefits.length - 1 ? (
-                      <div className="hidden lg:flex w-full gap-2 pt-2 xl:pt-10">
-                        <Anchor
-                          variant="arrowLink"
-                          href={introData.arrowAnchor.url}
-                          title={introData.arrowAnchor.title}
-                        />
-                        <Image
-                          src={introData.arrowAnchor.icon.data.attributes.url}
-                          alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                          width={40}
-                          height={40}
-                          className="h-auto w-auto"
-                        />
-                      </div>
-                    ) : undefined
-                  }
-                />
-              </div>
-            ))}
-        </div>
-
-        <StudioModels studioData={homeData.Studios} />
-        <Facilities
-          uniqueData={introData.uniqueInScandinavia}
-          serviceData={introData.fullService}
-          productionData={introData.virtualProduction}
-          title={introData.bulletsTitle}
-        />
       </main>
     );
   }

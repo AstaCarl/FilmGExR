@@ -10,42 +10,25 @@ export default function ClientsBanner({ clientData }) {
 
   return (
     <article className="tw-grid page-content-container space-y-4">
-      <div className={` col-span-full `}>
+      <div className={` col-span-full lg:col-span-6`}>
         <Title title={clientData.clientsTitle} variant="subtitle" />
         <Paragraf paragrafText={clientData.clientSummary} />
       </div>
-
-      {clientData.clients &&
-        clientData.clients.map((logo, index) => (
-          <div key={index} className="col-span-3">
-            <Image
-              src={logo.logos.data.attributes.url}
-              alt={logo.logos.data.attributes.alternativeText}
-              width={50}
-              height={50}
-              className="w-24 h-auto"
-            />
-          </div>
-        ))}
-      {/* <div className={`md:hidden overflow-hidden whitespace-nowrap pt-10 `}>
-        <div className="flex min-w-full items-center justify-between gap-20 animate-marquee">
-          {[...Array(2)].map((_, index) => (
-            <React.Fragment key={index}>
-              {clientData.clients &&
-                clientData.clients.map((logo, index) => (
-                  <Image
-                    key={index}
-                    src={logo.logos.data.attributes.url}
-                    alt={logo.logos.data.attributes.alternativeText}
-                    width={50}
-                    height={50}
-                    className="w-auto h-16"
-                  />
-                ))}
-            </React.Fragment>
-          ))}
+      <div className="col-span-full lg:col-span-6 lg:pl-10">
+        <div className="tw-grid">
+          {clientData.clients &&
+            clientData.clients.map((logo, index) => (
+              <Image
+                key={index}
+                src={logo.logos.data.attributes.url}
+                alt={logo.logos.data.attributes.alternativeText}
+                width={50}
+                height={50}
+                className="col-span-4 w-16 h-auto lg:w-20 "
+              />
+            ))}
         </div>
-      </div> */}
+      </div>
     </article>
   );
 }

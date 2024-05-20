@@ -28,7 +28,7 @@ export default function StudioModels({ studioData }) {
   };
 
   return (
-    <div className="bg-off-white relative flex flex-col -mt-10 gap-4 page-content-container">
+    <div className="bg-off-white relative flex flex-col -mt-20 gap-4 page-content-container">
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
         <Title title={studioData.title} variant="pageTitle" />
       </div>
