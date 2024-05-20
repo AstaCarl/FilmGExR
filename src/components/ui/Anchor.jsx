@@ -11,9 +11,9 @@ export default function Anchor({ href, title, variant, children, target }) {
   } else if (variant === 'logo') {
     classNames += ' text-2xl font-syntax hover:text-black';
   } else if (variant === 'arrowLink') {
-    classNames += ' text-2xl text-red hover:pr-1 ease-in duration-200';
+    classNames += ' text-xl md:text-2xl text-red ';
   } else if (variant === 'smallArrowLink') {
-    classNames += ' text-lg text-red hover:pr-1 ease-in duration-200';
+    classNames += ' text-lg text-red';
   }
 
   return (

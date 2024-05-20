@@ -94,9 +94,9 @@ export default function Home({ homeData }) {
                   <Image
                     src={introData.arrowAnchor.icon.data.attributes.url}
                     alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                    width={40}
-                    height={40}
-                    className="h-auto w-auto"
+                    width={20}
+                    height={20}
+                    className="w-6 md:w-10 h-auto"
                   />
                 </div>
               </>

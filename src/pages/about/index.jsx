@@ -1,4 +1,5 @@
 import Title from '@/components/ui/Title';
+import Anchor from '@/components/ui/Anchor';
 import { fetcher } from '../../../lib/api';
 import React, { useState, useRef } from 'react';
 import TitleWithParagraf from '@/components/TitleWithParagraf';
@@ -9,7 +10,7 @@ import { usePreciseObserver } from '../../../lib/preciseObserver';
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/about-page?populate=aboutUs,teamMemberCard.profile,partners.logos`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/about-page?populate=aboutUs,teamMemberCard.profile,partners.logos,arrowAnchor.icon`
   );
   console.log('response', response);
   const data = response.data.attributes;
@@ -49,6 +50,8 @@ export default function About(data) {
     setIsTeamCardVisible(true);
   });
 
+  console.log('data', data);
+
   return (
     <article className="page-content-container flex flex-col gap-36 bg-off-white">
       <div className="flex flex-col gap-12">
@@ -56,7 +59,7 @@ export default function About(data) {
           <Title title={data.data.title} variant="pageTitle" />
         </div>
         {data.data.aboutUs.map((item, index) => (
-          <div key={index} className={``}>
+          <div key={index}>
             <TitleWithParagraf
               variant="subtitle"
               title={item.subtitle}
@@ -65,19 +68,32 @@ export default function About(data) {
             />
           </div>
         ))}
+        <div ref={aboutRef} className="flex gap-2 items-center justify-end">
+          <Anchor variant="arrowLink" href={data.data.arrowAnchor.url} title={data.data.arrowAnchor.title} />
+          <Image
+            src={data.data.arrowAnchor.icon.data.attributes.url}
+            alt={data.data.arrowAnchor.icon.data.attributes.alternativeText}
+            width={20}
+            height={20}
+            className="w-6 md:w-10 h-auto"
+          />
+        </div>
       </div>
 
       <div>
         <div ref={partnersRef} className={` ${isPartnersVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
-          <Title title={data.data.partnersTitle} variant="pageTitle" />
+          <Title title={data.data.partnersTitle} variant="subtitle" />
         </div>
-        <div ref={logosRef} className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex `}>
+        <div
+          ref={logosRef}
+          className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex gap-16`}
+        >
           {data.data.partners.map((item, index) => (
             <Link key={index} href={item.url} target="_blank">
               <Image
                 key={index}
-                width={200}
-                height={200}
+                width={150}
+                height={150}
                 alt={item.logos.data.attributes.alternativeText}
                 src={item.logos.data.attributes.url}
                 className="w-auto h-auto"
