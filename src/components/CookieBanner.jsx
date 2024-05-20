@@ -3,20 +3,21 @@ import Button from './ui/Button';
 import Paragraf from './Paragraf';
 import CookieModal from './CookieModal';
 
-export default function CookieBanner({ onClick, onClick2, showCookieBanner, learnMore }) {
+export default function CookieBanner({ onClick, onClick2, showCookieBanner }) {
   return (
-    <div className={`${showCookieBanner ? '' : 'hidden'}`}>
-      <div className="bg-black w-fit rounded-lg fixed  bottom-2 left-2 px-6 py-4 flex flex-col items-start gap-2 shadow-lg md:gap-2 md:bottom-5 md:left-5 lg:flex-row lg:items-center">
-        <Paragraf className="text-white" paragrafText="We use cookies to improve our service," />
-        <button onClick={onClick2} className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out">
-          learn more
-        </button>
-        <div className="flex gap-2 md:gap-4">
-          <Button onClick={onClick} variant="cookie-accept" buttonText="OK" />
-          <Button onClick={onClick} variant="cookie-decline" buttonText="Don't track me" />
-        </div>
+    <div
+      className={` bg-black w-fit fixed z-1 bottom-2 left-2 rounded-lg px-6 py-4 flex flex-col items-start gap-2 shadow-lg md:gap-2 md:bottom-5 md:left-5 lg:flex-row lg:items-center ${
+        showCookieBanner ? '' : 'hidden'
+      }`}
+    >
+      <Paragraf className="text-white" paragrafText="We use cookies to improve our service," />
+      <button onClick={onClick2} className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out">
+        learn more
+      </button>
+      <div className="flex gap-2 md:gap-4">
+        <Button onClick={onClick} variant="cookie-accept" buttonText="OK" />
+        <Button onClick={onClick} variant="cookie-decline" buttonText="Don't track me" />
       </div>
-      {learnMore && <CookieModal />}
     </div>
   );
 }

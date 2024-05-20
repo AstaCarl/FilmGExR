@@ -49,30 +49,23 @@ export default function Layout({ children }) {
     return <div className=""></div>;
   }
   return (
-    <div className={`bg-off-white h-screen relative z-0 `}>
-      <main className="">
-        <div className={`${learnMore ? 'blur-sm' : 'blur-none'}`}>
-          <Navigation navigationData={navigationData} />
-          {children}
-        </div>
-        <CookieBanner
-          showCookieBanner={showCookieBanner}
-          learnMore={learnMore}
-          onClick={handleButtonClick}
-          onClick2={handleLearnMore}
-        />
-
-        <div
-          className={`fixed top-0 -z-1 h-screen w-screen flex items-center justify-center p-6 ${
-            learnMore ? 'block' : 'hidden'
-          }`}
-        >
-          <CookieModal learnMore={learnMore} setLearnMore={setLearnMore} onClick={handleButtonClick} />
-        </div>
-        <div className={`${learnMore ? 'blur-sm' : 'blur-none'}`}>
-          <Footer footerData={footerData} />
-        </div>
-      </main>
+    <div className="bg-off-white h-screen relative z-0">
+      <Navigation navigationData={navigationData} />
+      <main className="">{children}</main>
+      <Footer footerData={footerData} />
+      <CookieBanner
+        showCookieBanner={showCookieBanner}
+        learnMore={learnMore}
+        onClick={handleButtonClick}
+        onClick2={handleLearnMore}
+      />
+      <div
+        className={`fixed top-0 z-[3000] h-screen w-screen flex items-center justify-center p-6 backdrop-blur-sm ${
+          learnMore ? 'block' : 'hidden'
+        }`}
+      >
+        <CookieModal learnMore={learnMore} setLearnMore={setLearnMore} onClick={handleButtonClick} />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function CookieModal({ setLearnMore, learnMore }) {
   };
   return (
     <div className={`${learnMore ? '' : 'hidden '} flex justify-center`}>
-      <div className=" flex flex-col gap-6 bg-black w-fit rounded-lg h-fit lg:w-[60%] p-6 lg:p-10">
+      <div className="shadow-lg flex flex-col gap-6 bg-black w-fit rounded-lg h-fit lg:w-[60%] p-6 lg:p-10">
         <Paragraf
           className="text-white"
           paragrafText="We use technologies, including cookies, to collect information about you for various purposes, including:"
