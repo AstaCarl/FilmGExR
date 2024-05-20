@@ -33,7 +33,7 @@ export default function Cases({ casesData }) {
         </div>
         {casesData.cases.map((caseItem, index) => {
           return (
-            <div className="mb-20" key={index}>
+            <div className="pb-20" key={index}>
               <WorkSection key={index} subtitle={caseItem.title} video={caseItem.video.data.attributes.url} />
             </div>
           );
