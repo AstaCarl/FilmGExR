@@ -28,28 +28,26 @@ export default function StudioModels({ studioData }) {
   };
 
   return (
-    <div className="bg-off-white relative flex flex-col -mt-20 gap-4 page-content-container">
+    <div className="bg-off-white relative flex flex-col -mt-20 gap-4 page-content-container mb-8 md:mb-16 lg:mb-20">
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
         <Title title={studioData.title} variant="pageTitle" />
       </div>
-      {showBig && (
+      <div className="relative">
         <Paragraf
-          className={`${
+          className={`text-md relative lg:max-w-[60%] transition-opacity duration-500 ease-in-out ${
             showBig ? 'opacity-100 ' : 'opacity-0 '
-          } transition-opacity duration-1000 ease-in-out text-md md:h-36 lg:h-24`}
+          }`}
           paragrafText={studioData.bigStudText}
         />
-      )}
-      {showMedium && (
         <Paragraf
-          className={`text-md md:h-36 lg:h-24${
-            showMedium ? 'opacity-100 ' : 'opacity-0 '
-          } transition-opacity duration-1000 ease-in-out`}
+          className={`text-md absolute lg:max-w-[60%] top-0 transition-opacity duration-500 ease-in-out ${
+            showMedium ? 'opacity-100' : 'opacity-0'
+          }`}
           paragrafText={studioData.smallStudText}
         />
-      )}
-      <ul className="flex w-full gap-4">
-        <div className=" w-full gap-4 flex">
+      </div>
+      <ul className="flex w-full gap-4 ">
+        <div className=" w-full gap-4 flex ">
           <li className="w-fit">
             <Button
               onClick={handleShowBig}
@@ -74,7 +72,7 @@ export default function StudioModels({ studioData }) {
           height={2000}
           className={`${
             showBig ? 'opacity-100 ' : 'opacity-0  '
-          } w-full opacity-0 transition-opacity duration-1000 ease-in-out relative`}
+          } w-full opacity-0 transition-opacity duration-500 ease-in-out relative`}
         />
         <Image
           src={studioData.studios.data[1].attributes.url}
@@ -83,7 +81,7 @@ export default function StudioModels({ studioData }) {
           height={4000}
           className={`${
             showMedium ? 'opacity-100 ' : 'opacity-0'
-          } w-full opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 `}
+          } w-full opacity-0 transition-opacity duration-500 ease-in-out absolute top-0 `}
         />
       </div>
     </div>
