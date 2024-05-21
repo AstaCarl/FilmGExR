@@ -68,18 +68,18 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
             </button>
           </div>
         </div>
-        <div
+        <ul
           className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
             showBullets ? 'h-[300px]' : 'h-0'
           }`}
         >
           {uniqueData &&
             uniqueData.bulletpoints.map((item, index) => (
-              <li key={index} className={`p-2 col-span-full lg:col-start-2`}>
+              <li key={index} className={`p-2 col-span-full lg:col-start-2`} style={{ listStyleType: 'disc' }}>
                 {item.point}
               </li>
             ))}
-        </div>
+        </ul>
         <div
           ref={ref}
           className={`tw-grid  h-[120px] place-items-center border-t-2 transition-all ease-in duration-300 border-red border-opacity-20 page-content-container ${
@@ -105,18 +105,18 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
             </button>
           </div>
         </div>
-        <div
+        <ul
           className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
             showBullets2 ? 'h-[200px]' : 'h-0'
           }`}
         >
           {serviceData &&
             serviceData.bulletpoints.map((item, index) => (
-              <li key={index} className={`col-span-full lg:col-start-2`}>
+              <li key={index} className={`col-span-full lg:col-start-2`} style={{ listStyleType: 'disc' }}>
                 {item.point}
               </li>
             ))}
-        </div>
+        </ul>
         <div
           ref={ref}
           className={`tw-grid  h-[120px] place-items-center border-t-2 transition-all ease-in duration-300 border-red border-opacity-20 page-content-container ${
@@ -143,13 +143,13 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
         </div>
         <ul
-          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
+          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ml-4 ${
             showBullets3 ? 'h-[200px]' : 'h-0'
           }`}
         >
           {productionData &&
             productionData.bulletpoints.map((item, index) => (
-              <li key={index} className={`col-span-full lg:col-start-2 p-2`}>
+              <li key={index} className={`col-span-full lg:col-start-2 p-2`} style={{ listStyleType: 'disc' }}>
                 {item.point}
               </li>
             ))}
