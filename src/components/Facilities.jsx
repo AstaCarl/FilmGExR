@@ -142,7 +142,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
             </button>
           </div>
         </div>
-        <div
+        <ul
           className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
             showBullets3 ? 'h-[200px]' : 'h-0'
           }`}
@@ -153,7 +153,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
                 {item.point}
               </li>
             ))}
-        </div>
+        </ul>
       </div>
     </article>
   );
