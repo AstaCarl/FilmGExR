@@ -9,7 +9,7 @@ export default function Footer({ footerData }) {
 
   return (
     <footer className="page-content-container v-space-xl space-y-8 pb-8 relative z-[-1] bg-off-white">
-      <ul className="md:flex md:justify-between items-center md:space-y-0">
+      <div className="md:flex md:justify-between items-center md:space-y-0">
         <div className="hidden md:block">
           {footerData.logo && (
             <Anchor
@@ -20,7 +20,7 @@ export default function Footer({ footerData }) {
             />
           )}
         </div>
-        <div className="space-y-2 md:flex md:justify-end md:space-y-0">
+        <ul className="space-y-2 md:flex md:justify-end md:space-y-0">
           {footerData.footerLink.map((item, index) => {
             if (item && item.url) {
               const isActive = item.url === activePathname;
@@ -32,8 +32,8 @@ export default function Footer({ footerData }) {
             }
             return null;
           })}
-        </div>
-      </ul>
+        </ul>
+      </div>
       <div className="space-y-8 md:space-y-0 md:flex md:items-center md:justify-between">
         <ul className="flex md:justify-end">
           {footerData.socials.map((item, index) => (
