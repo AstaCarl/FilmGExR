@@ -54,7 +54,7 @@ export default function Home({ homeData }) {
 
     const timer = setTimeout(() => {
       setHasLoaded(true);
-    }, 4200);
+    }, 0);
 
     return () => {
       clearTimeout(timer);
