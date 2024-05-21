@@ -11,12 +11,17 @@ export default function CookieBanner({ onClick, onClick2, showCookieBanner }) {
       }`}
     >
       <Paragraf className="text-white" paragrafText="We use cookies to improve our service," />
-      <button role="button" onClick={onClick2} className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out">
+      <button
+        aria-label="Read more about our cookie policy"
+        role="button"
+        onClick={onClick2}
+        className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out"
+      >
         learn more
       </button>
       <div className="flex gap-2 md:gap-4">
-        <Button onClick={onClick} variant="cookie-accept" buttonText="OK" />
-        <Button onClick={onClick} variant="cookie-decline" buttonText="Don't track me" />
+        <Button aria="Aceept cookies" onClick={onClick} variant="cookie-accept" buttonText="OK" />
+        <Button aria="Decline cookies" onClick={onClick} variant="cookie-decline" buttonText="Don't track me" />
       </div>
     </div>
   );

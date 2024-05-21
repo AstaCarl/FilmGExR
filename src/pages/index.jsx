@@ -100,7 +100,12 @@ export default function Home({ homeData }) {
                     isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
                   } v-space-md md:v-space-lg flex justify-start gap-2 w-full`}
                 >
-                  <Anchor variant="arrowLink" href={introData.arrowAnchor.url} title={introData.arrowAnchor.title} />
+                  <Anchor
+                    aria="Go to contact page"
+                    variant="arrowLink"
+                    href={introData.arrowAnchor.url}
+                    title={introData.arrowAnchor.title}
+                  />
                   <Image
                     src={introData.arrowAnchor.icon.data.attributes.url}
                     alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
@@ -141,6 +146,7 @@ export default function Home({ homeData }) {
                             variant="arrowLink"
                             href={introData.arrowAnchor.url}
                             title={introData.arrowAnchor.title}
+                            aria="Go to contact page"
                           />
                           <Image
                             src={introData.arrowAnchor.icon.data.attributes.url}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Button({ buttonText, variant, type, onClick }) {
+export default function Button({ buttonText, variant, type, onClick, aria }) {
   let classNames =
     'font-sans pointer hover:opacity-80 hover:text-red transition-all duration-200 ease-in text-lg font-semibold';
 
@@ -13,7 +13,7 @@ export default function Button({ buttonText, variant, type, onClick }) {
   }
 
   return (
-    <button role="button" onClick={onClick} type={type} className={classNames}>
+    <button aria-label={aria} role="button" onClick={onClick} type={type} className={classNames}>
       {buttonText}
     </button>
   );

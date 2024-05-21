@@ -53,6 +53,7 @@ export default function StudioModels({ studioData }) {
               onClick={handleShowBig}
               variant={`${active === 'big' ? 'active' : ''}`}
               buttonText={studioData.bigStudLink}
+              ariaLabel="Show image and description of large studio"
             />
           </li>
           <li className="w-fit">
@@ -60,6 +61,7 @@ export default function StudioModels({ studioData }) {
               onClick={handleShowMedium}
               variant={`${active === 'medium' ? 'active' : ''}`}
               buttonText={studioData.smallStudLink}
+              ariaLabel="Show image and description of small studio"
             />
           </li>
         </div>

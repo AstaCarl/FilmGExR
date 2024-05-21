@@ -35,7 +35,7 @@ export default function Navigation({ navigationData }) {
       <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
     )} */}
           {navigationData.logo && (
-            <Link href={navigationData.logo.url}>
+            <Link aria="Go to home page" href={navigationData.logo.url}>
               <Image
                 width={600}
                 height={200}
@@ -46,6 +46,7 @@ export default function Navigation({ navigationData }) {
             </Link>
           )}
           <button
+            aria-label="toggle menu"
             onClick={handleMenuToggle}
             className={`lg:hidden h-20 flex justify-center flex-col gap-1 duration-300 right-content-container ${
               isOpen ? '' : ''
@@ -86,7 +87,7 @@ export default function Navigation({ navigationData }) {
                lg:opacity-100`}
                   key={index}
                 >
-                  <Anchor variant="nav" href={item.url} title={item.title} />
+                  <Anchor aria={`go to ${item.title} page`} variant="nav" href={item.url} title={item.title} />
                 </li>
               );
             }

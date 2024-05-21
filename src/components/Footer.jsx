@@ -11,7 +11,14 @@ export default function Footer({ footerData }) {
     <footer className="page-content-container v-space-xl space-y-8 pb-8 relative z-[-1] bg-off-white">
       <ul className="md:flex md:justify-between items-center md:space-y-0">
         <div className="hidden md:block">
-          {footerData.logo && <Anchor variant="logo" href={footerData.logo.url} title={footerData.logo.brandName} />}
+          {footerData.logo && (
+            <Anchor
+              aria="Go to home page"
+              variant="logo"
+              href={footerData.logo.url}
+              title={footerData.logo.brandName}
+            />
+          )}
         </div>
         <div className="space-y-2 md:flex md:justify-end md:space-y-0">
           {footerData.footerLink.map((item, index) => {
@@ -19,7 +26,7 @@ export default function Footer({ footerData }) {
               const isActive = item.url === activePathname;
               return (
                 <li className={`md:ml-4 ${isActive ? 'text-red' : ''}`} key={index}>
-                  <Anchor variant="footer" href={item.url} title={item.title} />
+                  <Anchor aria={`go to ${item.title} page`} variant="footer" href={item.url} title={item.title} />
                 </li>
               );
             }
@@ -32,7 +39,7 @@ export default function Footer({ footerData }) {
           {footerData.socials.map((item, index) => (
             <li className="" key={index}>
               {item.icon && (
-                <Anchor href={item.url} target="_blank">
+                <Anchor aria={`Go to FilmGExR's ${item.title} site`} href={item.url} target="_blank">
                   <Image
                     width={30}
                     height={30}

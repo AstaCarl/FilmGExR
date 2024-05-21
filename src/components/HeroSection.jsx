@@ -8,6 +8,7 @@ export default function HeroSection({ mobileSrc, desktopSrc }) {
       <div className="relative z-0">
         <Video mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <Link
+          aria-label="scroll to first section"
           smooth={true}
           offset={-0}
           to="firstSection"

@@ -23,8 +23,13 @@ export default function CookieModal({ setLearnMore, learnMore }) {
           paragrafText="By clicking ‘Accept’, you give your consent for all these purposes. "
         />
         <div className="flex gap-2 md:gap-4">
-          <Button onClick={handleButtonClick} variant="cookie-accept" buttonText="OK" />
-          <Button onClick={handleButtonClick} variant="cookie-decline" buttonText="Don't track me" />
+          <Button aria="Aceept cookies" onClick={handleButtonClick} variant="cookie-accept" buttonText="OK" />
+          <Button
+            aria="Decline cookies"
+            onClick={handleButtonClick}
+            variant="cookie-decline"
+            buttonText="Don't track me"
+          />
         </div>
       </div>
     </div>

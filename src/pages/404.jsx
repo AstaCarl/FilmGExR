@@ -52,7 +52,12 @@ export default function ErrorPage({ data }) {
               ref={ref}
               className={`flex items-center gap-2 ${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll'}`}
             >
-              <Anchor variant="smallArrowLink" href={data.arrowAnchor.url} title={data.arrowAnchor.title} />
+              <Anchor
+                aria="Go to home page"
+                variant="smallArrowLink"
+                href={data.arrowAnchor.url}
+                title={data.arrowAnchor.title}
+              />
               <Image
                 src={data.arrowAnchor.icon.data.attributes.url}
                 alt={data.arrowAnchor.icon.data.attributes.alternativeText}
