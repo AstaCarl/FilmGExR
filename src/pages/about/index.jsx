@@ -1,4 +1,3 @@
-import Heading from '@/components/ui/Heading';
 import Anchor from '@/components/ui/Anchor';
 import { fetcher } from '../../../lib/api';
 import React, { useState, useRef } from 'react';
@@ -72,7 +71,7 @@ export default function About(data) {
           ref={aboutTitleRef}
           className={` ${isAboutTitleVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}
         >
-          <Heading title={data.data.title} />
+          <Title title={data.data.title} variant="pageTitle" />
         </div>
         {data.data.aboutUs.map((item, index) => (
           <div key={index}>

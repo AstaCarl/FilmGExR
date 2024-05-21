@@ -26,7 +26,7 @@ export default function Cases({ casesData }) {
   return (
     <main className="v-space-xl bg-off-white">
       <Head>
-        <title>FilmGExR's Recent Work - Virtual Production for Films, Series and commercials</title>
+        <title>FilmGExR's Recent Work - Virtual Production for Films, series and commercials</title>
         <meta
           name="description"
           content="Explore FilmGExR's recent work in virtual production for films and series like Carmen Curlers, Oxen, Valdes Jul, and CUT. Witness our innovative approach to filmmaking through these compelling visual narratives."
