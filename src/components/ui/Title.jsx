@@ -18,8 +18,8 @@ export default function Title({ title, variant, ref }) {
   }
 
   return (
-    <h1 className={classNames} ref={ref}>
+    <h2 className={classNames} ref={ref}>
       {title}
-    </h1>
+    </h2>
   );
 }
