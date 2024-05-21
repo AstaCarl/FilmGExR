@@ -12,6 +12,7 @@ import Image from 'next/image';
 import ClientsBanner from '@/components/ClientsBanner';
 import Facilities from '@/components/Facilities';
 import HeroSection from '@/components/HeroSection';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(
@@ -69,6 +70,14 @@ export default function Home({ homeData }) {
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
+        <Head>
+          <title>FilmGExR - Your One-Stop Shop for Virtual Production Services</title>
+          <meta
+            name="description"
+            content="Experience seamless virtual production with FilmGExR. We offer cost-effective solutions, eliminating extensive post-production and enhancing realism in your films. Collaborating with leading studios like Netflix, Uma Film, SF Studios, and more. "
+            key="desc"
+          />
+        </Head>
         <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
           {introData &&

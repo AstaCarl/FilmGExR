@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { fetcher } from '../../../lib/api';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
 import { Link } from 'react-scroll';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/the-process?populate=*`);
@@ -58,6 +59,14 @@ export default function Theprocess({ data }) {
 
   return (
     <div className=" bg-off-white v-space-xl flex">
+      <Head>
+        <title>Virtual Production Process in 5 Steps | FilmGExR</title>
+        <meta
+          name="description"
+          content="Explore our five-step virtual production process at FilmGExR. From initial consultation to shooting day, we provide a tailored approach for your project, delivering cost-effective solutions and high-quality content creation."
+          key="desc"
+        />
+      </Head>
       <article className="tw-grid">
         <div className="col-span-full ">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>

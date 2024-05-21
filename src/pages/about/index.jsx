@@ -7,6 +7,7 @@ import TeamCard from '@/components/TeamCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(
@@ -55,10 +56,16 @@ export default function About(data) {
     setIsTeamCardVisible(true);
   });
 
-  console.log('data', data);
-
   return (
     <article className="page-content-container flex flex-col gap-36 bg-off-white">
+      <Head>
+        <title>FilmGExR's Recent Work - Virtual Production for Films, Series and commercials</title>
+        <meta
+          name="description"
+          content="Explore FilmGExR's recent work in virtual production for films and series like Carmen Curlers, Oxen, Valdes Jul, and CUT. Witness our innovative approach to filmmaking through these compelling visual narratives."
+          key="desc"
+        />
+      </Head>
       <div className="flex flex-col gap-12">
         <div
           ref={aboutTitleRef}

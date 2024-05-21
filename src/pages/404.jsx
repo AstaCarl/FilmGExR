@@ -5,6 +5,7 @@ import { fetcher } from '../../lib/api';
 import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
 import { usePreciseObserver } from '../../lib/preciseObserver';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/error-page?populate=arrowAnchor.icon`);
@@ -25,6 +26,14 @@ export default function ErrorPage({ data }) {
   });
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] gap-4">
+      <Head>
+        <title>404 Error - Page Not Found | FilmGExR</title>
+        <meta
+          name="description"
+          content="We're sorry, but the page you're looking for doesn't exist. Please navigate back to our homepage, or use our navigation to find what you need. | FilmGExR"
+          key="desc"
+        />
+      </Head>
       <div>
         <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
           <Title variant="404" title={data.title} />

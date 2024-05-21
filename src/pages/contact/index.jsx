@@ -4,6 +4,7 @@ import { fetcher } from '../../../lib/api';
 import { useIntersectionObserver } from '../../../lib/interSectionObserver';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(
@@ -34,6 +35,14 @@ export default function Contact({ contactData }) {
 
   return (
     <div className="page-content-container flex flex-col min-h-screen w-full justify-center gap-14">
+      <Head>
+        <title>Contact FilmGExR - Virtual Production Studio</title>
+        <meta
+          name="description"
+          content="Get in touch with FilmGExR, your go-to virtual production studio. Located at Mileparken 14, 2740 Skovlunde. Call us at +45 70220302 or email us at filmgear@filmgear.dk."
+          key="desc"
+        />
+      </Head>
       {contactData && (
         <div className="space-y-2 md:w-[90%]">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} space-y-2 md:w-[70%]`}>
