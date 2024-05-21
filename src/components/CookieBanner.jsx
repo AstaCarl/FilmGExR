@@ -11,7 +11,7 @@ export default function CookieBanner({ onClick, onClick2, showCookieBanner }) {
       }`}
     >
       <Paragraf className="text-white" paragrafText="We use cookies to improve our service," />
-      <button onClick={onClick2} className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out">
+      <button role="button" onClick={onClick2} className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out">
         learn more
       </button>
       <div className="flex gap-2 md:gap-4">

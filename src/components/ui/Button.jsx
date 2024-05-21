@@ -13,7 +13,7 @@ export default function Button({ buttonText, variant, type, onClick }) {
   }
 
   return (
-    <button onClick={onClick} type={type} className={classNames}>
+    <button role="button" onClick={onClick} type={type} className={classNames}>
       {buttonText}
     </button>
   );

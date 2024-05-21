@@ -54,9 +54,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
           <div className="col-span-1 col-start-12 lg:col-start-11">
             <button
+              role="button"
               className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
               onClick={handleShowBullets}
-              aria-label="Show or hide steps"
+              aria-label="Show or hide bulletpoints"
             >
               <div className="w-6 h-[2px] bg-red rounded-full"></div>
               <div
@@ -90,9 +91,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
           <div className="col-span-1 col-start-12 lg:col-start-11">
             <button
+              role="button"
               className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
               onClick={handleShowBullets2}
-              aria-label="Show or hide steps"
+              aria-label="Show or hide bulletpoints"
             >
               <div className="w-6 h-[2px] bg-red rounded-full"></div>
               <div
@@ -126,9 +128,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
           <div className="col-span-1 col-start-12 lg:col-start-11">
             <button
+              role="button"
               className={`relative h-6 w-6 transition-transform duration-500 ease-in-out `}
               onClick={handleShowBullets3}
-              aria-label="Show or hide steps"
+              aria-label="Show or hide bulletpoints"
             >
               <div className="w-6 h-[2px] bg-red rounded-full"></div>
               <div

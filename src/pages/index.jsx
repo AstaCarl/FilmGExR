@@ -67,7 +67,7 @@ export default function Home({ homeData }) {
 
   if (!hasLoaded) {
     return;
-    //  <Loader />;
+    // <Loader />;
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
