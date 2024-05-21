@@ -15,7 +15,7 @@ export default function CookieBanner({ onClick, onClick2, showCookieBanner }) {
         aria-label="Read more about our cookie policy"
         role="button"
         onClick={onClick2}
-        className="text-red mr-2 hover:opacity-80 duration-300 ease-in-out"
+        className="text-white opacity-70 mr-2 hover:opacity-50 duration-300 ease-in-out"
       >
         learn more
       </button>
