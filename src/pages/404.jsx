@@ -1,5 +1,6 @@
 import Paragraf from '@/components/Paragraf';
 import Title from '@/components/ui/Title';
+import Heading from '@/components/ui/Heading';
 import React, { useState, useRef } from 'react';
 import { fetcher } from '../../lib/api';
 import Anchor from '@/components/ui/Anchor';
@@ -36,7 +37,7 @@ export default function ErrorPage({ data }) {
       </Head>
       <div>
         <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
-          <Title variant="404" title={data.title} />
+          <Heading className="text-8xl" title={data.title} />
         </div>
         <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'}`}>
           <Title variant="subtitle" title={data.subtitle} />

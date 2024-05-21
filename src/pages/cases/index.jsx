@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import WorkSection from '../../components/WorkSection';
-import Title from '../../components/ui/Title';
+import Heading from '../../components/ui/Heading';
 import { fetcher } from '../../../lib/api';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
 import Head from 'next/head';
@@ -38,7 +38,7 @@ export default function Cases({ casesData }) {
           ref={ref}
           className={`page-content-container mb-12 ${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'}`}
         >
-          <Title title={casesData.title} variant="pageTitle" />
+          <Heading title={casesData.title} />
         </div>
         {casesData.cases.map((caseItem, index) => {
           return (

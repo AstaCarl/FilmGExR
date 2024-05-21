@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Title from '@/components/ui/Title';
+import Heading from '@/components/ui/Heading';
 import { fetcher } from '../../../lib/api';
 import { useIntersectionObserver } from '../../../lib/interSectionObserver';
 import Image from 'next/image';
@@ -46,7 +46,7 @@ export default function Contact({ contactData }) {
       {contactData && (
         <div className="space-y-2 md:w-[90%]">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} space-y-2 md:w-[70%]`}>
-            <Title variant="pageTitle" title={contactData.title} />
+            <Heading title={contactData.title} />
           </div>
           <div
             ref={ref2}

@@ -1,4 +1,5 @@
 import Paragraf from '@/components/Paragraf';
+import Heading from '@/components/ui/Heading';
 import Title from '@/components/ui/Title';
 import React, { useState, useRef, useEffect } from 'react';
 import { fetcher } from '../../../lib/api';
@@ -70,7 +71,7 @@ export default function Theprocess({ data }) {
       <article className="tw-grid">
         <div className="col-span-full ">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
-            <Title title={data.attributes.title} variant="pageTitle" />
+            <Heading title={data.attributes.title} />
           </div>
           <div className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} page-content-container`}>
             <Title title={data.attributes.subtitle} variant="subtitle" />

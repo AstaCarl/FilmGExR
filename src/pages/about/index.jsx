@@ -1,4 +1,4 @@
-import Title from '@/components/ui/Title';
+import Heading from '@/components/ui/Heading';
 import Anchor from '@/components/ui/Anchor';
 import { fetcher } from '../../../lib/api';
 import React, { useState, useRef } from 'react';
@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
 import Head from 'next/head';
+import Title from '@/components/ui/Title';
 
 export async function getStaticProps() {
   const response = await fetcher(
@@ -71,7 +72,7 @@ export default function About(data) {
           ref={aboutTitleRef}
           className={` ${isAboutTitleVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}
         >
-          <Title title={data.data.title} variant="pageTitle" />
+          <Heading title={data.data.title} />
         </div>
         {data.data.aboutUs.map((item, index) => (
           <div key={index}>

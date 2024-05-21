@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Paragraf from './Paragraf';
 import Title from './ui/Title';
+import Heading from './ui/Heading';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
 export default function TitleWithParagraf({ title, subtitle, paragraf, variant, componentvariant }) {
@@ -23,7 +24,7 @@ export default function TitleWithParagraf({ title, subtitle, paragraf, variant, 
         }`}
       >
         <div className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
-          <Title variant={variant} title={title} />
+          <Heading title={title} />
         </div>
         <div className={`${isVisible ? 'appear-on-scroll delay-200' : 'before-scroll'}`} ref={ref}>
           <Title variant="subtitle" title={subtitle} />
