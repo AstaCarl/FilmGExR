@@ -63,7 +63,7 @@ export default function About(data) {
         <title>About FilmGExR - Leading Virtual Production Studio in Scandinavia</title>
         <meta
           name="description"
-          content="Learn about FilmGExR, a pioneering virtual production studio offering comprehensive services for filmmakers. Our innovative team utilizes cutting-edge technology to create immersive experiences, pushing the boundaries of traditional filmmaking. Discover how we're shaping the future of entertainment"
+          content="Discover FilmGExR, a leading virtual production studio. Our innovative team uses advanced technology for immersive filmmaking, shaping the future of entertainment."
           key="desc"
         />
       </Head>

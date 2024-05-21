@@ -64,7 +64,7 @@ export default function Theprocess({ data }) {
         <title>Virtual Production Process in 5 Steps | FilmGExR</title>
         <meta
           name="description"
-          content="Explore our five-step virtual production process at FilmGExR. From initial consultation to shooting day, we provide a tailored approach for your project, delivering cost-effective solutions and high-quality content creation."
+          content="Discover FilmGExR's five-step virtual production process. We offer a tailored approach from consultation to shooting day, ensuring high-quality content creation."
           key="desc"
         />
       </Head>

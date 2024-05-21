@@ -39,7 +39,7 @@ export default function Contact({ contactData }) {
         <title>Contact FilmGExR - Virtual Production Studio</title>
         <meta
           name="description"
-          content="Get in touch with FilmGExR, your go-to virtual production studio. Located at Mileparken 14, 2740 Skovlunde. Call us at +45 70220302 or email us at filmgear@filmgear.dk."
+          content="Contact FilmGExR, your virtual production studio at Mileparken 14, 2740 Skovlunde. Call +45 70220302 or email filmgear@filmgear.dk."
           key="desc"
         />
       </Head>

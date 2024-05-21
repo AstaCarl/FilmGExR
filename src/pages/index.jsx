@@ -75,7 +75,7 @@ export default function Home({ homeData }) {
           <title>FilmGExR | Your One Stop Shop for Virtual Production Services</title>
           <meta
             name="description"
-            content="Experience seamless virtual production with FilmGExR. We offer cost-effective solutions, eliminating extensive post-production and enhancing realism in your films. Collaborating with leading studios like Netflix, Uma Film, SF Studios, and more. "
+            content="FilmGExR: Seamless virtual production enhancing film realism. We're a trusted partner for Netflix, Uma Film, SF Studios and more. Experience the future of filmmaking with us."
             key="desc"
           />
         </Head>

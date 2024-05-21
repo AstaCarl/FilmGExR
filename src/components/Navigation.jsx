@@ -37,8 +37,8 @@ export default function Navigation({ navigationData }) {
           {navigationData.logo && (
             <Link href={navigationData.logo.url}>
               <Image
-                width={100}
-                height={100}
+                width={600}
+                height={200}
                 src={navigationData.logo.logo.data.attributes.url}
                 alt={navigationData.logo.logo.data.attributes.alternativeText}
                 className="h-[40px] w-auto left-content-container"
