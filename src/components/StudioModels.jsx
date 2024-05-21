@@ -46,8 +46,8 @@ export default function StudioModels({ studioData }) {
           paragrafText={studioData.smallStudText}
         />
       </div>
-      <ul className="flex w-full gap-4 ">
-        <div className=" w-full gap-4 flex ">
+      <div className="flex w-full gap-4 ">
+        <ul className=" w-full gap-4 flex ">
           <li className="w-fit">
             <Button
               onClick={handleShowBig}
@@ -64,8 +64,8 @@ export default function StudioModels({ studioData }) {
               ariaLabel="Show image and description of small studio"
             />
           </li>
-        </div>
-      </ul>
+        </ul>
+      </div>
       <div className="relative w-full">
         <Image
           src={studioData.studios.data[0].attributes.url}
