@@ -71,7 +71,7 @@ export default function Home({ homeData }) {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
         <Head>
-          <title>FilmGExR - Your One-Stop Shop for Virtual Production Services</title>
+          <title>FilmGExR | Your One-Stop Shop for Virtual Production Services</title>
           <meta
             name="description"
             content="Experience seamless virtual production with FilmGExR. We offer cost-effective solutions, eliminating extensive post-production and enhancing realism in your films. Collaborating with leading studios like Netflix, Uma Film, SF Studios, and more. "
