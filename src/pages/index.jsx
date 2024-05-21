@@ -66,7 +66,8 @@ export default function Home({ homeData }) {
   const desktopSrc = homeData.HeroVideo.data[1].attributes.url;
 
   if (!hasLoaded) {
-    return <Loader />;
+    return;
+    //  <Loader />;
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
