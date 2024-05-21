@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Title from './ui/Title';
+import Heading from './ui/Heading';
 import Paragraf from './Paragraf';
 import Image from 'next/image';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
@@ -30,7 +30,7 @@ export default function StudioModels({ studioData }) {
   return (
     <div className="bg-off-white relative flex flex-col -mt-20 gap-4 page-content-container mb-8 md:mb-16 lg:mb-20">
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
-        <Title title={studioData.title} variant="pageTitle" />
+        <Heading title={studioData.title} />
       </div>
       <div className="relative">
         <Paragraf

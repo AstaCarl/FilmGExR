@@ -24,7 +24,7 @@ export default function TitleWithParagraf({ title, subtitle, paragraf, variant, 
         }`}
       >
         <div className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
-          <Heading title={title} />
+          <Title title={title} variant="pageTitle" />
         </div>
         <div className={`${isVisible ? 'appear-on-scroll delay-200' : 'before-scroll'}`} ref={ref}>
           <Title variant="subtitle" title={subtitle} />
