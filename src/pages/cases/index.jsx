@@ -3,6 +3,7 @@ import WorkSection from '../../components/WorkSection';
 import Title from '../../components/ui/Title';
 import { fetcher } from '../../../lib/api';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/cases-page?populate=cases.video`);
@@ -24,6 +25,14 @@ export default function Cases({ casesData }) {
 
   return (
     <main className="v-space-xl bg-off-white">
+      <Head>
+        <title>FilmGExR's Recent Work - Virtual Production for Films, Series and commercials</title>
+        <meta
+          name="description"
+          content="Explore FilmGExR's recent work in virtual production for films and series like Carmen Curlers, Oxen, Valdes Jul, and CUT. Witness our innovative approach to filmmaking through these compelling visual narratives."
+          key="desc"
+        />
+      </Head>
       <section>
         <div
           ref={ref}

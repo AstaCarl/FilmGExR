@@ -59,10 +59,10 @@ export default function About(data) {
   return (
     <article className="page-content-container flex flex-col gap-36 bg-off-white">
       <Head>
-        <title>FilmGExR's Recent Work - Virtual Production for Films, Series and commercials</title>
+        <title>About FilmGExR - Leading Virtual Production Studio in Scandinavia</title>
         <meta
           name="description"
-          content="Explore FilmGExR's recent work in virtual production for films and series like Carmen Curlers, Oxen, Valdes Jul, and CUT. Witness our innovative approach to filmmaking through these compelling visual narratives."
+          content="Learn about FilmGExR, a pioneering virtual production studio offering comprehensive services for filmmakers. Our innovative team utilizes cutting-edge technology to create immersive experiences, pushing the boundaries of traditional filmmaking. Discover how we're shaping the future of entertainment"
           key="desc"
         />
       </Head>
