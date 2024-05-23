@@ -66,6 +66,7 @@ export default function About(data) {
           content="Discover FilmGExR, a leading virtual production studio. Our innovative team uses advanced technology for immersive filmmaking, shaping the future of entertainment."
           key="desc"
         />
+        <meta name="google-site-verification" content="vM6DrnccGA3076vx8hTA6nagPCho64uqqBnjKFhB_Es" />
       </Head>
       <div className="flex flex-col gap-12">
         <div

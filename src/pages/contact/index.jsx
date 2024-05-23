@@ -42,6 +42,7 @@ export default function Contact({ contactData }) {
           content="Contact FilmGExR, your virtual production studio at Mileparken 14, 2740 Skovlunde. Call +45 70220302 or email filmgear@filmgear.dk."
           key="desc"
         />
+        <meta name="google-site-verification" content="vM6DrnccGA3076vx8hTA6nagPCho64uqqBnjKFhB_Es" />
       </Head>
       {contactData && (
         <div className="space-y-2 md:w-[90%]">
