@@ -78,7 +78,6 @@ export default function Home({ homeData }) {
             content="FilmGExR: Seamless virtual production enhancing film realism. We're a trusted partner for Netflix, Uma Film, SF Studios and more. Experience the future of filmmaking with us."
             key="desc"
           />
-          <meta name="google-site-verification" content="vM6DrnccGA3076vx8hTA6nagPCho64uqqBnjKFhB_Es" />
         </Head>
         <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
