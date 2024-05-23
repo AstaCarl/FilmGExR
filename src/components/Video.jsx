@@ -23,9 +23,6 @@ export default function Video({ mobileSrc, desktopSrc }) {
     };
   }, [mobileSrc, desktopSrc]);
 
-  useEffect(() => {
-    console.log('Updated video source:', videoSrc);
-  }, [videoSrc]);
   return (
     <div>
       <video
