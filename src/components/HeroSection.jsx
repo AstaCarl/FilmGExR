@@ -12,6 +12,7 @@ export default function HeroSection({ mobileSrc, desktopSrc }) {
           smooth={true}
           offset={-0}
           to="firstSection"
+          rel="nofollow"
           className="scroll-link scroll-smooth uppercase absolute bottom-[130px] text-xl text-white rotate-90 left-[40%] md:left-[45%] font-sans tracking-widest scoll-link cursor-pointer"
         >
           {'scroll'.split('').map((char, i) => (
