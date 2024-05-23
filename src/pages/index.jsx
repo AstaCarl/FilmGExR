@@ -64,6 +64,8 @@ export default function Home({ homeData }) {
 
   const mobileSrc = homeData.HeroVideo.data[0].attributes.url;
   const desktopSrc = homeData.HeroVideo.data[1].attributes.url;
+  // console.log('mobileSrc', mobileSrc);
+  // console.log('desktopSrc', desktopSrc);
 
   if (!hasLoaded) {
     return;

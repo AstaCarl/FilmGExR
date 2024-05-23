@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Video({ mobileSrc, desktopSrc }) {
-  const [videoSrc, setVideoSrc] = useState(mobileSrc);
+  const [videoSrc, setVideoSrc] = useState(window.innerWidth >= 768 ? desktopSrc : mobileSrc);
 
   useEffect(() => {
     // Update video source based on window width
@@ -22,6 +22,10 @@ export default function Video({ mobileSrc, desktopSrc }) {
       window.removeEventListener('resize', updateVideoSrc);
     };
   }, [mobileSrc, desktopSrc]);
+
+  useEffect(() => {
+    console.log('Updated video source:', videoSrc);
+  }, [videoSrc]);
   return (
     <div>
       <video
