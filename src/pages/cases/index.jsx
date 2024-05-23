@@ -32,7 +32,6 @@ export default function Cases({ casesData }) {
           content="View FilmGExR's recent virtual production work for films and series including Carmen Curlers, Oxen, Valdes Jul, and CUT. Experience our innovative filmmaking."
           key="desc"
         />
-        <meta name="google-site-verification" content="vM6DrnccGA3076vx8hTA6nagPCho64uqqBnjKFhB_Es" />
       </Head>
       <section>
         <div

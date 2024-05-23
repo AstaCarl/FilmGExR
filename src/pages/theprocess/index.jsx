@@ -67,7 +67,6 @@ export default function Theprocess({ data }) {
           content="Discover FilmGExR's five-step virtual production process. We offer a tailored approach from consultation to shooting day, ensuring high-quality content creation."
           key="desc"
         />
-        <meta name="google-site-verification" content="vM6DrnccGA3076vx8hTA6nagPCho64uqqBnjKFhB_Es" />
       </Head>
       <article className="tw-grid">
         <div className="col-span-full ">

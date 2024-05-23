@@ -34,7 +34,6 @@ export default function ErrorPage({ data }) {
           content="We're sorry, but the page you're looking for doesn't exist. Please navigate back to our homepage, or use our navigation to find what you need. | FilmGExR"
           key="desc"
         />
-        <meta name="google-site-verification" content="vM6DrnccGA3076vx8hTA6nagPCho64uqqBnjKFhB_Es" />
       </Head>
       <div>
         <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
