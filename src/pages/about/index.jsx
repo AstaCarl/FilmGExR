@@ -77,8 +77,7 @@ export default function About(data) {
         {data.data.aboutUs.map((item, index) => (
           <div key={index}>
             <TitleWithParagraf
-              variant="subtitle"
-              title={item.subtitle}
+              subtitle={item.subtitle}
               paragraf={item.paragraf}
               componentvariant={index % 2 !== 0 ? 'opposite' : ''}
             />
@@ -88,7 +87,7 @@ export default function About(data) {
           ref={aboutRef}
           className={`flex gap-2 items-center justify-end ${
             isAboutVisible ? 'appear-on-scroll' : 'before-scroll'
-          } v-space-xl`}
+          } md:v-space-xl`}
         >
           <Anchor variant="arrowLink" href={data.data.arrowAnchor.url} title={data.data.arrowAnchor.title} />
           <Image

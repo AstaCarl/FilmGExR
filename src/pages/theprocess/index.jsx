@@ -56,7 +56,6 @@ export default function Theprocess({ data }) {
   const handleShowParagraf5 = () => {
     setShowParagraf5(!showParagraf5);
   };
-  console.log('data', data);
 
   return (
     <div className=" bg-off-white v-space-xl flex">
