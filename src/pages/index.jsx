@@ -16,7 +16,7 @@ import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios,uniqueInScandinavia.bulletpoints,fullService.bulletpoints,virtualProduction.bulletpoints`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios,uniqueInScandinavia.bulletpoints,fullService.bulletpoints,virtualProduction.bulletpoints,posterDesktop,posterMobile`
   );
   const homeData = response.data.attributes;
   return {
@@ -64,8 +64,11 @@ export default function Home({ homeData }) {
 
   const mobileSrc = homeData.HeroVideo.data[0].attributes.url;
   const desktopSrc = homeData.HeroVideo.data[1].attributes.url;
+  const posterDesktop = homeData.posterDesktop.data.attributes.url;
+  const posterMobile = homeData.posterMobile.data.attributes.url;
   // console.log('mobileSrc', mobileSrc);
   // console.log('desktopSrc', desktopSrc);
+  console.log('homeData', homeData);
 
   if (!hasLoaded) {
     return;
@@ -81,7 +84,12 @@ export default function Home({ homeData }) {
             key="desc"
           />
         </Head>
-        <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
+        <HeroSection
+          mobileSrc={mobileSrc}
+          desktopSrc={desktopSrc}
+          posterDesktop={posterDesktop}
+          posterMobile={posterMobile}
+        />
         <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
           {introData &&
             introData.arrowAnchor &&

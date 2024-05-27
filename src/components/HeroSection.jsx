@@ -2,11 +2,16 @@ import React from 'react';
 import Video from './Video';
 import { Link } from 'react-scroll';
 
-export default function HeroSection({ mobileSrc, desktopSrc }) {
+export default function HeroSection({ mobileSrc, desktopSrc, posterDesktop, posterMobile }) {
   return (
     <div className="h-screen w-screen bg-dark">
       <div className="relative z-0">
-        <Video mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
+        <Video
+          mobileSrc={mobileSrc}
+          desktopSrc={desktopSrc}
+          posterDesktop={posterDesktop}
+          posterMobile={posterMobile}
+        />
         <Link
           aria-label="scroll to first section"
           smooth={true}
