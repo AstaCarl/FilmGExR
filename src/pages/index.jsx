@@ -66,9 +66,6 @@ export default function Home({ homeData }) {
   const desktopSrc = homeData.HeroVideo.data[1].attributes.url;
   const posterDesktop = homeData.posterDesktop.data.attributes.url;
   const posterMobile = homeData.posterMobile.data.attributes.url;
-  // console.log('mobileSrc', mobileSrc);
-  // console.log('desktopSrc', desktopSrc);
-  console.log('homeData', homeData);
 
   if (!hasLoaded) {
     return;

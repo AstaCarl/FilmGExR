@@ -35,7 +35,7 @@ export default function Navigation({ navigationData }) {
       <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
     )} */}
           {navigationData.logo && (
-            <Link aria="Go to home page" href={navigationData.logo.url}>
+            <Link aria-label="Go to home page" href={navigationData.logo.url}>
               <Image
                 width={600}
                 height={200}
