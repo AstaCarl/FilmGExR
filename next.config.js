@@ -5,7 +5,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'wise-approval-1b4d22b6f0.media.strapiapp.com',
+        hostname: process.env.NEXT_PUBLIC_HOSTNAME,
         port: '',
       },
     ],
