@@ -54,7 +54,7 @@ export default function Home({ homeData }) {
 
     const timer = setTimeout(() => {
       setHasLoaded(true);
-    }, 0);
+    }, 4200);
 
     return () => {
       clearTimeout(timer);
@@ -68,8 +68,7 @@ export default function Home({ homeData }) {
   const posterMobile = homeData.posterMobile.data.attributes.url;
 
   if (!hasLoaded) {
-    return;
-    // <Loader />;
+    return <Loader />;
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>

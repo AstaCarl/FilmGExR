@@ -31,9 +31,6 @@ export default function Navigation({ navigationData }) {
     >
       <div>
         <div className={` flex justify-between items-center ${isOpen ? ' relative z-[999]' : ''}`}>
-          {/* {navigationData.logo && (
-      <Anchor variant="logo" href={navigationData.logo.url} title={navigationData.logo.brandName} />
-    )} */}
           {navigationData.logo && (
             <Link aria-label="Go to home page" href={navigationData.logo.url}>
               <Image

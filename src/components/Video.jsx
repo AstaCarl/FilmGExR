@@ -27,7 +27,7 @@ export default function Video({ mobileSrc, desktopSrc, posterDesktop, posterMobi
   }, [mobileSrc, desktopSrc]);
 
   return (
-    <div>
+    <div className="bg-black">
       <video
         poster={posterSrc}
         loop
@@ -38,7 +38,7 @@ export default function Video({ mobileSrc, desktopSrc, posterDesktop, posterMobi
         autoPlay
         playsInline
         name="Video Name"
-        className="h-screen object-cover"
+        className="h-screen object-cover bg-black"
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
