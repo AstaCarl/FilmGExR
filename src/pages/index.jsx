@@ -31,7 +31,6 @@ export default function Home({ homeData }) {
   const [introData, setIntroData] = useState({});
   const [isVisible, setIsVisible] = useState(false);
   const [isClientsVisible, setIsClientsVisible] = useState(false);
-  const [isBenefitsVisible, setIsBenefitsVisible] = useState(false);
 
   const ref = useIntersectionObserver(() => {
     setIsVisible(true);
@@ -41,10 +40,6 @@ export default function Home({ homeData }) {
 
   usePreciseObserver(clientsRef, () => {
     setIsClientsVisible(true);
-  });
-
-  const benefitsRef = useIntersectionObserver(() => {
-    setIsBenefitsVisible(true);
   });
 
   useEffect(() => {
