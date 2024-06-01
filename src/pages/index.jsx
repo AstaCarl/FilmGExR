@@ -16,7 +16,7 @@ import Head from 'next/head';
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios,uniqueInScandinavia.bulletpoints,fullService.bulletpoints,virtualProduction.bulletpoints,posterDesktop,posterMobile`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/home-page?populate=introduction,clients.logos,arrowAnchor.icon,benefits.image,HeroVideo,Studios.studios,uniqueInScandinavia.bulletpoints,fullService.bulletpoints,virtualProduction.bulletpoints`
   );
   const homeData = response.data.attributes;
   return {
@@ -59,20 +59,13 @@ export default function Home({ homeData }) {
 
   const mobileSrc = homeData.HeroVideo.data[0].attributes.url;
   const desktopSrc = homeData.HeroVideo.data[1].attributes.url;
-  const posterDesktop = homeData.posterDesktop.data.attributes.url;
-  const posterMobile = homeData.posterMobile.data.attributes.url;
 
   if (!hasLoaded) {
     return <Loader />;
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
-        <HeroSection
-          mobileSrc={mobileSrc}
-          desktopSrc={desktopSrc}
-          posterDesktop={posterDesktop}
-          posterMobile={posterMobile}
-        />
+        <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
         <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
           {introData &&
             introData.arrowAnchor &&

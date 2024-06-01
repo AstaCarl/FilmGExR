@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Video({ mobileSrc, desktopSrc, posterDesktop, posterMobile }) {
+export default function Video({ mobileSrc, desktopSrc }) {
   const [videoSrc, setVideoSrc] = useState(window.innerWidth >= 768 ? desktopSrc : mobileSrc);
-  const [posterSrc, setPosterSrc] = useState(window.innerWidth >= 768 ? posterDesktop : posterMobile);
 
   useEffect(() => {
     // Update video source based on window width
@@ -10,10 +9,8 @@ export default function Video({ mobileSrc, desktopSrc, posterDesktop, posterMobi
       if (window.innerWidth >= 768) {
         // 768px is typically considered the start of medium screens
         setVideoSrc(desktopSrc);
-        setPosterSrc(posterDesktop);
       } else {
         setVideoSrc(mobileSrc);
-        setPosterSrc(posterMobile);
       }
     };
 
@@ -29,7 +26,6 @@ export default function Video({ mobileSrc, desktopSrc, posterDesktop, posterMobi
   return (
     <div className="bg-black">
       <video
-        poster={posterSrc}
         loop
         width="100%"
         height="100%"
