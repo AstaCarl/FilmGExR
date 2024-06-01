@@ -67,14 +67,6 @@ export default function Home({ homeData }) {
   } else {
     return (
       <main className={`transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col`}>
-        <Head>
-          <title>FilmGExR | Your One Stop Shop for Virtual Production Services</title>
-          <meta
-            name="description"
-            content="FilmGExR: Seamless virtual production enhancing film realism. We're a trusted partner for Netflix, Uma Film, SF Studios and more. Experience the future of filmmaking with us."
-            key="desc"
-          />
-        </Head>
         <HeroSection
           mobileSrc={mobileSrc}
           desktopSrc={desktopSrc}
