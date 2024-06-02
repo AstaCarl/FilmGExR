@@ -26,7 +26,7 @@ export default function ErrorPage({ data }) {
     setIsVisible(true);
   });
   return (
-    <div className="flex flex-col justify-center items-center h-[80vh] gap-4">
+    <div className="flex flex-col justify-center items-center h-[80vh] page-content-container gap-4">
       <Head>
         <title>404 Error - Page Not Found | FilmGExR</title>
         <meta
@@ -37,7 +37,7 @@ export default function ErrorPage({ data }) {
       </Head>
       <div>
         <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
-          <Heading className="text-8xl" title={data.title} />
+          <h1 className="text-8xl font-syntax text-red lg:text-[8rem] pb-2">{data.title}</h1>
         </div>
         <div ref={ref} className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'}`}>
           <Title variant="subtitle" title={data.subtitle} />
