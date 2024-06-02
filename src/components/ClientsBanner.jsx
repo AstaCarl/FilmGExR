@@ -1,11 +1,14 @@
 import React from 'react';
 import Title from './ui/Title';
 import Image from 'next/image';
-import Paragraf from './Paragraf';
+import Paragraf from './ui/Paragraf';
 
+// This is a functional component that renders a banner with client information
+// It accepts a 'clientData' prop which is an object containing all the necessary data
 export default function ClientsBanner({ clientData }) {
+  // If there's no clientData, don't render anything
   if (!clientData) {
-    return null; // or a loading spinner, or some fallback UI
+    return null;
   }
 
   return (
@@ -18,6 +21,7 @@ export default function ClientsBanner({ clientData }) {
         <div className="tw-grid">
           {clientData.clients &&
             clientData.clients.map((logo, index) => (
+              // Each logo is an Image component from Next.js
               <Image
                 key={index}
                 src={logo.logos.data.attributes.url}

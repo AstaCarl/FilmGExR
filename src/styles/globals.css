@@ -68,6 +68,7 @@
   }
 }
 
+/* animation for the scroll down button */
 @keyframes spell {
   0% {
     opacity: 0;
@@ -92,6 +93,7 @@
   }
 }
 
+/* Animations for the custom loader */
 @keyframes darkBlue {
   0% {
     background-color: #1a1a1a;
@@ -229,30 +231,3 @@
     opacity: 1;
   }
 }
-
-@keyframes fadeContent {
-  0% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* .rotated {
-  background-color: pink;
-  transform-origin: 0px 50% -70px;
-}
-
-@keyframes rotatedContent {
-  0% {
-    transform: rotate3d(1, 0, 0, 0deg);
-  }
-  100% {
-    transform: rotate3d(1, 0, 0, 90deg);
-  }
-} */
-
-/* .animation-rotate {
-  animation: rotated 2s ease-in;
-} */

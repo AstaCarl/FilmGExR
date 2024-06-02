@@ -3,12 +3,14 @@ import { LoaderContext } from '../contexts/LoaderContext';
 import { useContext } from 'react';
 
 export default function Loader() {
+  // Get the hasLoaded state from the LoaderContext
   const { hasLoaded } = useContext(LoaderContext);
   if (hasLoaded) {
     return null;
   }
 
   return (
+    // Loader component with nested divs for each color
     <div className="opacity-100 h-screen w-screen top-0 fixed z-[2000] bg-dark flex flex-col items-center justify-center">
       <div
         style={{

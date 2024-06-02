@@ -2,8 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function Anchor({ href, title, variant, children, target, aria }) {
+  //default css styling
   let classNames = 'font-sans pointer transition-all duration-200 ease-in';
 
+  // Depending on the 'variant' prop, add different CSS classes
   if (variant === 'nav') {
     classNames += ' text-lg hover:text-red';
   } else if (variant === 'footer') {

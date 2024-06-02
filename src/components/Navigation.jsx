@@ -6,12 +6,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Navigation({ navigationData }) {
+  //states for menu toggle
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
+  //get the active pathname
   const activePathname = router.pathname;
 
+  //function to toggle menu
   const handleMenuToggle = () => {
     setIsOpen(true);
     if (isOpen) {
@@ -19,11 +22,13 @@ export default function Navigation({ navigationData }) {
     }
   };
 
+  //close menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
   return (
+    // Navigation bar
     <header
       className={`${
         isOpen ? '' : ''
@@ -42,6 +47,7 @@ export default function Navigation({ navigationData }) {
               />
             </Link>
           )}
+          {/* toggle menu button */}
           <button
             aria-label="toggle menu"
             onClick={handleMenuToggle}
@@ -63,6 +69,7 @@ export default function Navigation({ navigationData }) {
           </button>
         </div>
       </div>
+      {/*  Navigation links */}
       <nav
         className={`${
           isOpen ? ' bg-off-white sticky z-10  translate-x-0 blur-none' : ' translate-x-full overflow-hidden blur-lg'
@@ -71,6 +78,7 @@ export default function Navigation({ navigationData }) {
         <ul
           className={` space-y-6 text-right lg:space-y-0 lg:flex lg:gap-6 right-content-container transition-all duration-700 ease-in-out `}
         >
+          {/* map over the navigation data and display each link */}
           {navigationData.navLink.map((item, index) => {
             if (item && item.url) {
               const isActive = item.url === activePathname;

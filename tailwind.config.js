@@ -8,28 +8,7 @@ module.exports = {
 
   theme: {
     extend: {
-      animation: {
-        marquee: 'marquee 15s linear infinite',
-        rotate: 'rotate 5s linear infinite',
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(calc(-100% - 1rem))' },
-        },
-        rotate: {
-          '0%': { transform: 'translateY(190%)' },
-          '100%': { transform: 'translateY(-200%) rotate(45deg)' },
-        },
-      },
-      container: {
-        center: true,
-        padding: '1rem',
-        screens: {
-          xs: '100%',
-          lg: '1440px',
-        },
-      },
+      //theme colors
       colors: {
         red: '#F4013B',
         'dark-red': '#9A0017',
@@ -44,11 +23,12 @@ module.exports = {
         'off-white': '#FBF7F7',
         gray: '#484848',
       },
-
+      // theme fonts
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         syntax: 'TrueSyntax',
       },
+      // theme  font sizes
       fontSize: {
         // 10px
         '3xs': [

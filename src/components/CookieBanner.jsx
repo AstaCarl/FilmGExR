@@ -1,10 +1,12 @@
 import React from 'react';
 import Button from './ui/Button';
-import Paragraf from './Paragraf';
-import CookieModal from './CookieModal';
+import Paragraf from './ui/Paragraf';
 
+// Cookiebanner component
+// Accepts several props: two click handlers and a boolean to control visibility
 export default function CookieBanner({ onClick, onClick2, showCookieBanner }) {
   return (
+    // It's hidden if the 'showCookieBanner' prop is false
     <div
       className={` bg-black w-fit fixed z-1 bottom-2 left-2 rounded-lg px-6 py-4 flex flex-col items-start gap-2 shadow-lg md:gap-2 md:bottom-5 md:left-5 lg:flex-row lg:items-center ${
         showCookieBanner ? '' : 'hidden'

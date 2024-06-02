@@ -2,15 +2,17 @@ import Anchor from './ui/Anchor';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
+// Footer component
 export default function Footer({ footerData }) {
+  // Using Next.js useRouter hook to get the current path
   const router = useRouter();
-
   const activePathname = router.pathname;
 
   return (
     <footer className="page-content-container v-space-xl space-y-8 pb-8 relative z-[-1] bg-off-white">
       <div className="md:flex md:justify-between items-center md:space-y-0">
         <div className="hidden md:block">
+          {/* Rendering the logo if it exists in footerData */}
           {footerData.logo && (
             <Anchor
               aria="Go to home page"
@@ -21,6 +23,7 @@ export default function Footer({ footerData }) {
           )}
         </div>
         <ul className="space-y-2 md:flex md:justify-end md:space-y-0">
+          {/* Rendering the footer links */}
           {footerData.footerLink.map((item, index) => {
             if (item && item.url) {
               const isActive = item.url === activePathname;
@@ -36,6 +39,7 @@ export default function Footer({ footerData }) {
       </div>
       <div className="space-y-8 md:space-y-0 md:flex md:items-center md:justify-between">
         <ul className="flex md:justify-end">
+          {/* Rendering the social media links */}
           {footerData.socials.map((item, index) => (
             <li className="" key={index}>
               {item.icon && (
@@ -52,6 +56,7 @@ export default function Footer({ footerData }) {
             </li>
           ))}
         </ul>
+        {/* Rendering the copyright notice */}
         <p className="md:order-first">{footerData.copyright}</p>
       </div>
     </footer>

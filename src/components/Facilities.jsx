@@ -3,17 +3,20 @@ import React, { useState, useRef } from 'react';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
 export default function Facilities({ uniqueData, serviceData, productionData, title }) {
+  // These states control the visibility of the bullet points
   const [showBullets, setShowBullets] = useState(false);
   const [showBullets2, setShowBullets2] = useState(false);
   const [showBullets3, setShowBullets3] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
 
+  // This hook observes the ref and sets isVisible to true when the ref is in view
   usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
 
+  // These handlers toggle the visibility of the bullet points and hide the others
   const handleShowBullets = () => {
     setShowBullets(!showBullets);
     setShowBullets3(false);
@@ -43,6 +46,10 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
         <div className={` page-content-container`}>
           <Title title={title} variant="pageTitle" />
         </div>
+        {/* The following sections are repeated for uniqueData, serviceData, and productionData // Each section has a
+        title, a button to show/hide the bullet points, and a list of bullet points // The visibility of the bullet
+        points and the rotation of the button are controlled by the state // The bullet points are mapped from the data
+        props */}
         <div
           ref={ref}
           className={`tw-grid mt-10  h-[120px] place-items-center border-t-2 transition-all ease-in duration-300 border-red border-opacity-20 page-content-container ${

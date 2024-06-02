@@ -1,13 +1,16 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Title from './ui/Title';
-import Paragraf from './Paragraf';
+import Paragraf from './ui/Paragraf';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
 export default function ImgWithParagraf({ paragrafText, title, subtitle, src, alt, anchor }) {
+  // State to track if the component is visible
   const [isVisible, setIsVisible] = useState(false);
+  // Ref to the component's root element
   const ref = useRef();
 
+  // Use precise intersection observer hook to detect when the component is visible
   usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
@@ -25,6 +28,7 @@ export default function ImgWithParagraf({ paragrafText, title, subtitle, src, al
             </div>
             <Title title={subtitle} variant="subtitle" />
             <Paragraf className="pt-2 lg:text-lg" paragrafText={paragrafText} />
+            {/* Render optional anchor */}
             {anchor}
           </div>
           <Image

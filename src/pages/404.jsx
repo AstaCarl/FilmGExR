@@ -1,6 +1,5 @@
-import Paragraf from '@/components/Paragraf';
+import Paragraf from '@/components/ui/Paragraf';
 import Title from '@/components/ui/Title';
-import Heading from '@/components/ui/Heading';
 import React, { useState, useRef } from 'react';
 import { fetcher } from '../../lib/api';
 import Anchor from '@/components/ui/Anchor';
@@ -8,6 +7,7 @@ import Image from 'next/image';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 import Head from 'next/head';
 
+// Fetch data at build time
 export async function getStaticProps() {
   const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/error-page?populate=arrowAnchor.icon`);
   const data = response.data.attributes;
@@ -18,13 +18,16 @@ export async function getStaticProps() {
   };
 }
 
+// Error page component
 export default function ErrorPage({ data }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false); // State to track element visibility
+  const ref = useRef(); // Ref for observing element
 
+  // Use custom hook to observe element visibility
   usePreciseObserver(ref, () => {
-    setIsVisible(true);
+    setIsVisible(true); // Set visibility to true when element is in view
   });
+
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] page-content-container gap-4">
       <Head>

@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import { useState } from 'react';
 import Heading from '@/components/ui/Heading';
 import { fetcher } from '../../../lib/api';
@@ -6,12 +7,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 
+// Fetch data at build time
 export async function getStaticProps() {
+  // Fetch data from the API
   const response = await fetcher(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/contact-pages?populate=Address.icon,Phone.icon,Email.icon`
   );
-  console.log('response contact', response);
+  // Extract the data from the response
   const contactData = response.data[0].attributes;
+  // Return the data as props
   return {
     props: {
       contactData: contactData,
@@ -19,22 +23,23 @@ export async function getStaticProps() {
   };
 }
 
+// Contact component
 export default function Contact({ contactData }) {
+  // State and refs for visibility
   const [isVisible, setIsVisible] = useState(false);
-
   const ref = useIntersectionObserver(() => {
     setIsVisible(true);
   });
   const ref2 = useIntersectionObserver(() => {
     setIsVisible(true);
   });
-
   const ref3 = useIntersectionObserver(() => {
     setIsVisible(true);
   });
 
   return (
-    <div className="page-content-container flex flex-col min-h-screen w-full justify-center gap-14">
+    <main className="page-content-container flex flex-col min-h-screen w-full justify-center gap-14">
+      {/* Set the page title and description in the head */}
       <Head>
         <title>Contact FilmGExR - Virtual Production Studio</title>
         <meta
@@ -44,7 +49,7 @@ export default function Contact({ contactData }) {
         />
       </Head>
       {contactData && (
-        <div className="space-y-2 md:w-[90%]">
+        <section className="space-y-2 md:w-[90%]">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} space-y-2 md:w-[70%]`}>
             <Heading title={contactData.title} />
           </div>
@@ -56,12 +61,13 @@ export default function Contact({ contactData }) {
           >
             <h2 className="text-lg lg:text-xl">{contactData.subtitle}</h2>
           </div>
-        </div>
+        </section>
       )}
-      <div
+      <section
         ref={ref3}
         className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-5'} flex flex-col gap-14`}
       >
+        {/* address information */}
         {contactData.Address && (
           <Link href={contactData.Address.url} className="flex items-center gap-4" aria-label="Navigate to address">
             <Image
@@ -73,6 +79,7 @@ export default function Contact({ contactData }) {
             <p className="text-md md:text-lg">{contactData.Address.title}</p>
           </Link>
         )}
+        {/* phone information */}
         {contactData.Phone && (
           <div className="flex items-center gap-4">
             <Image
@@ -84,6 +91,7 @@ export default function Contact({ contactData }) {
             <p className="text-md md:text-lg">{contactData.Phone.title}</p>
           </div>
         )}
+        {/* email information */}
         {contactData.Email && (
           <Link
             href={`mailto:${contactData.Email.title}`}
@@ -99,7 +107,7 @@ export default function Contact({ contactData }) {
             <p className="text-md md:text-lg">{contactData.Email.title}</p>
           </Link>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

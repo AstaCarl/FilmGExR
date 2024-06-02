@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import Paragraf from './Paragraf';
+import Paragraf from './ui/Paragraf';
 import Title from './ui/Title';
 import Heading from './ui/Heading';
 import { usePreciseObserver } from '../../lib/preciseObserver';

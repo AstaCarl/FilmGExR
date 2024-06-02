@@ -2,16 +2,20 @@ import React, { useState, useRef } from 'react';
 import Title from '@/components/ui/Title';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
+// WorkSection component for cases page
 export default function WorkSection({ subtitle, video }) {
+  // State for visibility, initially set to false
   const [isVisible, setIsVisible] = useState(false);
+  // Reference for the div and video elements
   const ref = useRef();
 
+  // Use precise observer to set visibility to true when the referenced element is in view
   usePreciseObserver(ref, () => {
     setIsVisible(true);
   });
 
   return (
-    <article className="">
+    <article>
       <div
         ref={ref}
         className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} w-full h-full relative `}

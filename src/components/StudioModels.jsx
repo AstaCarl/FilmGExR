@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
 import Heading from './ui/Heading';
-import Paragraf from './Paragraf';
+import Paragraf from './ui/Paragraf';
 import Image from 'next/image';
 import { useIntersectionObserver } from '../../lib/interSectionObserver';
 import Button from './ui/Button';
 
 export default function StudioModels({ studioData }) {
+  // State for visibility
   const [isVisible, setIsVisible] = useState(false);
+
+  // State for showing studio models
   const [showMedium, setShowMedium] = useState(false);
   const [showBig, setShowBig] = useState(true);
+  // State for active button
   const [active, setActive] = useState('big');
 
+  // Observer to set visibility
   const ref = useIntersectionObserver(() => {
     setIsVisible(true);
   });
 
+  // Function to show medium studio
   const handleShowMedium = () => {
     setShowMedium(true);
     setShowBig(false);
     setActive('medium');
   };
 
+  // Function to show big studio
   const handleShowBig = () => {
     setShowMedium(false);
     setShowBig(true);
@@ -28,11 +35,13 @@ export default function StudioModels({ studioData }) {
   };
 
   return (
+    // Studio models section
     <div className="bg-off-white relative flex flex-col -mt-20 gap-4 page-content-container mb-8 md:mb-16 lg:mb-20">
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
         <Heading title={studioData.title} />
       </div>
       <div className="relative">
+        {/* Paragraf component for studio models each showing depending on the state */}
         <Paragraf
           className={`text-md relative lg:max-w-[60%] transition-opacity duration-500 ease-in-out ${
             showBig ? 'opacity-100 ' : 'opacity-0 '
@@ -49,6 +58,7 @@ export default function StudioModels({ studioData }) {
       <div className="flex w-full gap-4 ">
         <ul className=" w-full gap-4 flex ">
           <li className="w-fit">
+            {/* Button component for toggling studio models */}
             <Button
               onClick={handleShowBig}
               variant={`${active === 'big' ? 'active' : ''}`}
@@ -67,6 +77,7 @@ export default function StudioModels({ studioData }) {
         </ul>
       </div>
       <div className="relative w-full">
+        {/* Image component for studio models each showing depending on the state */}
         <Image
           src={studioData.studios.data[0].attributes.url}
           alt="default"

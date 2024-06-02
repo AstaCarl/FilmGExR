@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Title from './ui/Title';
-import Paragraf from './Paragraf';
+import Paragraf from './ui/Paragraf';
 
 export default function TeamCard({ alt, src, title, paragraf }) {
   return (
