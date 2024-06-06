@@ -69,7 +69,12 @@ export default function Contact({ contactData }) {
       >
         {/* address information */}
         {contactData.Address && (
-          <Link href={contactData.Address.url} className="flex items-center gap-4" aria-label="Navigate to address">
+          <Link
+            href={contactData.Address.url}
+            target="_blank"
+            className="flex items-center gap-4"
+            aria-label="Navigate to address"
+          >
             <Image
               width={30}
               height={30}
