@@ -21,6 +21,7 @@ export default function WorkSection({ subtitle, video }) {
         className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} w-full h-full relative `}
       >
         <video
+          loop
           autoPlay
           preload="auto"
           muted
