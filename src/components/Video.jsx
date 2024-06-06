@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Video component that takes mobile and desktop sources as props
 export default function Video({ mobileSrc, desktopSrc }) {
   // State for video source, initially set based on window width
-  const [videoSrc, setVideoSrc] = useState(window.innerWidth >= 768 ? desktopSrc : mobileSrc);
+  const [videoSrc, setVideoSrc] = useState(window.innerWidth >= 1100 ? desktopSrc : mobileSrc);
 
   useEffect(() => {
     // Function to update video source based on window width
