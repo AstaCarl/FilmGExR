@@ -93,7 +93,9 @@ export default function Contact({ contactData }) {
               src={contactData.Phone.icon.data.attributes.url}
               alt={contactData.Phone.icon.data.attributes.alternativeText || 'Phone icon'}
             />
-            <p className="text-md md:text-lg">{contactData.Phone.title}</p>
+            <Link href={`tel:{contactData.Phone.title}`}>
+              <p className="text-md md:text-lg">{contactData.Phone.title}</p>
+            </Link>
           </div>
         )}
         {/* email information */}
