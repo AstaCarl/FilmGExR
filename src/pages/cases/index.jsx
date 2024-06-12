@@ -6,6 +6,7 @@ import { fetcher } from '../../../lib/api';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
 import Head from 'next/head';
 import Title from '../../components/ui/Title';
+import VideoModal from '../../components/VideoModal';
 
 // Fetch data at build time
 export async function getStaticProps() {
@@ -25,6 +26,9 @@ export async function getStaticProps() {
 export default function Cases({ casesData }) {
   // State and ref for visibility
   const [isVisible, setIsVisible] = useState(false);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(null);
+
   const ref = useRef();
 
   // Observer to set visibility
@@ -32,8 +36,19 @@ export default function Cases({ casesData }) {
     setIsVisible(true);
   });
 
+  const handleVideoClick = (videoUrl) => {
+    setCurrentVideo(videoUrl);
+    setShowVideoModal(true);
+    console.log('clicked');
+  };
+
+  const handleCloseModal = () => {
+    setShowVideoModal(false);
+    setCurrentVideo(null);
+  };
+
   return (
-    <main className="v-space-xl bg-off-white">
+    <main className="v-space-xl bg-off-white relative z-0">
       {/* Set the page title and description in the head */}
       <Head>
         <title>FilmGExR's Recent Work - Virtual Production Showcase</title>
@@ -54,9 +69,14 @@ export default function Cases({ casesData }) {
         {casesData.cases.map((caseItem, index) => (
           //worksection component for each case
           <article className="pb-20" key={index}>
-            <WorkSection subtitle={caseItem.title} video={caseItem.video.data.attributes.url} />
+            <WorkSection
+              subtitle={caseItem.title}
+              video={caseItem.video.data.attributes.url}
+              onclick={() => handleVideoClick(caseItem.video.data.attributes.url)}
+            />
           </article>
         ))}
+        {showVideoModal && <VideoModal src={currentVideo} onclick={handleCloseModal} />}
       </section>
     </main>
   );

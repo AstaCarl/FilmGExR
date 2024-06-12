@@ -3,7 +3,7 @@ import Title from '@/components/ui/Title';
 import { usePreciseObserver } from '../../lib/preciseObserver';
 
 // WorkSection component for cases page
-export default function WorkSection({ subtitle, video }) {
+export default function WorkSection({ subtitle, video, onclick }) {
   // State for visibility, initially set to false
   const [isVisible, setIsVisible] = useState(false);
   // Reference for the div and video elements
@@ -21,6 +21,7 @@ export default function WorkSection({ subtitle, video }) {
         className={`${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} w-full h-full relative `}
       >
         <video
+          onClick={onclick}
           loop
           autoPlay
           preload="auto"
