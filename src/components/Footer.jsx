@@ -11,7 +11,7 @@ export default function Footer({ footerData }) {
   return (
     <footer className="page-content-container v-space-xl space-y-8 pb-8 relative z-[-1] bg-off-white">
       <div className="md:flex md:justify-between items-center md:space-y-0">
-        <div className="hidden md:block">
+        <div className="hidden md:flex flex-col items-center">
           {/* Rendering the logo if it exists in footerData */}
           {footerData.logo && (
             <Anchor
@@ -21,6 +21,7 @@ export default function Footer({ footerData }) {
               title={footerData.logo.brandName}
             />
           )}
+          <p className="uppercase text-[11px] -mt-1 font-syntax">Virtual Production Studio</p>
         </div>
         <ul className="space-y-2 md:flex md:justify-end md:space-y-0">
           {/* Rendering the footer links */}
