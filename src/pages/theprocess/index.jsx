@@ -86,27 +86,29 @@ export default function Theprocess({ data }) {
           >
             {/* Step 1 */}
             <section>
-              <div className="tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container justify-between gap-10 items-center">
-                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                  0{data.attributes.step1.number}
-                </span>
-                <div className="col-span-8">
-                  <Title variant="subtitle" title={data.attributes.step1.subtitle} />
-                </div>
+              <div className="border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container gap-10">
                 <Link
                   smooth={true}
                   to="paragraf1"
                   offset={-200}
-                  className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11"
+                  className="cursor-pointer relative tw-grid h-full items-center"
                   onClick={handleShowParagraf1}
                   aria-label="Show or hide steps"
                 >
-                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
-                  <div
-                    className={`${
-                      showParagraf1 ? 'rotate-0' : 'rotate-90'
-                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
-                  ></div>
+                  <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                    0{data.attributes.step1.number}
+                  </span>
+                  <div className="col-span-8">
+                    <Title variant="subtitle" title={data.attributes.step1.subtitle} />
+                  </div>
+                  <button className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
+                    <div className="w-6 h-[2px] bg-red rounded-full relative top-0"></div>
+                    <div
+                      className={`${
+                        showParagraf1 ? 'rotate-0' : 'rotate-90'
+                      } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                    ></div>
+                  </button>
                 </Link>
               </div>
 
@@ -126,27 +128,29 @@ export default function Theprocess({ data }) {
             {/* Repeat similar structure for Steps 2-5 */}
             {/* Step 2 */}
             <section>
-              <div className="tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container justify-between gap-10 items-center">
-                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                  0{data.attributes.step2.number}
-                </span>
-                <div className="col-span-8">
-                  <Title variant="subtitle" title={data.attributes.step2.subtitle} />
-                </div>
+              <div className="border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container gap-10">
                 <Link
                   smooth={true}
                   to="paragraf2"
                   offset={-200}
-                  className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11"
+                  className="cursor-pointer relative tw-grid h-full items-center"
                   onClick={handleShowParagraf2}
                   aria-label="Show or hide steps"
                 >
-                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
-                  <div
-                    className={`${
-                      showParagraf2 ? 'rotate-0' : 'rotate-90'
-                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
-                  ></div>
+                  <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                    0{data.attributes.step2.number}
+                  </span>
+                  <div className="col-span-8">
+                    <Title variant="subtitle" title={data.attributes.step2.subtitle} />
+                  </div>
+                  <button className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
+                    <div className="w-6 h-[2px] bg-red rounded-full relative top-0"></div>
+                    <div
+                      className={`${
+                        showParagraf2 ? 'rotate-0' : 'rotate-90'
+                      } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                    ></div>
+                  </button>
                 </Link>
               </div>
 
@@ -165,27 +169,29 @@ export default function Theprocess({ data }) {
 
             {/* Step 3 */}
             <section>
-              <div className="tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container justify-between gap-10 items-center">
-                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                  0{data.attributes.step3.number}
-                </span>
-                <div className="col-span-8">
-                  <Title variant="subtitle" title={data.attributes.step3.subtitle} />
-                </div>
+              <div className="border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container gap-10">
                 <Link
                   smooth={true}
                   to="paragraf3"
                   offset={-200}
-                  className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11"
+                  className="cursor-pointer relative tw-grid h-full items-center"
                   onClick={handleShowParagraf3}
                   aria-label="Show or hide steps"
                 >
-                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
-                  <div
-                    className={`${
-                      showParagraf3 ? 'rotate-0' : 'rotate-90'
-                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
-                  ></div>
+                  <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                    0{data.attributes.step3.number}
+                  </span>
+                  <div className="col-span-8">
+                    <Title variant="subtitle" title={data.attributes.step3.subtitle} />
+                  </div>
+                  <button className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
+                    <div className="w-6 h-[2px] bg-red rounded-full relative top-0"></div>
+                    <div
+                      className={`${
+                        showParagraf3 ? 'rotate-0' : 'rotate-90'
+                      } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                    ></div>
+                  </button>
                 </Link>
               </div>
 
@@ -204,27 +210,29 @@ export default function Theprocess({ data }) {
 
             {/* Step 4 */}
             <section>
-              <div className="tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container justify-between gap-10 items-center">
-                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                  0{data.attributes.step4.number}
-                </span>
-                <div className="col-span-8">
-                  <Title variant="subtitle" title={data.attributes.step4.subtitle} />
-                </div>
+              <div className="border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container gap-10">
                 <Link
                   smooth={true}
                   to="paragraf4"
                   offset={-200}
-                  className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11"
+                  className="cursor-pointer relative tw-grid h-full items-center"
                   onClick={handleShowParagraf4}
                   aria-label="Show or hide steps"
                 >
-                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
-                  <div
-                    className={`${
-                      showParagraf4 ? 'rotate-0' : 'rotate-90'
-                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
-                  ></div>
+                  <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                    0{data.attributes.step4.number}
+                  </span>
+                  <div className="col-span-8">
+                    <Title variant="subtitle" title={data.attributes.step4.subtitle} />
+                  </div>
+                  <button className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
+                    <div className="w-6 h-[2px] bg-red rounded-full relative top-0"></div>
+                    <div
+                      className={`${
+                        showParagraf4 ? 'rotate-0' : 'rotate-90'
+                      } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                    ></div>
+                  </button>
                 </Link>
               </div>
 
@@ -243,27 +251,29 @@ export default function Theprocess({ data }) {
 
             {/* Step 5 */}
             <section>
-              <div className="tw-grid border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container justify-between gap-10 items-center">
-                <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
-                  0{data.attributes.step5.number}
-                </span>
-                <div className="col-span-8">
-                  <Title variant="subtitle" title={data.attributes.step5.subtitle} />
-                </div>
+              <div className="border-t-2 h-[120px] transition-all ease-in duration-300 border-red border-opacity-20 page-content-container gap-10">
                 <Link
                   smooth={true}
                   to="paragraf5"
                   offset={-200}
-                  className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11"
+                  className="cursor-pointer relative tw-grid h-full items-center"
                   onClick={handleShowParagraf5}
                   aria-label="Show or hide steps"
                 >
-                  <div className="w-6 h-[2px] bg-red rounded-full relative top-1/2"></div>
-                  <div
-                    className={`${
-                      showParagraf5 ? 'rotate-0' : 'rotate-90'
-                    } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
-                  ></div>
+                  <span className="text-red col-span-2 lg:col-span-1 lg:col-start-2 text-xl md:text-[2rem] lg:text-[2.5rem] font-poppins">
+                    0{data.attributes.step5.number}
+                  </span>
+                  <div className="col-span-8">
+                    <Title variant="subtitle" title={data.attributes.step5.subtitle} />
+                  </div>
+                  <button className="cursor-pointer relative h-10 w-10 transition-transform duration-500 ease-in-out col-span-2 col-start-12 lg:col-span-1 lg:col-start-11">
+                    <div className="w-6 h-[2px] bg-red rounded-full relative top-0"></div>
+                    <div
+                      className={`${
+                        showParagraf5 ? 'rotate-0' : 'rotate-90'
+                      } absolute bottom-[18px] bg-red rounded-full w-6 h-[2px] transition-transform duration-500 ease-in-out`}
+                    ></div>
+                  </button>
                 </Link>
               </div>
 
