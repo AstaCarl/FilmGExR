@@ -131,8 +131,8 @@ export default function About(data) {
       {/* Container for the team section */}
       <article>
         {/* Title of the team section */}
-        <div ref={teamRef} className={` ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '}`}>
-          <Title title={data.data.teamTitle} variant="pageTitle" />
+        <div ref={teamRef} className={` ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '} pb-4`}>
+          <Title title={data.data.teamTitle} variant="subtitle" />
         </div>
 
         {/* Map over the teamMemberCard data and display each team member with the TeamCard component */}
