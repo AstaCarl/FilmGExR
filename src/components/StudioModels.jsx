@@ -40,21 +40,6 @@ export default function StudioModels({ studioData }) {
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
         <Heading title={studioData.title} />
       </div>
-      <div className="relative">
-        {/* Paragraf component for studio models each showing depending on the state */}
-        <Paragraf
-          className={`text-md relative lg:max-w-[60%] transition-opacity duration-500 ease-in-out ${
-            showBig ? 'opacity-100 ' : 'opacity-0 '
-          }`}
-          paragrafText={studioData.bigStudText}
-        />
-        <Paragraf
-          className={`text-md absolute lg:max-w-[60%] top-0 transition-opacity duration-500 ease-in-out ${
-            showMedium ? 'opacity-100' : 'opacity-0'
-          }`}
-          paragrafText={studioData.smallStudText}
-        />
-      </div>
       <div className="flex w-full gap-4 ">
         <ul className=" w-full gap-4 flex ">
           <li className="w-fit">
@@ -75,6 +60,21 @@ export default function StudioModels({ studioData }) {
             />
           </li>
         </ul>
+      </div>
+      <div className="relative">
+        {/* Paragraf component for studio models each showing depending on the state */}
+        <Paragraf
+          className={`text-md relative lg:max-w-[60%] transition-opacity duration-500 ease-in-out ${
+            showBig ? 'opacity-100 ' : 'opacity-0 '
+          }`}
+          paragrafText={studioData.bigStudText}
+        />
+        <Paragraf
+          className={`text-md absolute lg:max-w-[60%] top-0 transition-opacity duration-500 ease-in-out ${
+            showMedium ? 'opacity-100' : 'opacity-0'
+          }`}
+          paragrafText={studioData.smallStudText}
+        />
       </div>
       <div className="relative w-full">
         {/* Image component for studio models each showing depending on the state */}
