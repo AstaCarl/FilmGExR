@@ -5,6 +5,7 @@ import Heading from '../../components/ui/Heading';
 import { fetcher } from '../../../lib/api';
 import { usePreciseObserver } from '../../../lib/preciseObserver';
 import Head from 'next/head';
+import Title from '../../components/ui/Title';
 
 // Fetch data at build time
 export async function getStaticProps() {
@@ -48,6 +49,7 @@ export default function Cases({ casesData }) {
           className={`page-content-container mb-12 ${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'}`}
         >
           <Heading title={casesData.title} />
+          <Title title="Projects we're pround of" variant="subtitle" />
         </div>
         {casesData.cases.map((caseItem, index) => (
           //worksection component for each case
