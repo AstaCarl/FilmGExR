@@ -26,15 +26,15 @@ export default function Loader() {
       </h1>
       <div
         style={{ animation: 'darkBlue 3.2s' }}
-        className={`bg-dark-blue w-[214px] h-[91px] lg:w-[428px] lg:h-[182px] flex items-end border-dark border-2`}
+        className={`bg-dark-blue w-[214px] h-[98px] lg:w-[428px] lg:h-[191px] flex items-end border-dark border-2`}
       >
         <div
           style={{ animation: 'lightBlue 2.9s' }}
-          className={`bg-light-blue opcaity-0 w-[149px] h-[81px] lg:w-[298px] lg:h-[162px] flex items-end border-dark border-t-2 border-r-2 `}
+          className={`bg-light-blue opcaity-0 w-[149px] h-[84px] lg:w-[298px] lg:h-[167px] flex items-end border-dark border-t-2 border-r-2 `}
         >
           <div
             style={{ animation: 'white 2.6s' }}
-            className={`bg-white w-[124px] lg:w-[248px] h-[70px] lg:h-[130px] flex items-end border-dark border-t-2 border-r-2 animate-fadeIn duration-1000 delay-1000`}
+            className={`bg-white w-[124px] lg:w-[248px] h-[73px] lg:h-[145px] flex items-end border-dark border-t-2 border-r-2 animate-fadeIn duration-1000 delay-1000`}
           >
             <div
               style={{ animation: 'yellow 2.3s' }}
@@ -42,7 +42,7 @@ export default function Loader() {
             >
               <div
                 style={{ animation: 'orange 2s' }}
-                className={`bg-orange w-[68px] lg:w-[136px] h-[51px] lg:h-[102px] flex items-end border-dark border-t-2 border-r-2 animate-fadeIn duration-1000 delay-2000`}
+                className={`bg-orange w-[68px] lg:w-[136px] h-[52px] lg:h-[105px] flex items-end border-dark border-t-2 border-r-2 animate-fadeIn duration-1000 delay-2000`}
               >
                 <div
                   style={{ animation: 'brightRed 1.7s' }}
