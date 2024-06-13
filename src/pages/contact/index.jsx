@@ -36,9 +36,12 @@ export default function Contact({ contactData }) {
   const ref3 = useIntersectionObserver(() => {
     setIsVisible(true);
   });
+  const ref4 = useIntersectionObserver(() => {
+    setIsVisible(true);
+  });
 
   return (
-    <main className="page-content-container flex flex-col min-h-screen w-full justify-center gap-14">
+    <main className="flex flex-col  min-h-screen w-full justify-center gap-14">
       {/* Set the page title and description in the head */}
       <Head>
         <title>Contact FilmGExR - Virtual Production Studio</title>
@@ -49,7 +52,7 @@ export default function Contact({ contactData }) {
         />
       </Head>
       {contactData && (
-        <section className="space-y-2 md:w-[90%]">
+        <section className="space-y-2 md:w-[90%] page-content-container ">
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} space-y-2 md:w-[70%]`}>
             <Heading title={contactData.title} />
           </div>
@@ -65,25 +68,10 @@ export default function Contact({ contactData }) {
       )}
       <section
         ref={ref3}
-        className={`${isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-5'} flex flex-col gap-14`}
+        className={`${
+          isVisible ? 'appear-on-scroll delay-300' : 'before-scroll translate-y-5'
+        } flex flex-col gap-14 page-content-container `}
       >
-        {/* address information */}
-        {contactData.Address && (
-          <Link
-            href={contactData.Address.url}
-            target="_blank"
-            className="flex items-center gap-4"
-            aria-label="Navigate to address"
-          >
-            <Image
-              width={30}
-              height={30}
-              src={contactData.Address.icon.data.attributes.url}
-              alt={contactData.Address.icon.data.attributes.alternativeText || 'Address icon'}
-            />
-            <p className="text-md md:text-lg">{contactData.Address.title}</p>
-          </Link>
-        )}
         {/* phone information */}
         {contactData.Phone && (
           <div className="flex items-center gap-4">
@@ -114,6 +102,32 @@ export default function Contact({ contactData }) {
             <p className="text-md md:text-lg">{contactData.Email.title}</p>
           </Link>
         )}
+        {/* address information */}
+        {contactData.Address && (
+          <Link
+            href={contactData.Address.url}
+            target="_blank"
+            className="flex items-center gap-4"
+            aria-label="Navigate to address"
+          >
+            <Image
+              width={30}
+              height={30}
+              src={contactData.Address.icon.data.attributes.url}
+              alt={contactData.Address.icon.data.attributes.alternativeText || 'Address icon'}
+            />
+            <p className="text-md md:text-lg">{contactData.Address.title}</p>
+          </Link>
+        )}
+      </section>
+      <section ref={ref4} className={`${isVisible ? 'appear-on-scroll delay-500' : 'before-scroll translate-y-5'}`}>
+        <iframe
+          className="w-full h-60 md:h-[400px] lg:h-[450px] bg-off-white"
+          width={2000}
+          height={2000}
+          allowFullScreen
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBWb2-Ob6Iyi4s6wWHwUHCws0lRPlXolFM&q=Skovlunde+2740+Mileparken+14`}
+        ></iframe>
       </section>
     </main>
   );
