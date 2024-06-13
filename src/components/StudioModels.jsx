@@ -38,7 +38,8 @@ export default function StudioModels({ studioData }) {
     // Studio models section
     <div className="bg-off-white relative flex flex-col -mt-20 gap-4 page-content-container mb-8 md:mb-16 lg:mb-20">
       <div className={` ${isVisible ? 'appear-on-scroll' : 'before-scroll'}`} ref={ref}>
-        <Heading title={studioData.title} />
+        {/* <Heading title={studioData.title} /> */}
+        <Heading title="Two Ideal Studios" />
       </div>
       <div className="flex w-full gap-4 ">
         <ul className=" w-full gap-4 flex ">

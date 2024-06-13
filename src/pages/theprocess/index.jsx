@@ -69,7 +69,8 @@ export default function Theprocess({ data }) {
         <div className="col-span-full">
           {/* Main Title */}
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>
-            <Heading title={data.attributes.title} />
+            {/* <Heading title={data.attributes.title} /> */}
+            <Heading title="Our Workflow" />
           </div>
 
           {/* Subtitle */}
