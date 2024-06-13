@@ -126,7 +126,7 @@ export default function Contact({ contactData }) {
           width={2000}
           height={2000}
           allowFullScreen
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBWb2-Ob6Iyi4s6wWHwUHCws0lRPlXolFM&q=Skovlunde+2740+Mileparken+14`}
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GMAPS_API_KEY}&q=Skovlunde+2740+Mileparken+14`}
         ></iframe>
       </section>
     </main>
