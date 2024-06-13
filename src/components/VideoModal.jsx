@@ -1,14 +1,11 @@
 import React from 'react';
 
-export default function VideoModal({ src, onclick }) {
+export default function VideoModal({ src, ref }) {
   return (
-    <div className="w-screen h-screen fixed z-[3000] top-[0] bg-gray">
-      <button onClick={onclick} className="text-white absolute top-20 right-0 z-20 page-content-container">
-        <div className="w-6 h-0.5 bg-red rotate-45"></div>
-        <div className="w-6 h-0.5 bg-red -rotate-45 absolute top-0"></div>
-      </button>
-      <div className="flex justiy-center items-center h-full">
+    <div className="w-screen h-screen fixed z-[2000] top-0 bg-black-transparent backdrop-blur">
+      <div className="flex justiy-center items-center h-full ">
         <video
+          onMouseDown={(e) => e.stopPropagation()}
           controls
           preload="auto"
           name="Video Name"

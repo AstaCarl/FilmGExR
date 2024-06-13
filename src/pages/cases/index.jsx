@@ -1,5 +1,5 @@
 // Import necessary libraries and components
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import WorkSection from '../../components/WorkSection';
 import Heading from '../../components/ui/Heading';
 import { fetcher } from '../../../lib/api';
@@ -47,6 +47,29 @@ export default function Cases({ casesData }) {
     setCurrentVideo(null);
   };
 
+  //use effect to handle keydown and mousedown events to close the modal on escape key and outside click
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        handleCloseModal();
+      }
+    };
+
+    const handleMouseDown = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleMouseDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleMouseDown);
+    };
+  }, []);
+
   return (
     <main className="v-space-xl bg-off-white relative z-0">
       {/* Set the page title and description in the head */}
@@ -76,7 +99,7 @@ export default function Cases({ casesData }) {
             />
           </article>
         ))}
-        {showVideoModal && <VideoModal src={currentVideo} onclick={handleCloseModal} />}
+        {showVideoModal && <VideoModal src={currentVideo} onclick={handleCloseModal} ref={ref} />}
       </section>
     </main>
   );
