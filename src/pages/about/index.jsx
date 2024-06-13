@@ -62,96 +62,97 @@ export default function About(data) {
           key="desc"
         />
       </Head>
+      <padding>
+        <article className="flex flex-col gap-12">
+          {/* Title of the about section */}
+          <div
+            ref={aboutTitleRef}
+            className={` ${isAboutTitleVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}
+          >
+            <Heading title={data.data.title} />
+          </div>
 
-      <article className="flex flex-col gap-12">
-        {/* Title of the about section */}
-        <div
-          ref={aboutTitleRef}
-          className={` ${isAboutTitleVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}
-        >
-          <Heading title={data.data.title} />
-        </div>
+          {/* Map over the aboutUs data and display each item with the TitleWithParagraf component */}
+          {data.data.aboutUs.map((item, index) => (
+            <section key={index}>
+              <TitleWithParagraf
+                subtitle={item.subtitle}
+                paragraf={item.paragraf}
+                componentvariant={index % 2 !== 0 ? 'opposite' : ''}
+              />
+            </section>
+          ))}
 
-        {/* Map over the aboutUs data and display each item with the TitleWithParagraf component */}
-        {data.data.aboutUs.map((item, index) => (
-          <section key={index}>
-            <TitleWithParagraf
-              subtitle={item.subtitle}
-              paragraf={item.paragraf}
-              componentvariant={index % 2 !== 0 ? 'opposite' : ''}
+          {/* Anchor link at the end of the about section */}
+          <section
+            ref={aboutRef}
+            className={`flex gap-2 items-center justify-end ${
+              isAboutVisible ? 'appear-on-scroll' : 'before-scroll'
+            } md:v-space-xl`}
+          >
+            <Anchor variant="arrowLink" href={data.data.arrowAnchor.url} title={data.data.arrowAnchor.title} />
+            <Image
+              src={data.data.arrowAnchor.icon.data.attributes.url}
+              alt={data.data.arrowAnchor.icon.data.attributes.alternativeText}
+              width={20}
+              height={20}
+              className="w-6 md:w-10 h-auto"
             />
           </section>
-        ))}
+        </article>
 
-        {/* Anchor link at the end of the about section */}
-        <section
-          ref={aboutRef}
-          className={`flex gap-2 items-center justify-end ${
-            isAboutVisible ? 'appear-on-scroll' : 'before-scroll'
-          } md:v-space-xl`}
-        >
-          <Anchor variant="arrowLink" href={data.data.arrowAnchor.url} title={data.data.arrowAnchor.title} />
-          <Image
-            src={data.data.arrowAnchor.icon.data.attributes.url}
-            alt={data.data.arrowAnchor.icon.data.attributes.alternativeText}
-            width={20}
-            height={20}
-            className="w-6 md:w-10 h-auto"
-          />
-        </section>
-      </article>
+        {/* Container for the partners section */}
+        <article>
+          {/* Title of the partners section */}
+          <div ref={partnersRef} className={` ${isPartnersVisible ? 'appear-on-scroll' : 'before-scroll'} v-space-xl`}>
+            <Title title={data.data.partnersTitle} variant="subtitle" />
+          </div>
 
-      {/* Container for the partners section */}
-      <article>
-        {/* Title of the partners section */}
-        <div ref={partnersRef} className={` ${isPartnersVisible ? 'appear-on-scroll' : 'before-scroll'}`}>
-          <Title title={data.data.partnersTitle} variant="subtitle" />
-        </div>
+          {/* Map over the partners data and display each partner's logo with a link */}
+          <section
+            ref={logosRef}
+            className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex gap-1 md:gap-16`}
+          >
+            {data.data.partners.map((item, index) => (
+              <Link key={index} href={item.url} target="_blank">
+                <Image
+                  key={index}
+                  width={150}
+                  height={150}
+                  alt={item.logos.data.attributes.alternativeText}
+                  src={item.logos.data.attributes.url}
+                  className="w-auto h-auto"
+                />
+              </Link>
+            ))}
+          </section>
+        </article>
 
-        {/* Map over the partners data and display each partner's logo with a link */}
-        <section
-          ref={logosRef}
-          className={`${isLogosVisible ? 'appear-on-scroll delay-150' : 'before-scroll '} flex gap-1 md:gap-16`}
-        >
-          {data.data.partners.map((item, index) => (
-            <Link key={index} href={item.url} target="_blank">
-              <Image
-                key={index}
-                width={150}
-                height={150}
-                alt={item.logos.data.attributes.alternativeText}
-                src={item.logos.data.attributes.url}
-                className="w-auto h-auto"
-              />
-            </Link>
-          ))}
-        </section>
-      </article>
+        {/* Container for the team section */}
+        <article>
+          {/* Title of the team section */}
+          <div ref={teamRef} className={` ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '} pb-4 v-space-xl`}>
+            <Title title={data.data.teamTitle} variant="subtitle" />
+          </div>
 
-      {/* Container for the team section */}
-      <article>
-        {/* Title of the team section */}
-        <div ref={teamRef} className={` ${isTeamVisible ? 'appear-on-scroll' : 'before-scroll '} pb-4`}>
-          <Title title={data.data.teamTitle} variant="subtitle" />
-        </div>
-
-        {/* Map over the teamMemberCard data and display each team member with the TeamCard component */}
-        <section
-          ref={teamCardRef}
-          className={`tw-grid ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'}`}
-        >
-          {data.data.teamMemberCard.map((item, index) => (
-            <div key={index} className="col-span-6 md:col-span-4">
-              <TeamCard
-                title={item.title}
-                src={item.profile.data.attributes.url}
-                paragraf={item.subtitle}
-                alt={item.profile.data.attributes.alternativeText}
-              />
-            </div>
-          ))}
-        </section>
-      </article>
+          {/* Map over the teamMemberCard data and display each team member with the TeamCard component */}
+          <section
+            ref={teamCardRef}
+            className={`tw-grid ${isTeamCardVisible ? 'appear-on-scroll ' : 'before-scroll translate-y-4'}`}
+          >
+            {data.data.teamMemberCard.map((item, index) => (
+              <div key={index} className="col-span-6 md:col-span-4">
+                <TeamCard
+                  title={item.title}
+                  src={item.profile.data.attributes.url}
+                  paragraf={item.subtitle}
+                  alt={item.profile.data.attributes.alternativeText}
+                />
+              </div>
+            ))}
+          </section>
+        </article>
+      </padding>
     </main>
   );
 }

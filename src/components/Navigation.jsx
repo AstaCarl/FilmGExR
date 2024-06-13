@@ -32,7 +32,7 @@ export default function Navigation({ navigationData }) {
     <header
       className={`${
         isOpen ? '' : ''
-      } fixed h-20 top-0 z-20 w-screen lg:flex lg:justify-between lg:items-center lg:h-20`}
+      } fixed h-20 top-0 z-20 w-screen lg:flex lg:justify-between lg:items-center lg:h-20 large-padding-container`}
     >
       <div>
         <div className={` flex justify-between items-center ${isOpen ? ' relative z-[999]' : ''}`}>

@@ -10,7 +10,7 @@ export default function Footer({ footerData }) {
 
   return (
     <footer className="page-content-container v-space-xl space-y-8 pb-8 relative z-[-1] bg-off-white">
-      <div className="md:flex md:justify-between items-center md:space-y-0">
+      <div className="md:flex md:justify-between items-center md:space-y-0 large-padding-container">
         <div className="hidden md:flex flex-col items-center">
           {/* Rendering the logo if it exists in footerData */}
           {footerData.logo && (
@@ -38,7 +38,7 @@ export default function Footer({ footerData }) {
           })}
         </ul>
       </div>
-      <div className="space-y-8 md:space-y-0 md:flex md:items-center md:justify-between">
+      <div className="space-y-8 md:space-y-0 md:flex md:items-center md:justify-between large-padding-container">
         <ul className="flex md:justify-end">
           {/* Rendering the social media links */}
           {footerData.socials.map((item, index) => (

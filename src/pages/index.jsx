@@ -65,107 +65,108 @@ export default function Home({ homeData }) {
       <main className="transition-opacity ease-in duration-300 relative z-0 bg-off-white flex flex-col">
         {/* Hero section with mobile and desktop sources */}
         <HeroSection mobileSrc={mobileSrc} desktopSrc={desktopSrc} />
-
-        <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
-          {/* Check if introData and its nested properties exist */}
-          {introData &&
-            introData.arrowAnchor &&
-            introData.arrowAnchor.icon &&
-            introData.arrowAnchor.icon.data &&
-            introData.arrowAnchor.icon.data.attributes && (
-              <>
-                {/* Title with paragraph component */}
-                <TitleWithParagraf
-                  variant="pageTitle"
-                  introData={introData}
-                  subtitle={introData.introduction.subtitle}
-                  title={introData.introduction.title}
-                  paragraf={introData.introduction.paragraf}
-                />
-
-                {/* Arrowlink */}
-                <div
-                  ref={ref}
-                  className={`${
-                    isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
-                  } v-space-md md:v-space-lg flex justify-start gap-2 w-full`}
-                >
-                  <Anchor
-                    aria="Go to contact page"
-                    variant="arrowLink"
-                    href={introData.arrowAnchor.url}
-                    title={introData.arrowAnchor.title}
+        <padding>
+          <div id="firstSection" className="page-content-container h-screen flex flex-col justify-center">
+            {/* Check if introData and its nested properties exist */}
+            {introData &&
+              introData.arrowAnchor &&
+              introData.arrowAnchor.icon &&
+              introData.arrowAnchor.icon.data &&
+              introData.arrowAnchor.icon.data.attributes && (
+                <>
+                  {/* Title with paragraph component */}
+                  <TitleWithParagraf
+                    variant="pageTitle"
+                    introData={introData}
+                    subtitle={introData.introduction.subtitle}
+                    title={introData.introduction.title}
+                    paragraf={introData.introduction.paragraf}
                   />
-                  <Image
-                    src={introData.arrowAnchor.icon.data.attributes.url}
-                    alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                    width={20}
-                    height={20}
-                    className="w-6 md:w-10 h-auto"
-                  />
-                </div>
-              </>
-            )}
-        </div>
 
-        <div className="flex flex-col gap-36">
-          {/* Clients banner */}
-          <div
-            ref={clientsRef}
-            className={`${isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'} `}
-          >
-            <ClientsBanner clientData={introData} />
+                  {/* Arrowlink */}
+                  <div
+                    ref={ref}
+                    className={`${
+                      isVisible ? ' appear-on-scroll delay-300' : 'before-scroll translate-y-4'
+                    } v-space-md md:v-space-lg flex justify-start gap-2 w-full`}
+                  >
+                    <Anchor
+                      aria="Go to contact page"
+                      variant="arrowLink"
+                      href={introData.arrowAnchor.url}
+                      title={introData.arrowAnchor.title}
+                    />
+                    <Image
+                      src={introData.arrowAnchor.icon.data.attributes.url}
+                      alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                      width={20}
+                      height={20}
+                      className="w-6 md:w-10 h-auto"
+                    />
+                  </div>
+                </>
+              )}
           </div>
 
-          {/* Benefits section */}
-          <div>
-            {introData.benefits &&
-              introData.benefits.map((benefit, index) => (
-                <div key={index} className=" sticky -top-10  scroll-smooth space-y-6">
-                  <ImgWithParagraf
-                    paragrafText={benefit.paragraf}
-                    subtitle={benefit.subtitle}
-                    src={benefit.image.data.attributes.url}
-                    alt={benefit.image.data.attributes.alternativeText}
-                    title={index === 0 ? introData.benefitsTitle : undefined}
-                    anchor={
-                      introData &&
-                      introData.arrowAnchor &&
-                      introData.arrowAnchor.icon &&
-                      introData.arrowAnchor.icon.data &&
-                      introData.arrowAnchor.icon.data.attributes &&
-                      index === introData.benefits.length - 1 ? (
-                        <div className="hidden lg:flex w-full gap-2 pt-2 xl:pt-10">
-                          <Anchor
-                            variant="arrowLink"
-                            href={introData.arrowAnchor.url}
-                            title={introData.arrowAnchor.title}
-                            aria="Go to contact page"
-                          />
-                          <Image
-                            src={introData.arrowAnchor.icon.data.attributes.url}
-                            alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
-                            width={40}
-                            height={40}
-                            className="h-auto w-auto"
-                          />
-                        </div>
-                      ) : undefined
-                    }
-                  />
-                </div>
-              ))}
-          </div>
+          <div className="flex flex-col gap-36">
+            {/* Clients banner */}
+            <div
+              ref={clientsRef}
+              className={`${isClientsVisible ? ' appear-on-scroll delay-150' : 'before-scroll translate-y-4'} `}
+            >
+              <ClientsBanner clientData={introData} />
+            </div>
 
-          {/* Studio models and facilities sections */}
-          <StudioModels studioData={homeData.Studios} />
-          <Facilities
-            uniqueData={introData.uniqueInScandinavia}
-            serviceData={introData.fullService}
-            productionData={introData.virtualProduction}
-            title={introData.bulletsTitle}
-          />
-        </div>
+            {/* Benefits section */}
+            <div>
+              {introData.benefits &&
+                introData.benefits.map((benefit, index) => (
+                  <div key={index} className=" sticky -top-10  scroll-smooth space-y-6">
+                    <ImgWithParagraf
+                      paragrafText={benefit.paragraf}
+                      subtitle={benefit.subtitle}
+                      src={benefit.image.data.attributes.url}
+                      alt={benefit.image.data.attributes.alternativeText}
+                      title={index === 0 ? introData.benefitsTitle : undefined}
+                      anchor={
+                        introData &&
+                        introData.arrowAnchor &&
+                        introData.arrowAnchor.icon &&
+                        introData.arrowAnchor.icon.data &&
+                        introData.arrowAnchor.icon.data.attributes &&
+                        index === introData.benefits.length - 1 ? (
+                          <div className="hidden lg:flex w-full gap-2 pt-2 xl:pt-10">
+                            <Anchor
+                              variant="arrowLink"
+                              href={introData.arrowAnchor.url}
+                              title={introData.arrowAnchor.title}
+                              aria="Go to contact page"
+                            />
+                            <Image
+                              src={introData.arrowAnchor.icon.data.attributes.url}
+                              alt={introData.arrowAnchor.icon.data.attributes.alternativeText}
+                              width={40}
+                              height={40}
+                              className="h-auto w-auto"
+                            />
+                          </div>
+                        ) : undefined
+                      }
+                    />
+                  </div>
+                ))}
+            </div>
+
+            {/* Studio models and facilities sections */}
+            <StudioModels studioData={homeData.Studios} />
+            <Facilities
+              uniqueData={introData.uniqueInScandinavia}
+              serviceData={introData.fullService}
+              productionData={introData.virtualProduction}
+              title={introData.bulletsTitle}
+            />
+          </div>
+        </padding>
       </main>
     );
   }

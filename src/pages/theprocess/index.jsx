@@ -64,8 +64,7 @@ export default function Theprocess({ data }) {
           key="desc"
         />
       </Head>
-
-      <article className="tw-grid">
+      <article className="tw-grid large-padding-container">
         <div className="col-span-full">
           {/* Main Title */}
           <div ref={ref} className={`${isVisible ? 'appear-on-scroll' : 'before-scroll'} page-content-container`}>

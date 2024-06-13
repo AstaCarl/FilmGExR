@@ -231,3 +231,15 @@
     opacity: 1;
   }
 }
+/* For improvements */
+
+@media (min-width: 2200px) {
+  .large-padding-container {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  padding {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+}

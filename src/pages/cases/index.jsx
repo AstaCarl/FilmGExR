@@ -81,10 +81,10 @@ export default function Cases({ casesData }) {
           key="desc"
         />
       </Head>
-      <section>
+      <section className="large-padding-container">
         <div
           ref={ref}
-          className={`page-content-container mb-12 ${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'}`}
+          className={`page-content-container mb-12 ${isVisible ? 'appear-on-scroll delay-150' : 'before-scroll'} `}
         >
           <Heading title={casesData.title} />
           <Title title="Projects we're pround of" variant="subtitle" />

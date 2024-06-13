@@ -41,7 +41,7 @@ export default function Contact({ contactData }) {
   });
 
   return (
-    <main className="flex flex-col  min-h-screen w-full justify-center gap-14">
+    <main className="flex flex-col  min-h-screen w-full justify-center gap-14 large-padding-container">
       {/* Set the page title and description in the head */}
       <Head>
         <title>Contact FilmGExR - Virtual Production Studio</title>
