@@ -11,7 +11,7 @@ export default function Footer({ footerData }) {
   return (
     <footer className="page-content-container v-space-xl space-y-8 pb-8 relative z-[-1] bg-off-white">
       <div className="md:flex md:justify-between items-center md:space-y-0 large-padding-container">
-        <div className="hidden md:flex flex-col items-center">
+        <div className="flex flex-col md:items-center pb-8">
           {/* Rendering the logo if it exists in footerData */}
           {footerData.logo && (
             <Anchor
