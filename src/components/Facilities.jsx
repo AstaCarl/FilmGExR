@@ -34,7 +34,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
   };
 
   return (
-    <article className="relative bg-off-white">
+    <article className="relative bg-off-white mb-36">
       <div
         ref={ref}
         className={`${
