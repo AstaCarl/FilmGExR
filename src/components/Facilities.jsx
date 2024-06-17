@@ -76,7 +76,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
         </div>
         <ul
-          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
+          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ml-4 ${
             showBullets ? 'h-[300px]' : 'h-0'
           }`}
         >
@@ -113,7 +113,7 @@ export default function Facilities({ uniqueData, serviceData, productionData, ti
           </div>
         </div>
         <ul
-          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ${
+          className={`page-content-container overflow-hidden transition-all duration-300 ease-in grid grid-cols-12 ml-4 ${
             showBullets2 ? 'h-[200px]' : 'h-0'
           }`}
         >
